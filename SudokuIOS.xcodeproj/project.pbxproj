@@ -16,6 +16,7 @@
 		AE733811240F59F2004AC3F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733810240F59F2004AC3F6 /* User.swift */; };
 		AE733813240F5D88004AC3F6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733812240F5D88004AC3F6 /* Board.swift */; };
 		AEC2900924104B5D007155BA /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2900824104B5D007155BA /* Database.swift */; };
+		AEC2900B2412AD11007155BA /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2900A2412AD11007155BA /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		AE733810240F59F2004AC3F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AE733812240F5D88004AC3F6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		AEC2900824104B5D007155BA /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		AEC2900A2412AD11007155BA /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		AE73380D240F58DD004AC3F6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AEC2900A2412AD11007155BA /* Player.swift */,
 				AE73380E240F5943004AC3F6 /* Game.swift */,
 				AE733810240F59F2004AC3F6 /* User.swift */,
 				AE733812240F5D88004AC3F6 /* Board.swift */,
@@ -183,6 +186,7 @@
 				AE733811240F59F2004AC3F6 /* User.swift in Sources */,
 				AE7337FB240F588A004AC3F6 /* ViewController.swift in Sources */,
 				AE733813240F5D88004AC3F6 /* Board.swift in Sources */,
+				AEC2900B2412AD11007155BA /* Player.swift in Sources */,
 				AE73380F240F5943004AC3F6 /* Game.swift in Sources */,
 				AE7337F9240F588A004AC3F6 /* AppDelegate.swift in Sources */,
 			);
