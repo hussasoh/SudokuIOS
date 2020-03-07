@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62C240F82412AC370092A3E9 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F52412AC370092A3E9 /* FirebaseAPI.swift */; };
+		62C240F92412AC370092A3E9 /* MultiplayerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F62412AC370092A3E9 /* MultiplayerGame.swift */; };
+		62C240FA2412AC370092A3E9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F72412AC370092A3E9 /* Player.swift */; };
 		AE7337F9240F588A004AC3F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7337F8240F588A004AC3F6 /* AppDelegate.swift */; };
 		AE7337FB240F588A004AC3F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7337FA240F588A004AC3F6 /* ViewController.swift */; };
 		AE7337FE240F588A004AC3F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7337FC240F588A004AC3F6 /* Main.storyboard */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		62C240F52412AC370092A3E9 /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
+		62C240F62412AC370092A3E9 /* MultiplayerGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerGame.swift; sourceTree = "<group>"; };
+		62C240F72412AC370092A3E9 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		AE7337F5240F588A004AC3F6 /* SudokuIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SudokuIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7337F8240F588A004AC3F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE7337FA240F588A004AC3F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +104,9 @@
 		AE73380D240F58DD004AC3F6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				62C240F52412AC370092A3E9 /* FirebaseAPI.swift */,
+				62C240F62412AC370092A3E9 /* MultiplayerGame.swift */,
+				62C240F72412AC370092A3E9 /* Player.swift */,
 				AE73380E240F5943004AC3F6 /* Game.swift */,
 				AE733810240F59F2004AC3F6 /* User.swift */,
 				AE733812240F5D88004AC3F6 /* Board.swift */,
@@ -177,7 +186,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE733811240F59F2004AC3F6 /* User.swift in Sources */,
+				62C240F82412AC370092A3E9 /* FirebaseAPI.swift in Sources */,
 				AE7337FB240F588A004AC3F6 /* ViewController.swift in Sources */,
+				62C240F92412AC370092A3E9 /* MultiplayerGame.swift in Sources */,
+				62C240FA2412AC370092A3E9 /* Player.swift in Sources */,
 				AE733813240F5D88004AC3F6 /* Board.swift in Sources */,
 				AE73380F240F5943004AC3F6 /* Game.swift in Sources */,
 				AE7337F9240F588A004AC3F6 /* AppDelegate.swift in Sources */,
