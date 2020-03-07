@@ -16,6 +16,7 @@
 		AE733811240F59F2004AC3F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733810240F59F2004AC3F6 /* User.swift */; };
 		AE733813240F5D88004AC3F6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733812240F5D88004AC3F6 /* Board.swift */; };
 		BAAF73F324142F6A003B27BB /* GameOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF73F224142F6A003B27BB /* GameOptions.swift */; };
+		BAAF73F7241434C1003B27BB /* MenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF73F6241434C1003B27BB /* MenuOptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		AE733810240F59F2004AC3F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AE733812240F5D88004AC3F6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		BAAF73F224142F6A003B27BB /* GameOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptions.swift; sourceTree = "<group>"; };
+		BAAF73F6241434C1003B27BB /* MenuOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				AE733810240F59F2004AC3F6 /* User.swift */,
 				AE733812240F5D88004AC3F6 /* Board.swift */,
 				BAAF73F224142F6A003B27BB /* GameOptions.swift */,
+				BAAF73F6241434C1003B27BB /* MenuOptions.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAAF73F324142F6A003B27BB /* GameOptions.swift in Sources */,
+				BAAF73F7241434C1003B27BB /* MenuOptions.swift in Sources */,
 				AE733811240F59F2004AC3F6 /* User.swift in Sources */,
 				AE7337FB240F588A004AC3F6 /* ViewController.swift in Sources */,
 				AE733813240F5D88004AC3F6 /* Board.swift in Sources */,
