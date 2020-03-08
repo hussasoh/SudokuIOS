@@ -11,14 +11,19 @@ import Foundation
 class Game{
     
     var userInfo: User
-    var Board : Board
+    var board : Board
+    var solved: Bool = false    // flag true if game is finished or false if still in progress
     
-    init(userInfo: User,Board: Board) {
+    init(userInfo: User, board: Board) {
         self.userInfo = userInfo
-        self.Board = Board
+        self.board = board
     }
     
-    func StartGame(){
+    func startGame() {
+        
+    }
+    
+    func resumeGame() {
         
     }
     
