@@ -16,7 +16,7 @@ class Database {
         createTable()
     }
     
-    func openDatabase() -> OpaquePointer?
+    private func openDatabase() -> OpaquePointer?
     {
         let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent(dbPath)
@@ -36,7 +36,7 @@ class Database {
     let dbPath: String = "myDb.sqlite"
     var db:OpaquePointer?
     
-    func createTable() {
+    private func createTable() {
         let createTableString = "CREATE TABLE IF NOT EXISTS player(Id INTEGER PRIMARY KEY,name TEXT,score INTEGER);"
         var createTableStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, createTableString, -1, &createTableStatement, nil) == SQLITE_OK

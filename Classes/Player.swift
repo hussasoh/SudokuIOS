@@ -31,6 +31,7 @@ class Player {
     func getSavedSPGame() -> Game {
         return self.savedSPGame!
     }
+    
     func setSavedSPGame(spGame: Game) {
         self.savedSPGame = spGame
     }
