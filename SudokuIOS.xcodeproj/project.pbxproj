@@ -3,13 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		621592E7241552DE0076A283 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621592E6241552DE0076A283 /* FirebaseCore.framework */; };
+		621592E9241552DE0076A283 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621592E8241552DE0076A283 /* FirebaseCoreDiagnostics.framework */; };
+		621592EB241552DE0076A283 /* FirebaseInstallations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621592EA241552DE0076A283 /* FirebaseInstallations.framework */; };
 		62C240F82412AC370092A3E9 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F52412AC370092A3E9 /* FirebaseAPI.swift */; };
 		62C240F92412AC370092A3E9 /* MultiplayerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F62412AC370092A3E9 /* MultiplayerGame.swift */; };
 		62C240FA2412AC370092A3E9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F72412AC370092A3E9 /* Player.swift */; };
+		62C24131241544D00092A3E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62C24130241544D00092A3E9 /* GoogleService-Info.plist */; };
 		AE7337F9240F588A004AC3F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7337F8240F588A004AC3F6 /* AppDelegate.swift */; };
 		AE7337FB240F588A004AC3F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7337FA240F588A004AC3F6 /* ViewController.swift */; };
 		AE7337FE240F588A004AC3F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7337FC240F588A004AC3F6 /* Main.storyboard */; };
@@ -18,12 +22,19 @@
 		AE73380F240F5943004AC3F6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73380E240F5943004AC3F6 /* Game.swift */; };
 		AE733811240F59F2004AC3F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733810240F59F2004AC3F6 /* User.swift */; };
 		AE733813240F5D88004AC3F6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733812240F5D88004AC3F6 /* Board.swift */; };
+		EC9798137034F96A330E5F27 /* Pods_SudokuIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6FBDD0E3047E94ED87122B5 /* Pods_SudokuIOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5645C9EB764F27E9566AFA71 /* Pods-SudokuIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudokuIOS.debug.xcconfig"; path = "Target Support Files/Pods-SudokuIOS/Pods-SudokuIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		621592E6241552DE0076A283 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		621592E8241552DE0076A283 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		621592EA241552DE0076A283 /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C240F52412AC370092A3E9 /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
 		62C240F62412AC370092A3E9 /* MultiplayerGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerGame.swift; sourceTree = "<group>"; };
 		62C240F72412AC370092A3E9 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		62C24130241544D00092A3E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7BCE4EE8C0A93C912D20CD5A /* Pods-SudokuIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudokuIOS.release.xcconfig"; path = "Target Support Files/Pods-SudokuIOS/Pods-SudokuIOS.release.xcconfig"; sourceTree = "<group>"; };
 		AE7337F5240F588A004AC3F6 /* SudokuIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SudokuIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7337F8240F588A004AC3F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE7337FA240F588A004AC3F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +45,7 @@
 		AE73380E240F5943004AC3F6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		AE733810240F59F2004AC3F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AE733812240F5D88004AC3F6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		E6FBDD0E3047E94ED87122B5 /* Pods_SudokuIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudokuIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,12 +53,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				621592E7241552DE0076A283 /* FirebaseCore.framework in Frameworks */,
+				621592E9241552DE0076A283 /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				621592EB241552DE0076A283 /* FirebaseInstallations.framework in Frameworks */,
+				EC9798137034F96A330E5F27 /* Pods_SudokuIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08988CB0C27CB4C7FC919D08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				621592E6241552DE0076A283 /* FirebaseCore.framework */,
+				621592E8241552DE0076A283 /* FirebaseCoreDiagnostics.framework */,
+				621592EA241552DE0076A283 /* FirebaseInstallations.framework */,
+				E6FBDD0E3047E94ED87122B5 /* Pods_SudokuIOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6F4ACDB196829A1C8C79BDF0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5645C9EB764F27E9566AFA71 /* Pods-SudokuIOS.debug.xcconfig */,
+				7BCE4EE8C0A93C912D20CD5A /* Pods-SudokuIOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		AE7337EC240F588A004AC3F6 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +92,8 @@
 				AE73380A240F58A4004AC3F6 /* Storyboards */,
 				AE7337F7240F588A004AC3F6 /* SudokuIOS */,
 				AE7337F6240F588A004AC3F6 /* Products */,
+				6F4ACDB196829A1C8C79BDF0 /* Pods */,
+				08988CB0C27CB4C7FC919D08 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +108,7 @@
 		AE7337F7240F588A004AC3F6 /* SudokuIOS */ = {
 			isa = PBXGroup;
 			children = (
+				62C24130241544D00092A3E9 /* GoogleService-Info.plist */,
 				AE7337F8240F588A004AC3F6 /* AppDelegate.swift */,
 				AE7337FF240F588B004AC3F6 /* Assets.xcassets */,
 				AE733804240F588B004AC3F6 /* Info.plist */,
@@ -121,9 +160,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE733807240F588B004AC3F6 /* Build configuration list for PBXNativeTarget "SudokuIOS" */;
 			buildPhases = (
+				0B1AC50886A06822BA6548C4 /* [CP] Check Pods Manifest.lock */,
 				AE7337F1240F588A004AC3F6 /* Sources */,
 				AE7337F2240F588A004AC3F6 /* Frameworks */,
 				AE7337F3240F588A004AC3F6 /* Resources */,
+				E75AE3E1945F73E6B614CD22 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -173,12 +214,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE733803240F588B004AC3F6 /* LaunchScreen.storyboard in Resources */,
+				62C24131241544D00092A3E9 /* GoogleService-Info.plist in Resources */,
 				AE733800240F588B004AC3F6 /* Assets.xcassets in Resources */,
 				AE7337FE240F588A004AC3F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B1AC50886A06822BA6548C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SudokuIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E75AE3E1945F73E6B614CD22 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SudokuIOS/Pods-SudokuIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SudokuIOS/Pods-SudokuIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SudokuIOS/Pods-SudokuIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AE7337F1240F588A004AC3F6 /* Sources */ = {
@@ -336,15 +420,17 @@
 		};
 		AE733808240F588B004AC3F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5645C9EB764F27E9566AFA71 /* Pods-SudokuIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SudokuIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sohaib.SudokuIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gti.SudokuIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -353,15 +439,17 @@
 		};
 		AE733809240F588B004AC3F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BCE4EE8C0A93C912D20CD5A /* Pods-SudokuIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SudokuIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sohaib.SudokuIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gti.SudokuIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

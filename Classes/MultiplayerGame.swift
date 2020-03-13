@@ -61,6 +61,13 @@ class MultiplayerGame : Game {
     }
     
     func getGameType() -> GameType {
-        return gameType
+        return self.gameType
+    }
+    
+    func getYourTurn() -> Bool {
+        return self.yourTurn
+    }
+    func setYourTurn(isYourTurn: Bool) {
+        
     }
 }
