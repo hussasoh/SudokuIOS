@@ -12,6 +12,8 @@ class Game{
     
     var userInfo: User
     var Board : Board
+    var startgame: Bool = false
+    
     
     init(userInfo: User,Board: Board) {
         self.userInfo = userInfo
@@ -19,7 +21,11 @@ class Game{
     }
     
     func StartGame(){
-        
+        startgame = true
+    }
+    
+    func SaveGameStatus(){
+        //saves games status
     }
     
     func displayBoard(){
