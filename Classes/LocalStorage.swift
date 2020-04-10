@@ -13,5 +13,4 @@ class LocalStorage {
     private var gameState: Game?
     
     
-    
 }

@@ -6,8 +6,9 @@ target 'SudokuIOS' do
   use_frameworks!
 
   # Pods for SudokuIOS
+
+pod 'FacebookShare'
 pod 'FacebookCore'
 pod 'FacebookLogin'
-pod 'FacebookShare'
 
 end

@@ -19,6 +19,10 @@
 		AE733811240F59F2004AC3F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733810240F59F2004AC3F6 /* User.swift */; };
 		AE733813240F5D88004AC3F6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733812240F5D88004AC3F6 /* Board.swift */; };
 		AE749FD82415FBB30079954A /* ShareDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE749FD72415FBB30079954A /* ShareDialogViewController.swift */; };
+		AEB2A7EC2441213500E38528 /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB2A7EB2441213500E38528 /* MyData.swift */; };
+		AEB2A7F02441251200E38528 /* ProjectDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = AEB2A7EF2441251200E38528 /* ProjectDatabase.db */; };
+		AEB2A7F32441259000E38528 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2A7F12441258F00E38528 /* libsqlite3.0.tbd */; };
+		AEB2A7F42441259000E38528 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2A7F22441259000E38528 /* libsqlite3.tbd */; };
 		AEC2900924104B5D007155BA /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2900824104B5D007155BA /* Database.swift */; };
 		AEC2900B2412AD11007155BA /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2900A2412AD11007155BA /* Player.swift */; };
 		AEC2904324153FC1007155BA /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2904224153FC1007155BA /* LocalStorage.swift */; };
@@ -26,8 +30,59 @@
 		AEEAD44E2415506A00A127DA /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEAD44D2415506A00A127DA /* FacebookLogin.framework */; };
 		AEEAD4502415507000A127DA /* FacebookShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEAD44F2415507000A127DA /* FacebookShare.framework */; };
 		AEEAD4522415590A00A127DA /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD4512415590A00A127DA /* GameOverViewController.swift */; };
-		AEEAD4542415810500A127DA /* FacebookAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD4532415810500A127DA /* FacebookAPI.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AEACBF2E2421BEC800394E12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEACBF232421BEC800394E12 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2841AEF52E29FA3509917881FAAF0B39;
+			remoteInfo = FacebookCore;
+		};
+		AEACBF302421BEC800394E12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEACBF232421BEC800394E12 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0D8F64E108E669D0B6EC6229DB3967A9;
+			remoteInfo = FacebookLogin;
+		};
+		AEACBF322421BEC800394E12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEACBF232421BEC800394E12 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8FA85C691FE86D8C0503CEC8E3285F8D;
+			remoteInfo = FacebookShare;
+		};
+		AEACBF342421BEC800394E12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEACBF232421BEC800394E12 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC8F4D0BE3B0C192EBA4A93F8887D89F;
+			remoteInfo = FBSDKCoreKit;
+		};
+		AEACBF362421BEC800394E12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEACBF232421BEC800394E12 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5DE0FEFC3995E740EC1AE2611D0AEFB0;
+			remoteInfo = FBSDKLoginKit;
+		};
+		AEACBF3A2421BEC800394E12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEACBF232421BEC800394E12 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 85128AF76199890A6DD56FE81089D883;
+			remoteInfo = FBSDKShareKit;
+		};
+		AEACBF3C2421BEC800394E12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEACBF232421BEC800394E12 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FBA2647082B1EDD1AE2FCD09FDE15D91;
+			remoteInfo = "Pods-SudokuIOS";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0C90C20786081D8CDFA54C1E /* Pods-SudokuIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudokuIOS.debug.xcconfig"; path = "Target Support Files/Pods-SudokuIOS/Pods-SudokuIOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -45,6 +100,15 @@
 		AE733810240F59F2004AC3F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AE733812240F5D88004AC3F6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		AE749FD72415FBB30079954A /* ShareDialogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareDialogViewController.swift; sourceTree = "<group>"; };
+		AEACBF1B2421BB8400394E12 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEACBF1D2421BB8400394E12 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEACBF1F2421BB8400394E12 /* FBSDKPlacesKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKPlacesKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEACBF212421BB8400394E12 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEACBF232421BEC800394E12 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Pods.xcodeproj; sourceTree = "<group>"; };
+		AEB2A7EB2441213500E38528 /* MyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyData.swift; sourceTree = "<group>"; };
+		AEB2A7EF2441251200E38528 /* ProjectDatabase.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ProjectDatabase.db; sourceTree = "<group>"; };
+		AEB2A7F12441258F00E38528 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		AEB2A7F22441259000E38528 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		AEC2900824104B5D007155BA /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		AEC2900A2412AD11007155BA /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		AEC2904224153FC1007155BA /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
@@ -52,7 +116,6 @@
 		AEEAD44D2415506A00A127DA /* FacebookLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEEAD44F2415507000A127DA /* FacebookShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEEAD4512415590A00A127DA /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
-		AEEAD4532415810500A127DA /* FacebookAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookAPI.swift; sourceTree = "<group>"; };
 		F36E3203A75F8C374FDA757B /* Pods_SudokuIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudokuIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -61,6 +124,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEB2A7F32441259000E38528 /* libsqlite3.0.tbd in Frameworks */,
+				AEB2A7F42441259000E38528 /* libsqlite3.tbd in Frameworks */,
 				AEEAD4502415507000A127DA /* FacebookShare.framework in Frameworks */,
 				AEEAD44E2415506A00A127DA /* FacebookLogin.framework in Frameworks */,
 				AEEAD44C2415506300A127DA /* FacebookCore.framework in Frameworks */,
@@ -74,6 +139,12 @@
 		2D4087D3119E64BDBF52C1D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEB2A7F12441258F00E38528 /* libsqlite3.0.tbd */,
+				AEB2A7F22441259000E38528 /* libsqlite3.tbd */,
+				AEACBF1B2421BB8400394E12 /* FBSDKCoreKit.framework */,
+				AEACBF1D2421BB8400394E12 /* FBSDKLoginKit.framework */,
+				AEACBF1F2421BB8400394E12 /* FBSDKPlacesKit.framework */,
+				AEACBF212421BB8400394E12 /* FBSDKShareKit.framework */,
 				AEEAD44F2415507000A127DA /* FacebookShare.framework */,
 				AEEAD44D2415506A00A127DA /* FacebookLogin.framework */,
 				AEEAD44B2415506300A127DA /* FacebookCore.framework */,
@@ -85,6 +156,7 @@
 		7C2827F5674E6E53E15D67FC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				AEACBF232421BEC800394E12 /* Pods.xcodeproj */,
 				0C90C20786081D8CDFA54C1E /* Pods-SudokuIOS.debug.xcconfig */,
 				AAE94790F765B4D374C03C8A /* Pods-SudokuIOS.release.xcconfig */,
 			);
@@ -94,6 +166,7 @@
 		AE7337EC240F588A004AC3F6 = {
 			isa = PBXGroup;
 			children = (
+				AEB2A7EE2441249700E38528 /* Database */,
 				AE73380D240F58DD004AC3F6 /* Classes */,
 				AE73380C240F58D5004AC3F6 /* Images */,
 				AE73380B240F58C2004AC3F6 /* Controllers */,
@@ -116,7 +189,6 @@
 		AE7337F7240F588A004AC3F6 /* SudokuIOS */ = {
 			isa = PBXGroup;
 			children = (
-				AE7337F8240F588A004AC3F6 /* AppDelegate.swift */,
 				AE7337FF240F588B004AC3F6 /* Assets.xcassets */,
 				AE733804240F588B004AC3F6 /* Info.plist */,
 			);
@@ -152,6 +224,7 @@
 		AE73380D240F58DD004AC3F6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AE7337F8240F588A004AC3F6 /* AppDelegate.swift */,
 				AEC2900A2412AD11007155BA /* Player.swift */,
 				62C240F52412AC370092A3E9 /* FirebaseAPI.swift */,
 				62C240F62412AC370092A3E9 /* MultiplayerGame.swift */,
@@ -160,9 +233,31 @@
 				AE733812240F5D88004AC3F6 /* Board.swift */,
 				AEC2900824104B5D007155BA /* Database.swift */,
 				AEC2904224153FC1007155BA /* LocalStorage.swift */,
-				AEEAD4532415810500A127DA /* FacebookAPI.swift */,
+				AEB2A7EB2441213500E38528 /* MyData.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		AEACBF242421BEC800394E12 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AEACBF2F2421BEC800394E12 /* FacebookCore.framework */,
+				AEACBF312421BEC800394E12 /* FacebookLogin.framework */,
+				AEACBF332421BEC800394E12 /* FacebookShare.framework */,
+				AEACBF352421BEC800394E12 /* FBSDKCoreKit.framework */,
+				AEACBF372421BEC800394E12 /* FBSDKLoginKit.framework */,
+				AEACBF3B2421BEC800394E12 /* FBSDKShareKit.framework */,
+				AEACBF3D2421BEC800394E12 /* Pods_SudokuIOS.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AEB2A7EE2441249700E38528 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				AEB2A7EF2441251200E38528 /* ProjectDatabase.db */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,12 +308,70 @@
 			mainGroup = AE7337EC240F588A004AC3F6;
 			productRefGroup = AE7337F6240F588A004AC3F6 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AEACBF242421BEC800394E12 /* Products */;
+					ProjectRef = AEACBF232421BEC800394E12 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AE7337F4240F588A004AC3F6 /* SudokuIOS */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AEACBF2F2421BEC800394E12 /* FacebookCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FacebookCore.framework;
+			remoteRef = AEACBF2E2421BEC800394E12 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AEACBF312421BEC800394E12 /* FacebookLogin.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FacebookLogin.framework;
+			remoteRef = AEACBF302421BEC800394E12 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AEACBF332421BEC800394E12 /* FacebookShare.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FacebookShare.framework;
+			remoteRef = AEACBF322421BEC800394E12 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AEACBF352421BEC800394E12 /* FBSDKCoreKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FBSDKCoreKit.framework;
+			remoteRef = AEACBF342421BEC800394E12 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AEACBF372421BEC800394E12 /* FBSDKLoginKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FBSDKLoginKit.framework;
+			remoteRef = AEACBF362421BEC800394E12 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AEACBF3B2421BEC800394E12 /* FBSDKShareKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FBSDKShareKit.framework;
+			remoteRef = AEACBF3A2421BEC800394E12 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AEACBF3D2421BEC800394E12 /* Pods_SudokuIOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_SudokuIOS.framework;
+			remoteRef = AEACBF3C2421BEC800394E12 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AE7337F3240F588A004AC3F6 /* Resources */ = {
@@ -227,6 +380,7 @@
 			files = (
 				AE733803240F588B004AC3F6 /* LaunchScreen.storyboard in Resources */,
 				AE733800240F588B004AC3F6 /* Assets.xcassets in Resources */,
+				AEB2A7F02441251200E38528 /* ProjectDatabase.db in Resources */,
 				AE7337FE240F588A004AC3F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,11 +439,11 @@
 				AEC2904324153FC1007155BA /* LocalStorage.swift in Sources */,
 				AE733811240F59F2004AC3F6 /* User.swift in Sources */,
 				62C240F82412AC370092A3E9 /* FirebaseAPI.swift in Sources */,
+				AEB2A7EC2441213500E38528 /* MyData.swift in Sources */,
 				AE7337FB240F588A004AC3F6 /* ViewController.swift in Sources */,
 				62C240F92412AC370092A3E9 /* MultiplayerGame.swift in Sources */,
 				AE733813240F5D88004AC3F6 /* Board.swift in Sources */,
 				AEEAD4522415590A00A127DA /* GameOverViewController.swift in Sources */,
-				AEEAD4542415810500A127DA /* FacebookAPI.swift in Sources */,
 				AEC2900B2412AD11007155BA /* Player.swift in Sources */,
 				AE73380F240F5943004AC3F6 /* Game.swift in Sources */,
 				AE7337F9240F588A004AC3F6 /* AppDelegate.swift in Sources */,
