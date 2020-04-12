@@ -7,16 +7,17 @@
 //
 
 import Foundation
+import UIKit
 
 class Game{
     
-    var userInfo: User
+    var PlayetInfo: Player
     var Board : Board
     var startgame: Bool = false
     
     
-    init(userInfo: User,Board: Board) {
-        self.userInfo = userInfo
+    init(PlayetInfo: Player,Board: Board) {
+        self.PlayetInfo = PlayetInfo
         self.Board = Board
     }
     
@@ -28,8 +29,12 @@ class Game{
         //saves games status
     }
     
-    func displayBoard(){
+    func displayBoard() -> UITableView{
+        let view = UITableView()
         
+        
+        
+        return view
     }
         
 }

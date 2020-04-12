@@ -9,7 +9,7 @@
 
 import Foundation
 
-class User{
+class Player{
     
     private var name: String
     

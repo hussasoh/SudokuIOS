@@ -13,7 +13,7 @@
 		AE733800240F588B004AC3F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE7337FF240F588B004AC3F6 /* Assets.xcassets */; };
 		AE733803240F588B004AC3F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE733801240F588B004AC3F6 /* LaunchScreen.storyboard */; };
 		AE73380F240F5943004AC3F6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73380E240F5943004AC3F6 /* Game.swift */; };
-		AE733811240F59F2004AC3F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733810240F59F2004AC3F6 /* User.swift */; };
+		AE733811240F59F2004AC3F6 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733810240F59F2004AC3F6 /* Player.swift */; };
 		AE733813240F5D88004AC3F6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733812240F5D88004AC3F6 /* Board.swift */; };
 		AE7338352415403C004AC3F6 /* BoardSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7338342415403C004AC3F6 /* BoardSegment.swift */; };
 /* End PBXBuildFile section */
@@ -27,7 +27,7 @@
 		AE733802240F588B004AC3F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE733804240F588B004AC3F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE73380E240F5943004AC3F6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		AE733810240F59F2004AC3F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AE733810240F59F2004AC3F6 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		AE733812240F5D88004AC3F6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		AE7338342415403C004AC3F6 /* BoardSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSegment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,7 +100,7 @@
 		AE73380D240F58DD004AC3F6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				AE733810240F59F2004AC3F6 /* User.swift */,
+				AE733810240F59F2004AC3F6 /* Player.swift */,
 				AE73380E240F5943004AC3F6 /* Game.swift */,
 				AE733812240F5D88004AC3F6 /* Board.swift */,
 				AE7338342415403C004AC3F6 /* BoardSegment.swift */,
@@ -179,7 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE733811240F59F2004AC3F6 /* User.swift in Sources */,
+				AE733811240F59F2004AC3F6 /* Player.swift in Sources */,
 				AE7337FB240F588A004AC3F6 /* ViewController.swift in Sources */,
 				AE733813240F5D88004AC3F6 /* Board.swift in Sources */,
 				AE73380F240F5943004AC3F6 /* Game.swift in Sources */,
