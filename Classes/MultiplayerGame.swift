@@ -17,19 +17,19 @@ enum GameType {
 
 class MultiplayerGame : Game {
     
-    var userInfo2: User                 // the player's competition
+    var opponent: Player                 // the player's competition
     var gameType: GameType
     var yourTurn: Bool                  // tracks if it's the player's turn, or player 2's
     
-    init(userInfo: User, user2Info: User, board: Board, gameType: GameType) {
-        self.userInfo2 = user2Info
+    init(player: Player, opponent: Player, board: Board, gameType: GameType) {
+        self.opponent = opponent
         self.gameType = gameType
         
         // determine who goes first by using random boolean, like a coin flip
         self.yourTurn = Bool.random()
         
         // finish init with the super class
-        super.init(userInfo: userInfo, board: board)
+        super.init(player: player, board: board)
     }
     
     override func startGame() {
@@ -37,7 +37,6 @@ class MultiplayerGame : Game {
         
         // if game isn't already solved
         if self.solved == false {
-            
             // do different logic depending on the type of game
             if gameType == .coop {
                 print("Starting co-op game...")

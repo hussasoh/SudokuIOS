@@ -24,7 +24,7 @@ class BoardSegment{
     //initializes the Board Segment
     //creates random numbers around the segment
     init() {        
-        AddRandomNumbersInSegment()
+//        AddRandomNumbersInSegment()
     }
     
     private func AddRandomNumbersInSegment(){
