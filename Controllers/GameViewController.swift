@@ -37,30 +37,44 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func pressNum(sender : UIButton) {
         // ensure a number pad button was pressed and a cell is selected
         if sender.tag >= 0 && sender.tag <= 9 && lastTouched.item >= 0 {
-            // if user entered a valid number or touched "clear"
-            let returnCode = game.checkIfValid(index: lastTouched.item, number: sender.tag)
-            if returnCode == 1 || sender.tag == 0 {
-                // set the cell to the number pressed & reload the cell
+            // if the player touched the clear button
+            if sender.tag == 0 {
+                // set the cell to blank & reload the cell
                 game.board?.setNumberAt(index: lastTouched.item, number: sender.tag)
                 sudokuCollectionView?.reloadItems(at: [lastTouched])
-                
-                // set the cell's background to mark the user's input
                 let cell = sudokuCollectionView?.cellForItem(at: lastTouched)
-                cell?.backgroundColor = .cyan
+                cell?.backgroundColor = .green
                 
                 // set previous selected cell to none
                 lastTouched.item = -1
-                
-                // end the game if the player has solved the puzzle
-                if game.checkIfSolved() {
-                    labl?.text = "You win!"
+            }
+            else {
+                // check if user's chosen number fits in the row, col, and segment
+                let returnCode = game.checkIfValid(index: lastTouched.item, number: sender.tag)
+                // if the choice is valid,
+                if returnCode == 1 {
+                    // set the cell to the number pressed & reload the cell
+                    game.board?.setNumberAt(index: lastTouched.item, number: sender.tag)
+                    sudokuCollectionView?.reloadItems(at: [lastTouched])
+                    
+                    // set the cell's background to mark the user's input
+                    let cell = sudokuCollectionView?.cellForItem(at: lastTouched)
+                    cell?.backgroundColor = .cyan
+                    
+                    // set previous selected cell to none
+                    lastTouched.item = -1
+                    
+                    // end the game if the player has solved the puzzle
+                    if game.checkIfSolved() {
+                        labl?.text = "You win!"
+                    }
+                } else if returnCode == -1 {
+                    labl?.text = "Number exists in row!"
+                } else if returnCode == -2 {
+                    labl?.text = "Number exists in column!"
+                } else if returnCode == -3 {
+                    labl?.text = "Number exists in segment!"
                 }
-            } else if returnCode == -1 {
-                labl?.text = "Number exists in row!"
-            } else if returnCode == -2 {
-                labl?.text = "Number exists in column!"
-            } else if returnCode == -3 {
-                labl?.text = "Number exists in segment!"
             }
         } else {
             labl?.text = "No cell selected."
