@@ -69,4 +69,37 @@ class Board{
         return self.BoardArray[RowIndex][ColIndex]
     }
     
+    func setNumberAt(RowIndex: Int, ColIndex: Int, number: Int){
+        self.BoardArray[RowIndex][ColIndex] = number
+    }
+    
+    func getIndexFromCordinates(RowIndex: Int,ColIndex: Int) -> Int{
+        return (NUMBER_OF_SEGMENTS_IN_ONE_BOARD * RowIndex) + ColIndex
+    }
+    
+    func getCordinatesFromIndex(Index: Int) -> Cordinates{
+        
+        var cordinates : Cordinates
+        var Col: Int
+        var Row: Int
+        
+        Col = Index % NUMBER_OF_SEGMENTS_IN_ONE_BOARD
+        
+        Row = (Index-Col)/NUMBER_OF_SEGMENTS_IN_ONE_BOARD 
+        cordinates = Cordinates(RowIndex: Row, ColIndex: Col)
+        
+        return cordinates
+    }
+    
+}
+
+class Cordinates{
+    
+    var RowIndex: Int
+    var ColIndex: Int
+    
+    init(RowIndex: Int, ColIndex: Int){
+        self.RowIndex = RowIndex
+        self.ColIndex = ColIndex
+    }
 }
