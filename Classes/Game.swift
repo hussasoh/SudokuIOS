@@ -10,12 +10,12 @@ import Foundation
 
 class Game{
     
-    var userInfo: User
+    var userInfo: Player
     var Board : Board
     var startgame: Bool = false
     
     
-    init(userInfo: User,Board: Board) {
+    init(userInfo: Player,Board: Board) {
         self.userInfo = userInfo
         self.Board = Board
     }
