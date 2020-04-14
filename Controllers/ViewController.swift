@@ -31,7 +31,14 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         return textField.resignFirstResponder()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        
+        return string == string.filter("0123456789".contains) && textField.text!.count < 1
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -46,22 +53,30 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as UICollectionViewCell
 
-        let label = UITextField(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cell.frame.size.width))
+        let label = UITextField(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width , height: cell.frame.size.height))
         label.keyboardType = .numberPad
         label.textAlignment = .center
-        label.text = String(indexPath.item)
         label.delegate = self
+        label.tag = 2
 
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 0.5
         cell.addSubview(label)
+        cell.sendSubviewToBack(label)
 
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cord = board.getCordinatesFromIndex(Index: (indexPath.item + 1))
+        let cord = board.getCordinatesFromIndex(Index: (indexPath.item))
         labl?.text = "(\(cord.RowIndex),\(cord.ColIndex))"
+        
+        
+        let cell = collectionView.cellForItem(at: indexPath)
+        let texfield = cell?.viewWithTag(2) as! UITextField
+        
+        cell?.bringSubviewToFront(texfield)
+        
     }
     
     
