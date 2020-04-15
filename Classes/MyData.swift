@@ -2,8 +2,8 @@
 //  MyData.swift
 //  SudokuIOS
 //
-//  Created by Tomislav Busic on 2020-04-10.
-//  Copyright © 2020 Xcode User. All rights reserved.
+//  Created by Tomislav Busic on 2020-04-11.
+//  Copyright © 2020 Tomislav Buisc. All rights reserved.
 //
 import UIKit
 
