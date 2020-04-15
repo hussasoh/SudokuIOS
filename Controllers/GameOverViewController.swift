@@ -19,17 +19,6 @@ class GameOverViewController: UIViewController {
     
     @IBAction func buttonAction(_sender: Any) {
         shareOnSocial(serviceType: SLServiceTypeFacebook, score: "score")
-    /*
-        let activityVC = UIActivityViewController(activityItems: ["Score"], applicationActivities: nil)
-        activityVC.popoverPresentationController?.sourceView = self.view
-        self.present(activityVC, animated: true, completion: nil)
-*/
-    
-   // let alert = UIAlertController(title: "Share", message: "Share your Sudoko score on Facebook!", preferredStyle: .actionSheet)
-    
-       // let actionOne = UIAlertAction(title: "Share", style: .default ) { (action) in
-        
-    
         
         }
     
@@ -63,17 +52,6 @@ class GameOverViewController: UIViewController {
             // Account not set up
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
 }
 
