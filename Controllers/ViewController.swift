@@ -10,12 +10,14 @@ import UIKit
 import Social
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
     }
-
-
+    
+    // allow user to unwind with the back button from segued pages
+    @IBAction func unwindToHomeVC(sender: UIStoryboardSegue) { }
 }
 

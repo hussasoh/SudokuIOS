@@ -7,9 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		557344D7AE172AAAB92E7723 /* Pods_SudokuIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F36E3203A75F8C374FDA757B /* Pods_SudokuIOS.framework */; };
 		62C240F82412AC370092A3E9 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F52412AC370092A3E9 /* FirebaseAPI.swift */; };
 		62C240F92412AC370092A3E9 /* MultiplayerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F62412AC370092A3E9 /* MultiplayerGame.swift */; };
+=======
+		621592E7241552DE0076A283 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621592E6241552DE0076A283 /* FirebaseCore.framework */; };
+		621592E9241552DE0076A283 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621592E8241552DE0076A283 /* FirebaseCoreDiagnostics.framework */; };
+		621592EB241552DE0076A283 /* FirebaseInstallations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621592EA241552DE0076A283 /* FirebaseInstallations.framework */; };
+		6262BBE02443BBEC00ECEBCF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262BBDF2443BBEC00ECEBCF /* GameViewController.swift */; };
+		6262BBE32444D3ED00ECEBCF /* GameOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262BBE22444D3ED00ECEBCF /* GameOptionsViewController.swift */; };
+		62C240F82412AC370092A3E9 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F52412AC370092A3E9 /* FirebaseAPI.swift */; };
+		62C240F92412AC370092A3E9 /* MultiplayerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F62412AC370092A3E9 /* MultiplayerGame.swift */; };
+		62C240FA2412AC370092A3E9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F72412AC370092A3E9 /* Player.swift */; };
+		62C24131241544D00092A3E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62C24130241544D00092A3E9 /* GoogleService-Info.plist */; };
+>>>>>>> terry
 		AE7337F9240F588A004AC3F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7337F8240F588A004AC3F6 /* AppDelegate.swift */; };
 		AE7337FB240F588A004AC3F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7337FA240F588A004AC3F6 /* ViewController.swift */; };
 		AE7337FE240F588A004AC3F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7337FC240F588A004AC3F6 /* Main.storyboard */; };
@@ -18,6 +30,7 @@
 		AE73380F240F5943004AC3F6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73380E240F5943004AC3F6 /* Game.swift */; };
 		AE733811240F59F2004AC3F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733810240F59F2004AC3F6 /* User.swift */; };
 		AE733813240F5D88004AC3F6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733812240F5D88004AC3F6 /* Board.swift */; };
+<<<<<<< HEAD
 		AE749FD82415FBB30079954A /* ShareDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE749FD72415FBB30079954A /* ShareDialogViewController.swift */; };
 		AEB2A7EC2441213500E38528 /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB2A7EB2441213500E38528 /* MyData.swift */; };
 		AEB2A7F02441251200E38528 /* ProjectDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = AEB2A7EF2441251200E38528 /* ProjectDatabase.db */; };
@@ -30,6 +43,10 @@
 		AEEAD44E2415506A00A127DA /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEAD44D2415506A00A127DA /* FacebookLogin.framework */; };
 		AEEAD4502415507000A127DA /* FacebookShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEAD44F2415507000A127DA /* FacebookShare.framework */; };
 		AEEAD4522415590A00A127DA /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEAD4512415590A00A127DA /* GameOverViewController.swift */; };
+=======
+		AE7338352415403C004AC3F6 /* BoardSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7338342415403C004AC3F6 /* BoardSegment.swift */; };
+		EC9798137034F96A330E5F27 /* Pods_SudokuIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6FBDD0E3047E94ED87122B5 /* Pods_SudokuIOS.framework */; };
+>>>>>>> terry
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,10 +102,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 		0C90C20786081D8CDFA54C1E /* Pods-SudokuIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudokuIOS.debug.xcconfig"; path = "Target Support Files/Pods-SudokuIOS/Pods-SudokuIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		62C240F52412AC370092A3E9 /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
 		62C240F62412AC370092A3E9 /* MultiplayerGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerGame.swift; sourceTree = "<group>"; };
 		AAE94790F765B4D374C03C8A /* Pods-SudokuIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudokuIOS.release.xcconfig"; path = "Target Support Files/Pods-SudokuIOS/Pods-SudokuIOS.release.xcconfig"; sourceTree = "<group>"; };
+=======
+		5645C9EB764F27E9566AFA71 /* Pods-SudokuIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudokuIOS.debug.xcconfig"; path = "Target Support Files/Pods-SudokuIOS/Pods-SudokuIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		621592E6241552DE0076A283 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		621592E8241552DE0076A283 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		621592EA241552DE0076A283 /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6262BBDF2443BBEC00ECEBCF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		6262BBE22444D3ED00ECEBCF /* GameOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionsViewController.swift; sourceTree = "<group>"; };
+		62C240F52412AC370092A3E9 /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
+		62C240F62412AC370092A3E9 /* MultiplayerGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerGame.swift; sourceTree = "<group>"; };
+		62C240F72412AC370092A3E9 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		62C24130241544D00092A3E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7BCE4EE8C0A93C912D20CD5A /* Pods-SudokuIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudokuIOS.release.xcconfig"; path = "Target Support Files/Pods-SudokuIOS/Pods-SudokuIOS.release.xcconfig"; sourceTree = "<group>"; };
+>>>>>>> terry
 		AE7337F5240F588A004AC3F6 /* SudokuIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SudokuIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7337F8240F588A004AC3F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE7337FA240F588A004AC3F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +130,7 @@
 		AE73380E240F5943004AC3F6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		AE733810240F59F2004AC3F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AE733812240F5D88004AC3F6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		AE749FD72415FBB30079954A /* ShareDialogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareDialogViewController.swift; sourceTree = "<group>"; };
 		AEACBF1B2421BB8400394E12 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEACBF1D2421BB8400394E12 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +149,10 @@
 		AEEAD44F2415507000A127DA /* FacebookShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEEAD4512415590A00A127DA /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		F36E3203A75F8C374FDA757B /* Pods_SudokuIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudokuIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+		AE7338342415403C004AC3F6 /* BoardSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSegment.swift; sourceTree = "<group>"; };
+		E6FBDD0E3047E94ED87122B5 /* Pods_SudokuIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudokuIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+>>>>>>> terry
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,18 +160,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				AEB2A7F32441259000E38528 /* libsqlite3.0.tbd in Frameworks */,
 				AEB2A7F42441259000E38528 /* libsqlite3.tbd in Frameworks */,
 				AEEAD4502415507000A127DA /* FacebookShare.framework in Frameworks */,
 				AEEAD44E2415506A00A127DA /* FacebookLogin.framework in Frameworks */,
 				AEEAD44C2415506300A127DA /* FacebookCore.framework in Frameworks */,
 				557344D7AE172AAAB92E7723 /* Pods_SudokuIOS.framework in Frameworks */,
+=======
+				621592E7241552DE0076A283 /* FirebaseCore.framework in Frameworks */,
+				621592E9241552DE0076A283 /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				621592EB241552DE0076A283 /* FirebaseInstallations.framework in Frameworks */,
+				EC9798137034F96A330E5F27 /* Pods_SudokuIOS.framework in Frameworks */,
+>>>>>>> terry
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
 		2D4087D3119E64BDBF52C1D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,16 +193,33 @@
 				AEEAD44D2415506A00A127DA /* FacebookLogin.framework */,
 				AEEAD44B2415506300A127DA /* FacebookCore.framework */,
 				F36E3203A75F8C374FDA757B /* Pods_SudokuIOS.framework */,
+=======
+		08988CB0C27CB4C7FC919D08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				621592E6241552DE0076A283 /* FirebaseCore.framework */,
+				621592E8241552DE0076A283 /* FirebaseCoreDiagnostics.framework */,
+				621592EA241552DE0076A283 /* FirebaseInstallations.framework */,
+				E6FBDD0E3047E94ED87122B5 /* Pods_SudokuIOS.framework */,
+>>>>>>> terry
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		7C2827F5674E6E53E15D67FC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				AEACBF232421BEC800394E12 /* Pods.xcodeproj */,
 				0C90C20786081D8CDFA54C1E /* Pods-SudokuIOS.debug.xcconfig */,
 				AAE94790F765B4D374C03C8A /* Pods-SudokuIOS.release.xcconfig */,
+=======
+		6F4ACDB196829A1C8C79BDF0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5645C9EB764F27E9566AFA71 /* Pods-SudokuIOS.debug.xcconfig */,
+				7BCE4EE8C0A93C912D20CD5A /* Pods-SudokuIOS.release.xcconfig */,
+>>>>>>> terry
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -173,8 +234,13 @@
 				AE73380A240F58A4004AC3F6 /* Storyboards */,
 				AE7337F7240F588A004AC3F6 /* SudokuIOS */,
 				AE7337F6240F588A004AC3F6 /* Products */,
+<<<<<<< HEAD
 				7C2827F5674E6E53E15D67FC /* Pods */,
 				2D4087D3119E64BDBF52C1D5 /* Frameworks */,
+=======
+				6F4ACDB196829A1C8C79BDF0 /* Pods */,
+				08988CB0C27CB4C7FC919D08 /* Frameworks */,
+>>>>>>> terry
 			);
 			sourceTree = "<group>";
 		};
@@ -189,6 +255,11 @@
 		AE7337F7240F588A004AC3F6 /* SudokuIOS */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+=======
+				62C24130241544D00092A3E9 /* GoogleService-Info.plist */,
+				AE7337F8240F588A004AC3F6 /* AppDelegate.swift */,
+>>>>>>> terry
 				AE7337FF240F588B004AC3F6 /* Assets.xcassets */,
 				AE733804240F588B004AC3F6 /* Info.plist */,
 			);
@@ -209,7 +280,12 @@
 			children = (
 				AE749FD72415FBB30079954A /* ShareDialogViewController.swift */,
 				AE7337FA240F588A004AC3F6 /* ViewController.swift */,
+<<<<<<< HEAD
 				AEEAD4512415590A00A127DA /* GameOverViewController.swift */,
+=======
+				6262BBDF2443BBEC00ECEBCF /* GameViewController.swift */,
+				6262BBE22444D3ED00ECEBCF /* GameOptionsViewController.swift */,
+>>>>>>> terry
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -231,9 +307,13 @@
 				AE73380E240F5943004AC3F6 /* Game.swift */,
 				AE733810240F59F2004AC3F6 /* User.swift */,
 				AE733812240F5D88004AC3F6 /* Board.swift */,
+<<<<<<< HEAD
 				AEC2900824104B5D007155BA /* Database.swift */,
 				AEC2904224153FC1007155BA /* LocalStorage.swift */,
 				AEB2A7EB2441213500E38528 /* MyData.swift */,
+=======
+				AE7338342415403C004AC3F6 /* BoardSegment.swift */,
+>>>>>>> terry
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -267,11 +347,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE733807240F588B004AC3F6 /* Build configuration list for PBXNativeTarget "SudokuIOS" */;
 			buildPhases = (
+<<<<<<< HEAD
 				7FE599BC1A8262475740007D /* [CP] Check Pods Manifest.lock */,
 				AE7337F1240F588A004AC3F6 /* Sources */,
 				AE7337F2240F588A004AC3F6 /* Frameworks */,
 				AE7337F3240F588A004AC3F6 /* Resources */,
 				924B26B4ED05F2A09566E97B /* [CP] Embed Pods Frameworks */,
+=======
+				0B1AC50886A06822BA6548C4 /* [CP] Check Pods Manifest.lock */,
+				AE7337F1240F588A004AC3F6 /* Sources */,
+				AE7337F2240F588A004AC3F6 /* Frameworks */,
+				AE7337F3240F588A004AC3F6 /* Resources */,
+				E75AE3E1945F73E6B614CD22 /* [CP] Embed Pods Frameworks */,
+>>>>>>> terry
 			);
 			buildRules = (
 			);
@@ -379,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE733803240F588B004AC3F6 /* LaunchScreen.storyboard in Resources */,
+				62C24131241544D00092A3E9 /* GoogleService-Info.plist in Resources */,
 				AE733800240F588B004AC3F6 /* Assets.xcassets in Resources */,
 				AEB2A7F02441251200E38528 /* ProjectDatabase.db in Resources */,
 				AE7337FE240F588A004AC3F6 /* Main.storyboard in Resources */,
@@ -388,7 +477,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+<<<<<<< HEAD
 		7FE599BC1A8262475740007D /* [CP] Check Pods Manifest.lock */ = {
+=======
+		0B1AC50886A06822BA6548C4 /* [CP] Check Pods Manifest.lock */ = {
+>>>>>>> terry
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -410,7 +503,11 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+<<<<<<< HEAD
 		924B26B4ED05F2A09566E97B /* [CP] Embed Pods Frameworks */ = {
+=======
+		E75AE3E1945F73E6B614CD22 /* [CP] Embed Pods Frameworks */ = {
+>>>>>>> terry
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -434,9 +531,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				AE749FD82415FBB30079954A /* ShareDialogViewController.swift in Sources */,
 				AEC2900924104B5D007155BA /* Database.swift in Sources */,
 				AEC2904324153FC1007155BA /* LocalStorage.swift in Sources */,
+=======
+				6262BBE02443BBEC00ECEBCF /* GameViewController.swift in Sources */,
+>>>>>>> terry
 				AE733811240F59F2004AC3F6 /* User.swift in Sources */,
 				62C240F82412AC370092A3E9 /* FirebaseAPI.swift in Sources */,
 				AEB2A7EC2441213500E38528 /* MyData.swift in Sources */,
@@ -446,6 +547,8 @@
 				AEEAD4522415590A00A127DA /* GameOverViewController.swift in Sources */,
 				AEC2900B2412AD11007155BA /* Player.swift in Sources */,
 				AE73380F240F5943004AC3F6 /* Game.swift in Sources */,
+				6262BBE32444D3ED00ECEBCF /* GameOptionsViewController.swift in Sources */,
+				AE7338352415403C004AC3F6 /* BoardSegment.swift in Sources */,
 				AE7337F9240F588A004AC3F6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -590,16 +693,25 @@
 		};
 		AE733808240F588B004AC3F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
 			baseConfigurationReference = 0C90C20786081D8CDFA54C1E /* Pods-SudokuIOS.debug.xcconfig */;
+=======
+			baseConfigurationReference = 5645C9EB764F27E9566AFA71 /* Pods-SudokuIOS.debug.xcconfig */;
+>>>>>>> terry
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SudokuIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.GTI.SudokuIOS;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.gti.SudokuIOS;
+>>>>>>> terry
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -608,16 +720,25 @@
 		};
 		AE733809240F588B004AC3F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
 			baseConfigurationReference = AAE94790F765B4D374C03C8A /* Pods-SudokuIOS.release.xcconfig */;
+=======
+			baseConfigurationReference = 7BCE4EE8C0A93C912D20CD5A /* Pods-SudokuIOS.release.xcconfig */;
+>>>>>>> terry
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SudokuIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.GTI.SudokuIOS;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.gti.SudokuIOS;
+>>>>>>> terry
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
