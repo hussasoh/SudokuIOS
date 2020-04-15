@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  SudokuIOS
+//  SudokuGame
 //
-//  Created by Xcode User on 2020-03-03.
+//  Created by Xcode User on 2020-04-15.
 //  Copyright © 2020 Xcode User. All rights reserved.
 //
 

@@ -7,41 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE7337F9240F588A004AC3F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7337F8240F588A004AC3F6 /* AppDelegate.swift */; };
-		AE7337FB240F588A004AC3F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7337FA240F588A004AC3F6 /* ViewController.swift */; };
-		AE7337FE240F588A004AC3F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7337FC240F588A004AC3F6 /* Main.storyboard */; };
-		AE733800240F588B004AC3F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE7337FF240F588B004AC3F6 /* Assets.xcassets */; };
-		AE733803240F588B004AC3F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE733801240F588B004AC3F6 /* LaunchScreen.storyboard */; };
-		AE73380F240F5943004AC3F6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73380E240F5943004AC3F6 /* Game.swift */; };
-<<<<<<< HEAD
-=======
-		AE733811240F59F2004AC3F6 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733810240F59F2004AC3F6 /* Player.swift */; };
->>>>>>> 38542fd1b4c3188b5d567d01c8e9a82796b802d1
-		AE733813240F5D88004AC3F6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733812240F5D88004AC3F6 /* Board.swift */; };
-		AE7338352415403C004AC3F6 /* BoardSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7338342415403C004AC3F6 /* BoardSegment.swift */; };
-		AE7338602423E30C004AC3F6 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73385F2423E30C004AC3F6 /* Player.swift */; };
+		AE1B6148244764A600023D05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE1B6146244764A600023D05 /* Main.storyboard */; };
+		AE1B614A244764A900023D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1B6149244764A900023D05 /* Assets.xcassets */; };
+		AE1B614D244764A900023D05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE1B614B244764A900023D05 /* LaunchScreen.storyboard */; };
+		AE1B616A244770FB00023D05 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1B615D244767A200023D05 /* Board.swift */; };
+		AE1B616B244770FB00023D05 /* BoardSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1B615F244767A200023D05 /* BoardSegment.swift */; };
+		AE1B616C244770FB00023D05 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1B615E244767A200023D05 /* Game.swift */; };
+		AE1B616D244770FB00023D05 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1B6160244767A200023D05 /* Player.swift */; };
+		AE1B616E244770FF00023D05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1B61672447685F00023D05 /* ViewController.swift */; };
+		AE1B616F2447710400023D05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1B6142244764A600023D05 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AE7337F5240F588A004AC3F6 /* SudokuIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SudokuIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE7337F8240F588A004AC3F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AE7337FA240F588A004AC3F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AE7337FD240F588A004AC3F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AE7337FF240F588B004AC3F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AE733802240F588B004AC3F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AE733804240F588B004AC3F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE73380E240F5943004AC3F6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
-		AE733810240F59F2004AC3F6 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
->>>>>>> 38542fd1b4c3188b5d567d01c8e9a82796b802d1
-		AE733812240F5D88004AC3F6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
-		AE7338342415403C004AC3F6 /* BoardSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSegment.swift; sourceTree = "<group>"; };
-		AE73385F2423E30C004AC3F6 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		AE1B613F244764A600023D05 /* SudokuGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SudokuGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE1B6142244764A600023D05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AE1B6147244764A600023D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AE1B6149244764A900023D05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AE1B614C244764A900023D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AE1B614E244764A900023D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE1B615D244767A200023D05 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		AE1B615E244767A200023D05 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		AE1B615F244767A200023D05 /* BoardSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSegment.swift; sourceTree = "<group>"; };
+		AE1B6160244767A200023D05 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		AE1B61672447685F00023D05 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AE7337F2240F588A004AC3F6 /* Frameworks */ = {
+		AE1B613C244764A600023D05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -51,111 +43,107 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AE7337EC240F588A004AC3F6 = {
+		AE1B6136244764A600023D05 = {
 			isa = PBXGroup;
 			children = (
-				AE73380D240F58DD004AC3F6 /* Classes */,
-				AE73380C240F58D5004AC3F6 /* Images */,
-				AE73380B240F58C2004AC3F6 /* Controllers */,
-				AE73380A240F58A4004AC3F6 /* Storyboards */,
-				AE7337F7240F588A004AC3F6 /* SudokuIOS */,
-				AE7337F6240F588A004AC3F6 /* Products */,
+				AE1B6141244764A600023D05 /* SudokuGame */,
+				AE1B6140244764A600023D05 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		AE7337F6240F588A004AC3F6 /* Products */ = {
+		AE1B6140244764A600023D05 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AE7337F5240F588A004AC3F6 /* SudokuIOS.app */,
+				AE1B613F244764A600023D05 /* SudokuGame.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AE7337F7240F588A004AC3F6 /* SudokuIOS */ = {
+		AE1B6141244764A600023D05 /* SudokuGame */ = {
 			isa = PBXGroup;
 			children = (
-				AE7337F8240F588A004AC3F6 /* AppDelegate.swift */,
-				AE7337FF240F588B004AC3F6 /* Assets.xcassets */,
-				AE733804240F588B004AC3F6 /* Info.plist */,
+				AE1B61692447688300023D05 /* Images */,
+				AE1B61662447685700023D05 /* Controllers */,
+				AE1B615C2447679200023D05 /* Classes */,
+				AE1B615A2447651700023D05 /* storyboard */,
+				AE1B6142244764A600023D05 /* AppDelegate.swift */,
+				AE1B6149244764A900023D05 /* Assets.xcassets */,
+				AE1B614E244764A900023D05 /* Info.plist */,
 			);
-			path = SudokuIOS;
+			path = SudokuGame;
 			sourceTree = "<group>";
 		};
-		AE73380A240F58A4004AC3F6 /* Storyboards */ = {
+		AE1B615A2447651700023D05 /* storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				AE7337FC240F588A004AC3F6 /* Main.storyboard */,
-				AE733801240F588B004AC3F6 /* LaunchScreen.storyboard */,
+				AE1B6146244764A600023D05 /* Main.storyboard */,
+				AE1B614B244764A900023D05 /* LaunchScreen.storyboard */,
 			);
-			path = Storyboards;
+			path = storyboard;
 			sourceTree = "<group>";
 		};
-		AE73380B240F58C2004AC3F6 /* Controllers */ = {
+		AE1B615C2447679200023D05 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				AE7337FA240F588A004AC3F6 /* ViewController.swift */,
+				AE1B615D244767A200023D05 /* Board.swift */,
+				AE1B615F244767A200023D05 /* BoardSegment.swift */,
+				AE1B615E244767A200023D05 /* Game.swift */,
+				AE1B6160244767A200023D05 /* Player.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		AE1B61662447685700023D05 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AE1B61672447685F00023D05 /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		AE73380C240F58D5004AC3F6 /* Images */ = {
+		AE1B61692447688300023D05 /* Images */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Images;
 			sourceTree = "<group>";
 		};
-		AE73380D240F58DD004AC3F6 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-<<<<<<< HEAD
-=======
-				AE733810240F59F2004AC3F6 /* Player.swift */,
->>>>>>> 38542fd1b4c3188b5d567d01c8e9a82796b802d1
-				AE73380E240F5943004AC3F6 /* Game.swift */,
-				AE733812240F5D88004AC3F6 /* Board.swift */,
-				AE7338342415403C004AC3F6 /* BoardSegment.swift */,
-				AE73385F2423E30C004AC3F6 /* Player.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AE7337F4240F588A004AC3F6 /* SudokuIOS */ = {
+		AE1B613E244764A600023D05 /* SudokuGame */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AE733807240F588B004AC3F6 /* Build configuration list for PBXNativeTarget "SudokuIOS" */;
+			buildConfigurationList = AE1B6151244764A900023D05 /* Build configuration list for PBXNativeTarget "SudokuGame" */;
 			buildPhases = (
-				AE7337F1240F588A004AC3F6 /* Sources */,
-				AE7337F2240F588A004AC3F6 /* Frameworks */,
-				AE7337F3240F588A004AC3F6 /* Resources */,
+				AE1B613B244764A600023D05 /* Sources */,
+				AE1B613C244764A600023D05 /* Frameworks */,
+				AE1B613D244764A600023D05 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SudokuIOS;
-			productName = SudokuIOS;
-			productReference = AE7337F5240F588A004AC3F6 /* SudokuIOS.app */;
+			name = SudokuGame;
+			productName = SudokuGame;
+			productReference = AE1B613F244764A600023D05 /* SudokuGame.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AE7337ED240F588A004AC3F6 /* Project object */ = {
+		AE1B6137244764A600023D05 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Xcode User";
 				TargetAttributes = {
-					AE7337F4240F588A004AC3F6 = {
+					AE1B613E244764A600023D05 = {
 						CreatedOnToolsVersion = 10.3;
 					};
 				};
 			};
-			buildConfigurationList = AE7337F0240F588A004AC3F6 /* Build configuration list for PBXProject "SudokuIOS" */;
+			buildConfigurationList = AE1B613A244764A600023D05 /* Build configuration list for PBXProject "SudokuGame" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -163,62 +151,58 @@
 				en,
 				Base,
 			);
-			mainGroup = AE7337EC240F588A004AC3F6;
-			productRefGroup = AE7337F6240F588A004AC3F6 /* Products */;
+			mainGroup = AE1B6136244764A600023D05;
+			productRefGroup = AE1B6140244764A600023D05 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AE7337F4240F588A004AC3F6 /* SudokuIOS */,
+				AE1B613E244764A600023D05 /* SudokuGame */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AE7337F3240F588A004AC3F6 /* Resources */ = {
+		AE1B613D244764A600023D05 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE733803240F588B004AC3F6 /* LaunchScreen.storyboard in Resources */,
-				AE733800240F588B004AC3F6 /* Assets.xcassets in Resources */,
-				AE7337FE240F588A004AC3F6 /* Main.storyboard in Resources */,
+				AE1B614D244764A900023D05 /* LaunchScreen.storyboard in Resources */,
+				AE1B614A244764A900023D05 /* Assets.xcassets in Resources */,
+				AE1B6148244764A600023D05 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AE7337F1240F588A004AC3F6 /* Sources */ = {
+		AE1B613B244764A600023D05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-=======
-				AE733811240F59F2004AC3F6 /* Player.swift in Sources */,
->>>>>>> 38542fd1b4c3188b5d567d01c8e9a82796b802d1
-				AE7337FB240F588A004AC3F6 /* ViewController.swift in Sources */,
-				AE733813240F5D88004AC3F6 /* Board.swift in Sources */,
-				AE73380F240F5943004AC3F6 /* Game.swift in Sources */,
-				AE7338602423E30C004AC3F6 /* Player.swift in Sources */,
-				AE7338352415403C004AC3F6 /* BoardSegment.swift in Sources */,
-				AE7337F9240F588A004AC3F6 /* AppDelegate.swift in Sources */,
+				AE1B616F2447710400023D05 /* AppDelegate.swift in Sources */,
+				AE1B616E244770FF00023D05 /* ViewController.swift in Sources */,
+				AE1B616A244770FB00023D05 /* Board.swift in Sources */,
+				AE1B616B244770FB00023D05 /* BoardSegment.swift in Sources */,
+				AE1B616C244770FB00023D05 /* Game.swift in Sources */,
+				AE1B616D244770FB00023D05 /* Player.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AE7337FC240F588A004AC3F6 /* Main.storyboard */ = {
+		AE1B6146244764A600023D05 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AE7337FD240F588A004AC3F6 /* Base */,
+				AE1B6147244764A600023D05 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		AE733801240F588B004AC3F6 /* LaunchScreen.storyboard */ = {
+		AE1B614B244764A900023D05 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AE733802240F588B004AC3F6 /* Base */,
+				AE1B614C244764A900023D05 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -226,7 +210,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		AE733805240F588B004AC3F6 /* Debug */ = {
+		AE1B614F244764A900023D05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -287,7 +271,7 @@
 			};
 			name = Debug;
 		};
-		AE733806240F588B004AC3F6 /* Release */ = {
+		AE1B6150244764A900023D05 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -342,34 +326,34 @@
 			};
 			name = Release;
 		};
-		AE733808240F588B004AC3F6 /* Debug */ = {
+		AE1B6152244764A900023D05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SudokuIOS/Info.plist;
+				INFOPLIST_FILE = SudokuGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sohaib.SudokuIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sohaib.SudokuGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		AE733809240F588B004AC3F6 /* Release */ = {
+		AE1B6153244764A900023D05 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SudokuIOS/Info.plist;
+				INFOPLIST_FILE = SudokuGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sohaib.SudokuIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sohaib.SudokuGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -379,25 +363,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AE7337F0240F588A004AC3F6 /* Build configuration list for PBXProject "SudokuIOS" */ = {
+		AE1B613A244764A600023D05 /* Build configuration list for PBXProject "SudokuGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AE733805240F588B004AC3F6 /* Debug */,
-				AE733806240F588B004AC3F6 /* Release */,
+				AE1B614F244764A900023D05 /* Debug */,
+				AE1B6150244764A900023D05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AE733807240F588B004AC3F6 /* Build configuration list for PBXNativeTarget "SudokuIOS" */ = {
+		AE1B6151244764A900023D05 /* Build configuration list for PBXNativeTarget "SudokuGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AE733808240F588B004AC3F6 /* Debug */,
-				AE733809240F588B004AC3F6 /* Release */,
+				AE1B6152244764A900023D05 /* Debug */,
+				AE1B6153244764A900023D05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = AE7337ED240F588A004AC3F6 /* Project object */;
+	rootObject = AE1B6137244764A600023D05 /* Project object */;
 }
