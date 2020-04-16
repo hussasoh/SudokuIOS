@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SudokuIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sudoku iOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9J-va-sGE">
+                                <rect key="frame" x="162" y="103" width="90" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qm-0U-ZLY">
+                                <rect key="frame" x="168" y="347" width="78" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start Game"/>
+                                <connections>
+                                    <segue destination="yOy-Ul-W9O" kind="presentation" id="cra-sA-dPX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fn-pe-4fQ">
+                                <rect key="frame" x="165" y="405" width="84" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="High Scores"/>
+                                <connections>
+                                    <segue destination="a66-Wh-ZPo" kind="presentation" id="mFt-e1-bkN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="99.776785714285708"/>
+        </scene>
+        <!--High Score View Controller-->
+        <scene sceneID="Mdm-9s-nEy">
+            <objects>
+                <viewController id="a66-Wh-ZPo" customClass="HighScoreViewController" customModule="SudokuIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WrW-Fs-jtF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oNF-ST-V5y">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="1" green="0.75" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <items>
+                                    <navigationItem title="High Scores" id="ioe-5y-6NM">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="diG-1t-Wrn">
+                                            <connections>
+                                                <segue destination="D7C-Qa-1qr" kind="unwind" unwindAction="unwindToHomeVCWithSender:" id="2pa-km-WCM"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eaB-bf-umU">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="a66-Wh-ZPo" id="E5e-2U-LRs"/>
+                                    <outlet property="delegate" destination="a66-Wh-ZPo" id="SCk-CZ-d5K"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="4sX-5i-UcI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1cg-xq-B2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="D7C-Qa-1qr" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="115.94202898550725" y="827.67857142857144"/>
+        </scene>
+        <!--Game Options View Controller-->
+        <scene sceneID="TmV-kJ-25f">
+            <objects>
+                <viewController id="yOy-Ul-W9O" customClass="GameOptionsViewController" customModule="SudokuIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iz6-0u-aeU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yAa-eQ-8A7">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="1" green="0.75" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <items>
+                                    <navigationItem title="Game Options" id="H6Q-F5-Yv3">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="WcA-Ow-Nk2">
+                                            <connections>
+                                                <segue destination="Ldl-bR-3EX" kind="unwind" unwindAction="unwindToHomeVCWithSender:" id="Eme-5M-9JW"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ny8-jh-m8u">
+                                <rect key="frame" x="168" y="625" width="78" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start Game"/>
+                                <connections>
+                                    <segue destination="MEG-H6-Jj3" kind="presentation" id="zOy-Wd-so2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="X0K-4o-lMs"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gqE-m9-sfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Ldl-bR-3EX" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="100"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="cYp-hj-H8m">
+            <objects>
+                <viewController id="MEG-H6-Jj3" customClass="GameViewController" customModule="SudokuIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1nX-ha-IM9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4nG-Un-q47">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="1" green="0.75" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <items>
+                                    <navigationItem title="Sudoku" id="xmL-Yd-Fil">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="OnM-ZK-so2">
+                                            <connections>
+                                                <segue destination="NIl-h5-Hqr" kind="unwind" unwindAction="unwindToHomeVCWithSender:" id="4bd-XP-yrU"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vf2-Nt-b6P">
+                                <rect key="frame" x="0.0" y="88" width="414" height="395"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Nq-35-jMq">
+                                    <size key="itemSize" width="75" height="72"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="6Ok-xn-o10">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="customSize" width="75" height="75"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="MEG-H6-Jj3" id="n3o-yo-5uM"/>
+                                    <outlet property="delegate" destination="MEG-H6-Jj3" id="8h7-rw-J4f"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omv-Z2-Rk1">
+                                <rect key="frame" x="0.0" y="583" width="414" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zo3-7h-MNY"/>
+                    </view>
+                    <connections>
+                        <outlet property="labl" destination="Omv-Z2-Rk1" id="1Ad-aV-Bis"/>
+                        <outlet property="sudokuCollectionView" destination="vf2-Nt-b6P" id="q5S-3G-2oG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="df2-J0-Efs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="NIl-h5-Hqr" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1727.536231884058" y="99.776785714285708"/>
+        </scene>
+    </scenes>
+</document>
