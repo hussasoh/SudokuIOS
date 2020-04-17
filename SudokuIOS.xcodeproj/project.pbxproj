@@ -105,8 +105,8 @@
 				AE73380E240F5943004AC3F6 /* Game.swift */,
 				AE733810240F59F2004AC3F6 /* User.swift */,
 				AE733812240F5D88004AC3F6 /* Board.swift */,
-				BAAF73F224142F6A003B27BB /* GameOptions.swift */,
 				BAAF73F6241434C1003B27BB /* MenuOptions.swift */,
+				BAAF73F224142F6A003B27BB /* GameOptions.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -336,6 +336,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SudokuIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -353,6 +354,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SudokuIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
