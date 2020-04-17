@@ -9,7 +9,7 @@
 import UIKit
 
 class GameOptionsViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

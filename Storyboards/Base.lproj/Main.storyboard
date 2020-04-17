@@ -111,8 +111,47 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Game Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGv-ux-tro">
+                                <rect key="frame" x="99" y="117" width="216" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TE6-lF-0iM">
+                                <rect key="frame" x="20" y="180" width="374" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Normal"/>
+                                    <segment title="Time Attack"/>
+                                    <segment title="Killer Sudoku"/>
+                                </segments>
+                            </segmentedControl>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mJu-aZ-4lz">
+                                <rect key="frame" x="32" y="248" width="350" height="262"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game Mode Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYY-nz-Uno">
+                                <rect key="frame" x="32" y="518" width="350" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rY1-o4-voR">
+                                <rect key="frame" x="32" y="588" width="350" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Background 1"/>
+                                    <segment title="Background 2"/>
+                                </segments>
+                            </segmentedControl>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pxb-jE-HqE">
+                                <rect key="frame" x="87" y="624" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ny8-jh-m8u">
-                                <rect key="frame" x="168" y="625" width="78" height="30"/>
+                                <rect key="frame" x="168" y="778" width="78" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start Game"/>
                                 <connections>
@@ -127,7 +166,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqE-m9-sfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Ldl-bR-3EX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="930" y="100"/>
+            <point key="canvasLocation" x="928.98550724637687" y="99.776785714285708"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="cYp-hj-H8m">
@@ -174,8 +213,8 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="MEG-H6-Jj3" id="n3o-yo-5uM"/>
-                                    <outlet property="delegate" destination="MEG-H6-Jj3" id="8h7-rw-J4f"/>
+                                    <outlet property="dataSource" destination="MEG-H6-Jj3" id="fqr-2n-4kJ"/>
+                                    <outlet property="delegate" destination="MEG-H6-Jj3" id="EJ4-z6-wfc"/>
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omv-Z2-Rk1">
@@ -190,7 +229,7 @@
                         <viewLayoutGuide key="safeArea" id="zo3-7h-MNY"/>
                     </view>
                     <connections>
-                        <outlet property="labl" destination="Omv-Z2-Rk1" id="1Ad-aV-Bis"/>
+                        <outlet property="labl" destination="Omv-Z2-Rk1" id="m3B-ao-vc7"/>
                         <outlet property="sudokuCollectionView" destination="vf2-Nt-b6P" id="q5S-3G-2oG"/>
                     </connections>
                 </viewController>
