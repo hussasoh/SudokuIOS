@@ -2,8 +2,9 @@
 //  User.swift
 //  SudokuIOS
 //
-//  Created by Xcode User on 2020-03-03.
+//  Created by Sohaib Hussain on 2020-03-03.
 //  Copyright © 2020 Xcode User. All rights reserved.
+//  User Game Center to retrieve User Information
 //
 
 import Foundation

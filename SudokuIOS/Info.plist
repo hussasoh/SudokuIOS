@@ -41,5 +41,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>FacebookAppID</key>
+    <string>829289250886191</string>
+    <key>FacebookDisplayName</key>
+    <string>tomi-b</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb829289250886191</string>
+            </array>
+        </dict>
+    </array>
 </dict>
 </plist>
