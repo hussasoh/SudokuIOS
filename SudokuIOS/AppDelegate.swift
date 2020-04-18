@@ -242,7 +242,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    // sets a default for music and sound effects across the application
+    // sets a default for music and sound effects across the application (Omar Kanawati)
     func setMusicAndEffects() {
         // sets url path for background music
         let musicURL = Bundle.main.path(forResource: "puzzle_music", ofType: "mp3")
