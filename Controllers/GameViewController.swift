@@ -35,7 +35,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         sudokuCollectionView?.layer.borderWidth = 2
         sudokuCollectionView?.layer.borderColor = UIColor.black.cgColor
-                
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

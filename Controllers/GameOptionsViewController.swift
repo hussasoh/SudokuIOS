@@ -32,11 +32,6 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
         // sets default background image
         imgBackground.image = UIImage(named: mainDelegate.imgData[3])
 
-        // sets default options in option set
-        mainDelegate.gameOptions.insert(.easy)
-        mainDelegate.gameOptions.insert(.background1)
-        
-        
     }
     
     // allow user to unwind with the back button from segued pages
@@ -48,14 +43,23 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
             imgGameIcon.image = UIImage(named: mainDelegate.imgData[0])
             lblDescription.text = "An easier challenge with fewer missing numbers"
             
+            clearGameModeOptions()
+            mainDelegate.gameOptions.insert(.easy)
+            
         }
         else if (sgGameMode.selectedSegmentIndex == 1) {
             imgGameIcon.image = UIImage(named: mainDelegate.imgData[1])
             lblDescription.text = "Tradition sudoku to offer a moderate challenge"
+            
+            clearGameModeOptions()
+            mainDelegate.gameOptions.insert(.normal)
         }
         else {
             imgGameIcon.image = UIImage(named: mainDelegate.imgData[2])
             lblDescription.text = "Master the game with the fewest filled in squares!"
+            
+            clearGameModeOptions()
+            mainDelegate.gameOptions.insert(.hard)
         }
     
     }
@@ -87,5 +91,11 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
         selectBackground()
     }
     
+    // clears all game mode options from set
+    func clearGameModeOptions() {
+        mainDelegate.gameOptions.remove(.easy)
+        mainDelegate.gameOptions.remove(.normal)
+        mainDelegate.gameOptions.remove(.hard)
+    }
     
 }
