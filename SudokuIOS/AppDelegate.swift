@@ -16,22 +16,26 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var databaseName : String? = "ProjectDatabase.db"
-    var databasePath : String?
-    var players : [Player] = []
+    var databaseName : String? = "ProjectDatabase.db"       // the database name
+    var databasePath : String?                              // the database file path
+    var players : [Player] = []                             // array of player objects that are held from database
     
+    
+    // Upon app launch we configure firebase, define the database path, check if db exists and read data from the db
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
         
+        FirebaseApp.configure()
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         let documentPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDir = documentPaths[0]
         databasePath = documentsDir.appending("/" + databaseName!)
         checkAndCreateDatabase()
         readDataFromDatabase()
+        
         return true
     }
+    
     //Importing Facebook (Tomislav Busic)
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return ApplicationDelegate.shared.application(
@@ -61,8 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var db : OpaquePointer? = nil
         
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
-            
-            
+        
             print("Successfully opened connection to database at \(self.databasePath)")
             var queryStatement : OpaquePointer? = nil
             let queryStatementString : String = "SELECT * FROM users ORDER BY score ASC"
@@ -73,15 +76,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let id : Int = Int(sqlite3_column_int(queryStatement, 0))
                     let cname = sqlite3_column_text(queryStatement, 1)
                     let score = sqlite3_column_int(queryStatement, 2)
-                    
-                    
                     let name = String(cString: cname!)
-                    
-                    
                     let data : Player = Player.init()
                     
                     data.initWithData(theRow: id, theName: name, theScore: Int(score))
-                    
                     
                     players.append(data)
                     
@@ -104,6 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
     }
+    
     //Inserts a new entry into the database
     func insertIntoDatabase(player : Player) -> Bool {
         var db : OpaquePointer? = nil
@@ -119,12 +118,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let nameStr = player.getName() as NSString
                 let score = player.getScore()
                 
-                
                 sqlite3_bind_text(insertStatement, 1, nameStr.utf8String, -1, nil)
                 sqlite3_bind_int(insertStatement, 2, Int32(score))
-                
-                
-                
+            
                 if sqlite3_step(insertStatement) == SQLITE_DONE {
                     let rowID = sqlite3_last_insert_rowid(db)
                     print("Successfully inserted row \(rowID)")
@@ -182,7 +178,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var deleteStatementString : String = "DELETE FROM users"
             
             if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
-                
                 
                 
                 if sqlite3_step(deleteStatement) == SQLITE_DONE {

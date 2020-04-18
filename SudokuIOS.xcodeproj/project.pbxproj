@@ -24,6 +24,7 @@
 		AE73380F240F5943004AC3F6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73380E240F5943004AC3F6 /* Game.swift */; };
 		AE733813240F5D88004AC3F6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733812240F5D88004AC3F6 /* Board.swift */; };
 		AE7338352415403C004AC3F6 /* BoardSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7338342415403C004AC3F6 /* BoardSegment.swift */; };
+		AEA07A72244BB110007562E8 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA07A71244BB110007562E8 /* Twitter.framework */; };
 		AEB2A7F92446D54700E38528 /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2A7F82446D54700E38528 /* FacebookCore.framework */; };
 		AEB2A7FB2446D54700E38528 /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2A7FA2446D54700E38528 /* FacebookLogin.framework */; };
 		AEB2A7FD2446D54700E38528 /* FacebookShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2A7FC2446D54700E38528 /* FacebookShare.framework */; };
@@ -57,6 +58,7 @@
 		AE73380E240F5943004AC3F6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		AE733812240F5D88004AC3F6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		AE7338342415403C004AC3F6 /* BoardSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSegment.swift; sourceTree = "<group>"; };
+		AEA07A71244BB110007562E8 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		AEB2A7F82446D54700E38528 /* FacebookCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB2A7FA2446D54700E38528 /* FacebookLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB2A7FC2446D54700E38528 /* FacebookShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEA07A72244BB110007562E8 /* Twitter.framework in Frameworks */,
 				AEB2A800244776B600E38528 /* libsqlite3.0.tbd in Frameworks */,
 				AEB2A801244776B600E38528 /* libsqlite3.tbd in Frameworks */,
 				AEB2A7F92446D54700E38528 /* FacebookCore.framework in Frameworks */,
@@ -91,6 +94,7 @@
 		08988CB0C27CB4C7FC919D08 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEA07A71244BB110007562E8 /* Twitter.framework */,
 				AEB2A7FE244776B600E38528 /* libsqlite3.0.tbd */,
 				AEB2A7FF244776B600E38528 /* libsqlite3.tbd */,
 				AEB2A7F82446D54700E38528 /* FacebookCore.framework */,

@@ -9,10 +9,12 @@ import UIKit
 
 class ScoreCell: UITableViewCell {
     
+    // Defining label fields
     let primaryLabel = UILabel()
     let secondaryLabel = UILabel()
     let myImageView = UIImageView()
     
+    // on load set the style properties
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         
         primaryLabel.textAlignment = .left
@@ -31,6 +33,7 @@ class ScoreCell: UITableViewCell {
         contentView.addSubview(myImageView)
     }
     
+    // Define the layout of the subviews
     override func layoutSubviews() {
         primaryLabel.frame = CGRect(x: 100, y: 5, width: 460, height: 30)
         secondaryLabel.frame = CGRect(x: 100, y: 40, width: 460, height: 30)
@@ -40,9 +43,7 @@ class ScoreCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

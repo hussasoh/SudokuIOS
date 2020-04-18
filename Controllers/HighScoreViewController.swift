@@ -8,10 +8,10 @@
 
 import UIKit
 import FacebookShare
-
 class HighScoreViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
 SharingDelegate {
+    
     func sharer(_ sharer: Sharing, didCompleteWithResults results: [String : Any]) {
         //show success message
     }
@@ -34,14 +34,18 @@ SharingDelegate {
     
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    // Returns number of rows based on number of players in database
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mainDelegate.players.count
         
     }
     
+    // A fixed height for each cell at 60
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
+    
+    // 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ScoreCell ?? ScoreCell(style: .default, reuseIdentifier: "cell")
@@ -55,7 +59,7 @@ SharingDelegate {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        let share = UITableViewRowAction(style: .normal, title: "Share") {
+        let shareFacebook = UITableViewRowAction(style: .normal, title: "Share on Facebook") {
             (action, index) in
             let rowNum = indexPath.row
             print("Share button tapped")
@@ -67,8 +71,9 @@ SharingDelegate {
             
             self.showShareDialog(content, mode: .automatic)
         }
-        share.backgroundColor = .blue
-        return [share]
+        shareFacebook.backgroundColor = .blue
+        
+        return [shareFacebook]
     }
     
     override func viewDidLoad() {
