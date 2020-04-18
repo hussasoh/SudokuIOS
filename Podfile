@@ -14,5 +14,9 @@ target 'SudokuIOS' do
   # https://firebase.google.com/docs/ios/setup#available-pods
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'FacebookShare'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  
 
 end
