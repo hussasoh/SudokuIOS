@@ -11,6 +11,7 @@ import FacebookCore
 import Foundation
 import SQLite3
 import Firebase
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var databasePath : String?
     var people : [MyData] = []
     var gameOptions : GameOptions = [.easy, .background1]
-    var menuOptions = MenuOptions(musicOn: true, musicVolume: 10, effectsOn: true, effectsVolume: 10, darkMode: false)
+    var menuOptions = MenuOptions(musicOn: true, musicVolume: 5, effectsOn: true, effectsVolume: 10, darkMode: false)
+    
+    
+    // testing sound options for entire application
+    var musicPlayer : AVAudioPlayer?
+    var soundPlayer : AVAudioPlayer?
     
     // array that contains different game mode icons and background choices
     var imgData = ["sudoku_easy.png", "sudoku_normal.png", "sudoku_hard.png", "watercolor.jpg", "clouds.jpg"]
@@ -35,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         databasePath = documentsDir.appending("/" + databaseName!)
         checkAndCreateDatabase()
         readDataFromDatabase()
+        setMusicAndEffects()
         return true
     }
     //Importing Facebook (Tomislav Busic)
@@ -233,6 +240,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    // sets a default for music and sound effects across the application
+    func setMusicAndEffects() {
+        // sets url path for background music
+        let musicURL = Bundle.main.path(forResource: "puzzle_music", ofType: "mp3")
+        let url1 = URL(fileURLWithPath: musicURL!)
+        musicPlayer = try! AVAudioPlayer.init(contentsOf: url1)
+        musicPlayer?.currentTime = 0
+        musicPlayer?.volume = menuOptions.getMusicVolume()
+        musicPlayer?.numberOfLoops = -1
+        
+        if (menuOptions.getEffectsOn() == true){
+            musicPlayer?.play()
+        }
+        
+        
+        let soundURL = Bundle.main.path(forResource: "click", ofType: "mp3")
+        let url2 = URL(fileURLWithPath: soundURL!)
+        soundPlayer = try! AVAudioPlayer.init(contentsOf: url2)
+        soundPlayer?.currentTime = 0
+        soundPlayer?.volume = menuOptions.getEffectsVolume()
+        soundPlayer?.numberOfLoops = 0
     }
     
 }

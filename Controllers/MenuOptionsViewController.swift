@@ -17,9 +17,6 @@ class MenuOptionsViewController: UIViewController {
     @IBOutlet var effectsSlider : UISlider!
     @IBOutlet var effectsSwitch : UISwitch!
     
-    var musicPlayer : AVAudioPlayer?
-    var soundPlayer : AVAudioPlayer?
-    
     // instantiate app delegate object
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -36,40 +33,18 @@ class MenuOptionsViewController: UIViewController {
     
     // music will play when options menu has appeared
     override func viewWillAppear(_ animated: Bool) {
-        
-        
-        // sets url path for background music
-        let musicURL = Bundle.main.path(forResource: "puzzle_music", ofType: "mp3")
-        let url1 = URL(fileURLWithPath: musicURL!)
-        musicPlayer = try! AVAudioPlayer.init(contentsOf: url1)
-        musicPlayer?.currentTime = 0
-        musicPlayer?.volume = mainDelegate.menuOptions.getMusicVolume()
-        musicPlayer?.numberOfLoops = -1
-        
-        
-        let soundURL = Bundle.main.path(forResource: "click", ofType: "mp3")
-        let url2 = URL(fileURLWithPath: soundURL!)
-        soundPlayer = try! AVAudioPlayer.init(contentsOf: url2)
-        soundPlayer?.currentTime = 0
-        soundPlayer?.volume = musicSlider.value
-        soundPlayer?.numberOfLoops = 0
-        
-        if (musicSwitch.isOn) {
-            musicPlayer?.play()
-        }
-        
-        
+    
     }
     
     // toggles music on and off
     @IBAction func toggleMusic(sender: UISwitch) {
         
         if (musicSwitch?.isOn == true) {
-            musicPlayer?.play()
+            mainDelegate.musicPlayer?.play()
             mainDelegate.menuOptions.setMusicOn(musicOn: true)
         }
         else {
-            musicPlayer?.stop()
+            mainDelegate.musicPlayer?.stop()
             mainDelegate.menuOptions.setMusicOn(musicOn: false)
         }
     }
@@ -87,7 +62,7 @@ class MenuOptionsViewController: UIViewController {
     // controls the volume of music
     @IBAction func volumeDidChange(sender : UISlider) {
         
-        musicPlayer?.volume = musicSlider.value
+        mainDelegate.musicPlayer?.volume = musicSlider.value
         mainDelegate.menuOptions.setMusicVolume(musicVolume: musicSlider.value)
     }
     
@@ -95,9 +70,9 @@ class MenuOptionsViewController: UIViewController {
     @IBAction func effectsDidChange(sender : UISlider) {
         
         if (mainDelegate.menuOptions.getEffectsOn() == true) {
-            soundPlayer?.volume = effectsSlider.value
+            mainDelegate.soundPlayer?.volume = effectsSlider.value
             mainDelegate.menuOptions.setMusicVolume(musicVolume: effectsSlider.value)
-            soundPlayer?.play()
+            mainDelegate.soundPlayer?.play()
         }       
     }
     
