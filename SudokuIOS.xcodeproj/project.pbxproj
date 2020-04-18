@@ -22,7 +22,6 @@
 		AE733800240F588B004AC3F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE7337FF240F588B004AC3F6 /* Assets.xcassets */; };
 		AE733803240F588B004AC3F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE733801240F588B004AC3F6 /* LaunchScreen.storyboard */; };
 		AE73380F240F5943004AC3F6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73380E240F5943004AC3F6 /* Game.swift */; };
-		AE733811240F59F2004AC3F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733810240F59F2004AC3F6 /* User.swift */; };
 		AE733813240F5D88004AC3F6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733812240F5D88004AC3F6 /* Board.swift */; };
 		AE7338352415403C004AC3F6 /* BoardSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7338342415403C004AC3F6 /* BoardSegment.swift */; };
 		AEB2A7F92446D54700E38528 /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2A7F82446D54700E38528 /* FacebookCore.framework */; };
@@ -30,7 +29,6 @@
 		AEB2A7FD2446D54700E38528 /* FacebookShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2A7FC2446D54700E38528 /* FacebookShare.framework */; };
 		AEB2A800244776B600E38528 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2A7FE244776B600E38528 /* libsqlite3.0.tbd */; };
 		AEB2A801244776B600E38528 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2A7FF244776B600E38528 /* libsqlite3.tbd */; };
-		AEB2A803244777D400E38528 /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB2A802244777D400E38528 /* MyData.swift */; };
 		AEB2A80524477CE100E38528 /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB2A80424477CE100E38528 /* ScoreCell.swift */; };
 		AEB2A80724477D9C00E38528 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB2A80624477D9C00E38528 /* HighScoreViewController.swift */; };
 		AEB2A80B2447878B00E38528 /* ProjectDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = AEB2A80A2447878B00E38528 /* ProjectDatabase.db */; };
@@ -57,7 +55,6 @@
 		AE733802240F588B004AC3F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE733804240F588B004AC3F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE73380E240F5943004AC3F6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		AE733810240F59F2004AC3F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AE733812240F5D88004AC3F6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		AE7338342415403C004AC3F6 /* BoardSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSegment.swift; sourceTree = "<group>"; };
 		AEB2A7F82446D54700E38528 /* FacebookCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +62,6 @@
 		AEB2A7FC2446D54700E38528 /* FacebookShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB2A7FE244776B600E38528 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		AEB2A7FF244776B600E38528 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		AEB2A802244777D400E38528 /* MyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyData.swift; sourceTree = "<group>"; };
 		AEB2A80424477CE100E38528 /* ScoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
 		AEB2A80624477D9C00E38528 /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		AEB2A80A2447878B00E38528 /* ProjectDatabase.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ProjectDatabase.db; sourceTree = "<group>"; };
@@ -185,10 +181,8 @@
 				62C240F62412AC370092A3E9 /* MultiplayerGame.swift */,
 				62C240F72412AC370092A3E9 /* Player.swift */,
 				AE73380E240F5943004AC3F6 /* Game.swift */,
-				AE733810240F59F2004AC3F6 /* User.swift */,
 				AE733812240F5D88004AC3F6 /* Board.swift */,
 				AE7338342415403C004AC3F6 /* BoardSegment.swift */,
-				AEB2A802244777D400E38528 /* MyData.swift */,
 				AEB2A80424477CE100E38528 /* ScoreCell.swift */,
 			);
 			path = Classes;
@@ -321,9 +315,7 @@
 			files = (
 				6262BBE02443BBEC00ECEBCF /* GameViewController.swift in Sources */,
 				AEB2A80724477D9C00E38528 /* HighScoreViewController.swift in Sources */,
-				AE733811240F59F2004AC3F6 /* User.swift in Sources */,
 				62C240F82412AC370092A3E9 /* FirebaseAPI.swift in Sources */,
-				AEB2A803244777D400E38528 /* MyData.swift in Sources */,
 				AE7337FB240F588A004AC3F6 /* ViewController.swift in Sources */,
 				62C240F92412AC370092A3E9 /* MultiplayerGame.swift in Sources */,
 				62C240FA2412AC370092A3E9 /* Player.swift in Sources */,

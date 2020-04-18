@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var databaseName : String? = "ProjectDatabase.db"
     var databasePath : String?
-    var people : [MyData] = []
+    var players : [Player] = []
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //Reads data from database. Called upon with every run of app
     func readDataFromDatabase() {
         
-        people.removeAll()
+        players.removeAll()
         var db : OpaquePointer? = nil
         
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
@@ -65,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             print("Successfully opened connection to database at \(self.databasePath)")
             var queryStatement : OpaquePointer? = nil
-            let queryStatementString : String = "select * from users"
+            let queryStatementString : String = "SELECT * FROM users ORDER BY score ASC"
             if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
                 
                 while sqlite3_step(queryStatement) == SQLITE_ROW {
@@ -78,12 +78,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let name = String(cString: cname!)
                     
                     
-                    let data : MyData = MyData.init()
+                    let data : Player = Player.init()
                     
                     data.initWithData(theRow: id, theName: name, theScore: Int(score))
                     
                     
-                    people.append(data)
+                    players.append(data)
                     
                     print("Query result")
                     
@@ -105,7 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     //Inserts a new entry into the database
-    func insertIntoDatabase(person : MyData) -> Bool {
+    func insertIntoDatabase(player : Player) -> Bool {
         var db : OpaquePointer? = nil
         var returnCode : Bool = true
         
@@ -116,8 +116,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
                 
-                let nameStr = person.name! as NSString
-                let score = person.score!
+                let nameStr = player.getName() as NSString
+                let score = player.getScore()
                 
                 
                 sqlite3_bind_text(insertStatement, 1, nameStr.utf8String, -1, nil)

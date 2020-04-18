@@ -18,7 +18,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewWillAppear(_ animated: Bool) {
         game.board = Board()
-        game.player = Player(name: "Terry")
+        game.player = Player()
         game.generateBoard()
     }
     

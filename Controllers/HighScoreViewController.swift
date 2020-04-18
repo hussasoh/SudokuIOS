@@ -35,7 +35,7 @@ SharingDelegate {
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mainDelegate.people.count
+        return mainDelegate.players.count
         
     }
     
@@ -46,8 +46,8 @@ SharingDelegate {
         
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ScoreCell ?? ScoreCell(style: .default, reuseIdentifier: "cell")
         let rowNum = indexPath.row
-        tableCell.primaryLabel.text = mainDelegate.people[rowNum].name
-        tableCell.secondaryLabel.text = String(mainDelegate.people[rowNum].score!)
+        tableCell.primaryLabel.text = mainDelegate.players[rowNum].getName()
+        tableCell.secondaryLabel.text = String(mainDelegate.players[rowNum].getScore())
         tableCell.accessoryType = .disclosureIndicator
         return tableCell
     }
@@ -63,7 +63,7 @@ SharingDelegate {
             guard let url = URL(string: "https://github.com/hussasoh/SudokuIOS") else { return }
             let content = ShareLinkContent()
             content.contentURL = url
-            content.quote = "Take a look at our Sudoko App! My score was \(self.mainDelegate.people[rowNum].score!)!"
+            content.quote = "Take a look at our Sudoko App! My score was \(self.mainDelegate.players[rowNum].getScore())!"
             
             self.showShareDialog(content, mode: .automatic)
         }
