@@ -11,12 +11,12 @@ import Foundation
 class MenuOptions {
     
     private var musicOn : Bool
-    private var musicVolume : Int
+    private var musicVolume : Float
     private var effectsOn : Bool
-    private var effectsVolume : Int
+    private var effectsVolume : Float
     private var darkMode : Bool
     
-    init(musicOn : Bool, musicVolume : Int, effectsOn : Bool, effectsVolume : Int, darkMode : Bool) {
+    init(musicOn : Bool, musicVolume : Float, effectsOn : Bool, effectsVolume : Float, darkMode : Bool) {
         self.musicOn = musicOn
         self.musicVolume = musicVolume
         self.effectsOn = effectsOn
@@ -32,11 +32,11 @@ class MenuOptions {
         self.musicOn = musicOn
     }
     
-    func getMusicVolume() -> Int {
+    func getMusicVolume() -> Float {
         return self.musicVolume
     }
     
-    func setMusicVolume(musicVolume : Int) {
+    func setMusicVolume(musicVolume : Float) {
         self.musicVolume = musicVolume
     }
     
@@ -48,11 +48,11 @@ class MenuOptions {
         self.effectsOn = effectsOn
     }
     
-    func getEffectsVolume() -> Int {
+    func getEffectsVolume() -> Float {
         return self.effectsVolume
     }
     
-    func setEffectsVolume(effectsVolume : Int) {
+    func setEffectsVolume(effectsVolume : Float) {
         self.effectsVolume = effectsVolume
     }
     

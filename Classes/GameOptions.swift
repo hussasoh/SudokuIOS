@@ -11,11 +11,11 @@ import Foundation
 struct GameOptions: OptionSet {
     let rawValue: Int
     
-    static let normal = GameOptions(rawValue: 1 << 0)
-    static let timeAttack = GameOptions(rawValue: 1 << 1)
-    static let killer = GameOptions(rawValue: 1 << 2)
+    static let easy = GameOptions(rawValue: 1 << 0)
+    static let normal = GameOptions(rawValue: 1 << 1)
+    static let hard = GameOptions(rawValue: 1 << 2)
     static let background1 = GameOptions(rawValue: 1 << 3)
     static let background2 = GameOptions(rawValue: 1 << 4)
     
-    static let all: GameOptions = [.normal, .timeAttack, .killer, .background1, .background2]
+    static let all: GameOptions = [.easy, .normal, .hard, .background1, .background2]
 }

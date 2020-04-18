@@ -19,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var databaseName : String? = "ProjectDatabase.db"
     var databasePath : String?
     var people : [MyData] = []
+    var gameOptions : GameOptions = []
+    var menuOptions = MenuOptions(musicOn: true, musicVolume: 10, effectsOn: true, effectsVolume: 10, darkMode: true)
+    
+    // array that contains different game mode icons and background choices
+    var imgData = ["sudoku_easy.png", "sudoku_normal.png", "sudoku_hard.png", "watercolor.jpg", "clouds.jpg"]
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

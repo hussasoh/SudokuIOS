@@ -21,6 +21,9 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     private var lastTouched: IndexPath = IndexPath(item: -1, section: 0)
     
+    // instantiate app delegate object
+    let mainDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewWillAppear(_ animated: Bool) {
         game.board = Board()
         game.player = Player(name: "Terry")
@@ -32,6 +35,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         sudokuCollectionView?.layer.borderWidth = 2
         sudokuCollectionView?.layer.borderColor = UIColor.black.cgColor
+                
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

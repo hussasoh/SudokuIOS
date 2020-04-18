@@ -46,7 +46,7 @@
                                     <action selector="toggleMusicWithSender:" destination="GjB-zY-2hG" eventType="valueChanged" id="Bep-tu-I48"/>
                                 </connections>
                             </switch>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="Knp-Ti-4dl">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="Knp-Ti-4dl">
                                 <rect key="frame" x="83" y="222" width="249" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -78,6 +78,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OAb-Lk-oqf">
                                 <rect key="frame" x="184" y="502" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="toggleDarkModeWithSender:" destination="GjB-zY-2hG" eventType="valueChanged" id="zM1-v2-KgK"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -210,13 +213,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TE6-lF-0iM">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TE6-lF-0iM">
                                 <rect key="frame" x="20" y="180" width="374" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
+                                    <segment title="Easy"/>
                                     <segment title="Normal"/>
-                                    <segment title="Time Attack"/>
-                                    <segment title="Killer Sudoku"/>
+                                    <segment title="Hard"/>
                                 </segments>
                                 <connections>
                                     <action selector="modeValueChangeWithSender:" destination="yOy-Ul-W9O" eventType="valueChanged" id="MS3-ta-CNM"/>
@@ -233,7 +236,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rY1-o4-voR">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rY1-o4-voR">
                                 <rect key="frame" x="32" y="606" width="350" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
@@ -334,7 +337,7 @@
                         <viewLayoutGuide key="safeArea" id="zo3-7h-MNY"/>
                     </view>
                     <connections>
-                        <outlet property="labl" destination="Omv-Z2-Rk1" id="m3B-ao-vc7"/>
+                        <outlet property="labl" destination="Omv-Z2-Rk1" id="f3g-iA-fPx"/>
                         <outlet property="sudokuCollectionView" destination="vf2-Nt-b6P" id="q5S-3G-2oG"/>
                     </connections>
                 </viewController>

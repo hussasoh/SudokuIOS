@@ -33,12 +33,15 @@
 		BA3608C92449FCC000BB8266 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3608C82449FCC000BB8266 /* HighScoreViewController.swift */; };
 		BA600B47244A32A4006F1A47 /* MenuOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA600B46244A32A4006F1A47 /* MenuOptionsViewController.swift */; };
 		BA600B49244A3E3C006F1A47 /* sudoku_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = BA600B48244A3E3C006F1A47 /* sudoku_normal.png */; };
-		BA600B4B244A3EE1006F1A47 /* sudoku_timer.png in Resources */ = {isa = PBXBuildFile; fileRef = BA600B4A244A3EE1006F1A47 /* sudoku_timer.png */; };
-		BA600B4D244A3F51006F1A47 /* sudoku_killer.png in Resources */ = {isa = PBXBuildFile; fileRef = BA600B4C244A3F51006F1A47 /* sudoku_killer.png */; };
+		BA600B4D244A3F51006F1A47 /* sudoku_hard.png in Resources */ = {isa = PBXBuildFile; fileRef = BA600B4C244A3F51006F1A47 /* sudoku_hard.png */; };
 		BA600B51244A40C3006F1A47 /* clouds.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA600B50244A40C3006F1A47 /* clouds.jpg */; };
 		BA600B53244A48C3006F1A47 /* watercolor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA600B52244A48C3006F1A47 /* watercolor.jpg */; };
 		BA600B55244A4C8A006F1A47 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA600B54244A4C8A006F1A47 /* AVFoundation.framework */; };
 		BA600B58244A4CC1006F1A47 /* puzzle_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA600B57244A4CC1006F1A47 /* puzzle_music.mp3 */; };
+		BA600B59244B70CF006F1A47 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262BBDF2443BBEC00ECEBCF /* GameViewController.swift */; };
+		BA600B5A244B7196006F1A47 /* MenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF73F6241434C1003B27BB /* MenuOptions.swift */; };
+		BA600B5B244B7196006F1A47 /* GameOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF73F224142F6A003B27BB /* GameOptions.swift */; };
+		BA600B5D244B8AF9006F1A47 /* sudoku_easy.png in Resources */ = {isa = PBXBuildFile; fileRef = BA600B5C244B8AF9006F1A47 /* sudoku_easy.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,12 +74,12 @@
 		BA3608C82449FCC000BB8266 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		BA600B46244A32A4006F1A47 /* MenuOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionsViewController.swift; sourceTree = "<group>"; };
 		BA600B48244A3E3C006F1A47 /* sudoku_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sudoku_normal.png; sourceTree = "<group>"; };
-		BA600B4A244A3EE1006F1A47 /* sudoku_timer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sudoku_timer.png; sourceTree = "<group>"; };
-		BA600B4C244A3F51006F1A47 /* sudoku_killer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sudoku_killer.png; sourceTree = "<group>"; };
+		BA600B4C244A3F51006F1A47 /* sudoku_hard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sudoku_hard.png; sourceTree = "<group>"; };
 		BA600B50244A40C3006F1A47 /* clouds.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = clouds.jpg; sourceTree = "<group>"; };
 		BA600B52244A48C3006F1A47 /* watercolor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = watercolor.jpg; sourceTree = "<group>"; };
 		BA600B54244A4C8A006F1A47 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BA600B57244A4CC1006F1A47 /* puzzle_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = puzzle_music.mp3; sourceTree = "<group>"; };
+		BA600B5C244B8AF9006F1A47 /* sudoku_easy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sudoku_easy.png; sourceTree = "<group>"; };
 		BAAF73F224142F6A003B27BB /* GameOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptions.swift; sourceTree = "<group>"; };
 		BAAF73F6241434C1003B27BB /* MenuOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,10 +178,10 @@
 		AE73380C240F58D5004AC3F6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BA600B5C244B8AF9006F1A47 /* sudoku_easy.png */,
 				BA600B52244A48C3006F1A47 /* watercolor.jpg */,
 				BA600B50244A40C3006F1A47 /* clouds.jpg */,
-				BA600B4C244A3F51006F1A47 /* sudoku_killer.png */,
-				BA600B4A244A3EE1006F1A47 /* sudoku_timer.png */,
+				BA600B4C244A3F51006F1A47 /* sudoku_hard.png */,
 				BA600B48244A3E3C006F1A47 /* sudoku_normal.png */,
 			);
 			path = Images;
@@ -280,7 +283,7 @@
 			files = (
 				AE733803240F588B004AC3F6 /* LaunchScreen.storyboard in Resources */,
 				BA600B53244A48C3006F1A47 /* watercolor.jpg in Resources */,
-				BA600B4D244A3F51006F1A47 /* sudoku_killer.png in Resources */,
+				BA600B4D244A3F51006F1A47 /* sudoku_hard.png in Resources */,
 				BA600B51244A40C3006F1A47 /* clouds.jpg in Resources */,
 				62C24131241544D00092A3E9 /* GoogleService-Info.plist in Resources */,
 				BA3608C12449ECA100BB8266 /* ProjectDatabase.db in Resources */,
@@ -288,7 +291,7 @@
 				AEB2A80B2447878B00E38528 /* (null) in Resources */,
 				BA600B58244A4CC1006F1A47 /* puzzle_music.mp3 in Resources */,
 				AE733800240F588B004AC3F6 /* Assets.xcassets in Resources */,
-				BA600B4B244A3EE1006F1A47 /* sudoku_timer.png in Resources */,
+				BA600B5D244B8AF9006F1A47 /* sudoku_easy.png in Resources */,
 				AE7337FE240F588A004AC3F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +345,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA600B5A244B7196006F1A47 /* MenuOptions.swift in Sources */,
+				BA600B5B244B7196006F1A47 /* GameOptions.swift in Sources */,
+				BA600B59244B70CF006F1A47 /* GameViewController.swift in Sources */,
 				AE733811240F59F2004AC3F6 /* User.swift in Sources */,
 				62C240F82412AC370092A3E9 /* FirebaseAPI.swift in Sources */,
 				AEB2A803244777D400E38528 /* (null) in Sources */,

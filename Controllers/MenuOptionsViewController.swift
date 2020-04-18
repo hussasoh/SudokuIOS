@@ -17,11 +17,16 @@ class MenuOptionsViewController: UIViewController {
     
     var soundPlayer : AVAudioPlayer?
     
+    // instantiate app delegate object
+    let mainDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        dark?.isOn = false;
+        
+        dark?.isOn = (mainDelegate.menuOptions.getDarkMode())
+        musicSwitch.isOn = (mainDelegate.menuOptions.getMusicOn())
+        checkDark()
     }
     
     // music will play when options menu has appeared
@@ -33,7 +38,11 @@ class MenuOptionsViewController: UIViewController {
         soundPlayer?.currentTime = 0
         soundPlayer?.volume = musicSlider.value
         soundPlayer?.numberOfLoops = -1
-        soundPlayer?.play()
+        
+        if (musicSwitch.isOn) {
+            soundPlayer?.play()
+        }
+        
         
     }
     
@@ -42,9 +51,11 @@ class MenuOptionsViewController: UIViewController {
         
         if (musicSwitch?.isOn == true) {
             soundPlayer?.play()
+            mainDelegate.menuOptions.setMusicOn(musicOn: true)
         }
         else {
             soundPlayer?.stop()
+            mainDelegate.menuOptions.setMusicOn(musicOn: false)
         }
     }
     
@@ -52,6 +63,25 @@ class MenuOptionsViewController: UIViewController {
     @IBAction func volumeDidChange(sender : UISlider) {
         
         soundPlayer?.volume = musicSlider.value
+        mainDelegate.menuOptions.setMusicVolume(musicVolume: musicSlider.value)
+    }
+    
+    // toggles "dark mode"
+    @IBAction func toggleDarkMode(sender: UISwitch) {
+        
+        checkDark()
+        
+    }
+    
+    func checkDark() {
+        if (dark?.isOn == true) {
+            view.backgroundColor = .black
+            mainDelegate.menuOptions.setDarkMode(darkMode: true)
+        }
+        else {
+            view.backgroundColor = .white
+            mainDelegate.menuOptions.setDarkMode(darkMode: false)
+        }
     }
     /*
     // MARK: - Navigation
