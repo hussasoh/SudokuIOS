@@ -14,6 +14,10 @@
 		62C240FA2412AC370092A3E9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F72412AC370092A3E9 /* Player.swift */; };
 		62C24131241544D00092A3E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62C24130241544D00092A3E9 /* GoogleService-Info.plist */; };
 		6782FAE90972118E726BA2E2 /* Pods_SudokuIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6FBDD0E3047E94ED87122B5 /* Pods_SudokuIOS.framework */; };
+		AE1B6182244A0B7800023D05 /* TimerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1B6181244A0B7800023D05 /* TimerHandler.swift */; };
+		AE1B6187244A15B000023D05 /* SudokuLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = AE1B6186244A15B000023D05 /* SudokuLogo.png */; };
+		AE1B6189244A18B200023D05 /* Gradient-App-Background.png in Resources */ = {isa = PBXBuildFile; fileRef = AE1B6188244A18B200023D05 /* Gradient-App-Background.png */; };
+		AE1B618F244A1BF800023D05 /* MarbleBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = AE1B618E244A1BF800023D05 /* MarbleBackground.png */; };
 		AE7337F9240F588A004AC3F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7337F8240F588A004AC3F6 /* AppDelegate.swift */; };
 		AE7337FB240F588A004AC3F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7337FA240F588A004AC3F6 /* ViewController.swift */; };
 		AE7337FE240F588A004AC3F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7337FC240F588A004AC3F6 /* Main.storyboard */; };
@@ -41,6 +45,10 @@
 		62C240F72412AC370092A3E9 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		62C24130241544D00092A3E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7BCE4EE8C0A93C912D20CD5A /* Pods-SudokuIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudokuIOS.release.xcconfig"; path = "Target Support Files/Pods-SudokuIOS/Pods-SudokuIOS.release.xcconfig"; sourceTree = "<group>"; };
+		AE1B6181244A0B7800023D05 /* TimerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHandler.swift; sourceTree = "<group>"; };
+		AE1B6186244A15B000023D05 /* SudokuLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SudokuLogo.png; sourceTree = "<group>"; };
+		AE1B6188244A18B200023D05 /* Gradient-App-Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gradient-App-Background.png"; sourceTree = "<group>"; };
+		AE1B618E244A1BF800023D05 /* MarbleBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MarbleBackground.png; sourceTree = "<group>"; };
 		AE7337F5240F588A004AC3F6 /* SudokuIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SudokuIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7337F8240F588A004AC3F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE7337FA240F588A004AC3F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +166,9 @@
 		AE73380C240F58D5004AC3F6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AE1B618E244A1BF800023D05 /* MarbleBackground.png */,
+				AE1B6188244A18B200023D05 /* Gradient-App-Background.png */,
+				AE1B6186244A15B000023D05 /* SudokuLogo.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -174,6 +185,7 @@
 				AE7338342415403C004AC3F6 /* BoardSegment.swift */,
 				AEB2A802244777D400E38528 /* MyData.swift */,
 				AEB2A80424477CE100E38528 /* ScoreCell.swift */,
+				AE1B6181244A0B7800023D05 /* TimerHandler.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -248,9 +260,12 @@
 			files = (
 				AE733803240F588B004AC3F6 /* LaunchScreen.storyboard in Resources */,
 				62C24131241544D00092A3E9 /* GoogleService-Info.plist in Resources */,
+				AE1B618F244A1BF800023D05 /* MarbleBackground.png in Resources */,
 				AEB2A80B2447878B00E38528 /* ProjectDatabase.db in Resources */,
+				AE1B6187244A15B000023D05 /* SudokuLogo.png in Resources */,
 				AE733800240F588B004AC3F6 /* Assets.xcassets in Resources */,
 				AE7337FE240F588A004AC3F6 /* Main.storyboard in Resources */,
+				AE1B6189244A18B200023D05 /* Gradient-App-Background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6262BBE02443BBEC00ECEBCF /* GameViewController.swift in Sources */,
+				AE1B6182244A0B7800023D05 /* TimerHandler.swift in Sources */,
 				AEB2A80724477D9C00E38528 /* HighScoreViewController.swift in Sources */,
 				AE733811240F59F2004AC3F6 /* User.swift in Sources */,
 				62C240F82412AC370092A3E9 /* FirebaseAPI.swift in Sources */,

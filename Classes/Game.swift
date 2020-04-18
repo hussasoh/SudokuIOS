@@ -12,16 +12,35 @@ class Game {
     
     var player: Player?
     var board : Board?
-    var solved: Bool = false    // flag true if game is finished or false if still in progress
-    var started: Bool = false
-    var givenCells = [(Int)]()
+    
+    var solved: Bool = false  // flag true if game is finished or false if still in progress
+    private var started: Bool = false
+    private var givenCells = [(Int)]()
+    
+    private var timer: Timer
+    private var isTimerOn : Bool = false
+    
+    var seconds: Int
+    var minutes: Int
+    var hour : Int
     
     init(player: Player, board: Board) {
         self.player = player
         self.board = board
+        timer = Timer()
+        seconds = 0
+        minutes = 0
+        hour = 0
     }
-    init() {
-        
+    
+    //testing purposes
+    init(){
+        self.player = Player(name: "Sohaib")
+        self.board = Board()
+        timer = Timer()
+        seconds = 0
+        minutes = 0
+        hour = 0
     }
     
     func getBoard() -> Board {
@@ -38,16 +57,18 @@ class Game {
     }
     
     func startGame() {
-
         started = true
+        self.startTimer()
     }
     
     func stopGame() {
-        
+        started = false
+        self.stopTimer()
     }
     
     func resumeGame() {
-        
+        started = true
+        self.startTimer()
     }
     
     func saveGameStatus() {
@@ -55,13 +76,16 @@ class Game {
     }
     
     // test if there is an error on the board with given index
-    func checkIfValid(index: Int, number: Int) -> Int {
+    func checkIfValid(index: Int, number: Int, initialize: Bool) -> Int {
         // get the coordinates of the param index
         let coords = board?.getCordinatesFromIndex(Index: index)
-        // test for duplicates in all columns on same row
-        if(board?.getNumberAt(RowIndex: coords!.RowIndex, ColIndex: coords!.ColIndex) == number){
-            return -4
+        
+        if !initialize {
+            if(board?.getNumberAt(RowIndex: coords!.RowIndex, ColIndex: coords!.ColIndex) == number){
+                return -4
+            }
         }
+        // test for duplicates in all columns on same row
         for col in 0..<9 {
             if board?.getNumberAt(RowIndex: coords!.RowIndex, ColIndex: col) == number {
                 print("Dup found: (\(String(describing: coords!.RowIndex)), \(String(describing: coords!.ColIndex))) vs. (\(String(describing: coords!.RowIndex)), \(col))")
@@ -75,9 +99,6 @@ class Game {
                 return -2
             }
         }
-        // see if ints round up or down or what
-        let printInt = Int(5 / 2)
-        print("5 / 2 = \(printInt)")
         
         // for current segment in grid,
         var startRow: Int = 0
@@ -143,57 +164,43 @@ class Game {
         return true
     }
     
+    //generates the initialized board
     func generateBoard() {
-        // clear board
-        for i in 0..<board!.getBoard2dArray().count {
-            board!.setNumberAt(index: i, number: 0)
+        // make sure the board setup includes one number in its row and column
+        for Row in 0 ..< 9{
+            for col in 0..<9{
+                let index = board?.getIndexFromCordinates(RowIndex: Row, ColIndex: col)
+                let num = board?.getNumberAt(index: index!)
+                
+                if(num != 0){
+                    let returncode = self.checkIfValid(index: index!, number: num!,initialize: true)
+                    
+                    if(returncode == -1){
+                        //same number in row
+                        for possibleNumber in 0..<9{
+                            let isrightNumber = self.checkIfValid(index: index!, number: possibleNumber,initialize: true)
+                            if(isrightNumber == 1){
+                                board?.setNumberAt(index: index!, number: possibleNumber)
+                                break
+                            }
+                        }
+                    }
+                    
+                    if(returncode == -2){
+                        //same number in column
+                        for possibleNumber in 0..<9{
+                            let isrightNumber = self.checkIfValid(index: index!, number: possibleNumber,initialize: true)
+                            if(isrightNumber == 1){
+                                board?.setNumberAt(index: index!, number: possibleNumber)
+                            }
+                        }
+                    }
+                }
+                
+                
+            }
+            
         }
-        // hardcoded puzzle for debugging (we know the solution)
-        board!.setNumberAt(RowIndex: 0, ColIndex: 2, number: 8)
-        board!.setNumberAt(RowIndex: 0, ColIndex: 7, number: 2)
-        
-        board!.setNumberAt(RowIndex: 1, ColIndex: 0, number: 1)
-        board!.setNumberAt(RowIndex: 1, ColIndex: 1, number: 2)
-        board!.setNumberAt(RowIndex: 1, ColIndex: 4, number: 8)
-        board!.setNumberAt(RowIndex: 1, ColIndex: 7, number: 9)
-        board!.setNumberAt(RowIndex: 1, ColIndex: 8, number: 4)
-        
-        board!.setNumberAt(RowIndex: 2, ColIndex: 0, number: 6)
-        board!.setNumberAt(RowIndex: 2, ColIndex: 3, number: 9)
-        board!.setNumberAt(RowIndex: 2, ColIndex: 6, number: 8)
-        board!.setNumberAt(RowIndex: 2, ColIndex: 7, number: 3)
-       
-        board!.setNumberAt(RowIndex: 3, ColIndex: 0, number: 7)
-        board!.setNumberAt(RowIndex: 3, ColIndex: 3, number: 6)
-        board!.setNumberAt(RowIndex: 3, ColIndex: 4, number: 3)
-        board!.setNumberAt(RowIndex: 3, ColIndex: 5, number: 5)
-        
-        board!.setNumberAt(RowIndex: 4, ColIndex: 0, number: 4)
-        board!.setNumberAt(RowIndex: 4, ColIndex: 2, number: 6)
-        board!.setNumberAt(RowIndex: 4, ColIndex: 3, number: 2)
-        board!.setNumberAt(RowIndex: 4, ColIndex: 5, number: 7)
-        board!.setNumberAt(RowIndex: 4, ColIndex: 6, number: 9)
-        board!.setNumberAt(RowIndex: 4, ColIndex: 8, number: 3)
-        
-        board!.setNumberAt(RowIndex: 5, ColIndex: 3, number: 8)
-        board!.setNumberAt(RowIndex: 5, ColIndex: 4, number: 4)
-        board!.setNumberAt(RowIndex: 5, ColIndex: 5, number: 9)
-        board!.setNumberAt(RowIndex: 5, ColIndex: 8, number: 6)
-        
-        board!.setNumberAt(RowIndex: 6, ColIndex: 1, number: 4)
-        board!.setNumberAt(RowIndex: 6, ColIndex: 2, number: 2)
-        board!.setNumberAt(RowIndex: 6, ColIndex: 5, number: 8)
-        board!.setNumberAt(RowIndex: 6, ColIndex: 8, number: 9)
-        
-        board!.setNumberAt(RowIndex: 7, ColIndex: 0, number: 9)
-        board!.setNumberAt(RowIndex: 7, ColIndex: 1, number: 6)
-        board!.setNumberAt(RowIndex: 7, ColIndex: 4, number: 5)
-        board!.setNumberAt(RowIndex: 7, ColIndex: 7, number: 8)
-        board!.setNumberAt(RowIndex: 7, ColIndex: 8, number: 1)
-        
-        board!.setNumberAt(RowIndex: 8, ColIndex: 1, number: 3)
-        board!.setNumberAt(RowIndex: 8, ColIndex: 6, number: 5)
-        
         // for every puzzle number set, mark it in our givenCells array
         for i in 0..<(9 * 9) {
             if (board?.getNumberAt(index: i))! > 0 {
@@ -210,5 +217,30 @@ class Game {
         } else {
             return false
         }
+    }
+    
+    private func startTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(Game.updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    //function for incrememting time
+    @objc func updateTimer(){
+        seconds += 1
+        
+        if(seconds == 60){
+            seconds = 0
+            minutes += 1
+        }
+        
+        if(minutes == 60){
+            minutes = 0
+            hour += 1
+        }
+    }
+    
+    //stopping the timer
+    private func stopTimer(){
+        isTimerOn = false
+        timer.invalidate()
     }
 }

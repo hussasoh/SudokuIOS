@@ -10,20 +10,23 @@ import UIKit
 
 class GameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
-    @IBOutlet var labl : UILabel?
+    @IBOutlet var warningLabl : UILabel?
+    @IBOutlet var timerLbl: UILabel?
     @IBOutlet var sudokuCollectionView : UICollectionView?
     
+    //saves the status of the current game
+    @IBAction func SaveGame(sender: UIButton){
+        
+    }
+    
     private var game: Game = Game()
+    
     
     private var OldCell  = UICollectionViewCell()
     private var OldCellTextField = UITextField()
     private var OldCellCordinates = Cordinates(RowIndex: -1, ColIndex: -1)
     
-    private var lastTouched: IndexPath = IndexPath(item: -1, section: 0)
-    
     override func viewWillAppear(_ animated: Bool) {
-        game.board = Board()
-        game.player = Player(name: "Terry")
         game.generateBoard()
     }
     
@@ -32,6 +35,16 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         sudokuCollectionView?.layer.borderWidth = 2
         sudokuCollectionView?.layer.borderColor = UIColor.black.cgColor
+        game.startGame()
+        
+        Timer.scheduledTimer(withTimeInterval: 1.0,
+                             repeats: true,
+                             block: {_ in
+                                let secs = String(format: "%02d",self.game.seconds)
+                                let mins = String(format: "%02d",self.game.minutes)
+                                let hrs = String(format: "%02d",self.game.hour)
+                                self.timerLbl?.text = "Timer: \(hrs): \(mins): \(secs)"
+                                })
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -39,7 +52,10 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if(OldCellCordinates.RowIndex != -1 && OldCellCordinates.ColIndex != -1){
             
             if(textField.text!.count != 0){
-                let returnCode = game.checkIfValid(index: lastTouched.item, number: Int(String(textField.text!))!)
+                let itemNumber = game.board?.getIndexFromCordinates(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex)
+                
+                let returnCode = game.checkIfValid(index: itemNumber!, number: Int(String(textField.text!))!,initialize: false)
+                
                 if(returnCode == 1){
                     game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: Int(String(textField.text!))!)
                     
@@ -47,7 +63,8 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     OldCell.layer.borderWidth = 0.5
                     
                     if game.checkIfSolved() {
-                        labl?.text = "You win!"
+                        warningLabl?.text = "You win!"
+                        game.stopGame()
                     }
                 }
                  else if returnCode == -1 {
@@ -55,25 +72,25 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: 0)
                     OldCell.backgroundColor = .green
                     OldCell.layer.borderWidth = 0.5
-                    labl?.text = "Number exists in row!"
+                    warningLabl?.text = "Number exists in row!"
                 } else if returnCode == -2 {
                     textField.text?.removeAll()
                     game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: 0)
                     OldCell.backgroundColor = .green
                     OldCell.layer.borderWidth = 0.5
-                    labl?.text = "Number exists in column!"
+                    warningLabl?.text = "Number exists in column!"
                 } else if returnCode == -3 {
                     textField.text?.removeAll()
                     game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: 0)
                     OldCell.backgroundColor = .green
                     OldCell.layer.borderWidth = 0.5
-                    labl?.text = "Number exists in segment!"
+                    warningLabl?.text = "Number exists in segment!"
                 }
                 else if( returnCode == -4){
                     textField.text? = OldCellTextField.text!
                     OldCell.backgroundColor = .cyan
                     OldCell.layer.borderWidth = 0.5
-                    labl?.text = "This Number is already at this Location!"
+                    warningLabl?.text = "This Number is already at this Location!"
                 }
             }
             else{
@@ -113,7 +130,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 textField.text?.removeAll()
             }
         }
-        return string == string.filter("0123456789".contains) && textField.text!.count < 1
+        return string == string.filter("123456789".contains) && textField.text!.count < 1
     }
     
     // define the content of each cell
@@ -134,6 +151,8 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         // if cell is a given cell, colour it grey
         if game.isCellGiven(index: indexPath.item) {
+            let num = game.getBoard().getNumberAt(index: indexPath.item)
+            cellTextField.text = String(num)
             cell.backgroundColor = .lightGray
             cell.isUserInteractionEnabled = false
         }
@@ -158,7 +177,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // show the coord of the selected cell on a label
             let cord = game.getBoard().getCordinatesFromIndex(Index: (indexPath.item))
-            labl?.text = "(\(cord.RowIndex),\(cord.ColIndex)): \(game.getBoard().getNumberAt(RowIndex: cord.RowIndex, ColIndex: cord.ColIndex))"
+            warningLabl?.text = "(\(cord.RowIndex),\(cord.ColIndex)): \(game.getBoard().getNumberAt(RowIndex: cord.RowIndex, ColIndex: cord.ColIndex))"
         
             var _ = textFieldShouldReturn(OldCellTextField)
             OldCellTextField.isEnabled = false
@@ -175,11 +194,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
             OldCell = touchedCell!
             OldCellTextField = textfield
             OldCellCordinates = cord
-            
-            
-            
-            // track the index path of the most recently touched cell
-            lastTouched = indexPath
+        
         }
     
 }
