@@ -108,9 +108,9 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
             let nameField: UITextField? = alert.textFields![0]
             // if the name field has text in it, save a player with it in app delegate
             if !nameField!.text!.isEmpty {
-                self.mainDelegate.currentPlayer = Player(name: nameField!.text!)
+                self.mainDelegate.currentPlayer = Player.init(name: nameField!.text!)
             } else {
-                self.mainDelegate.currentPlayer = Player(name: "Unnamed")
+                self.mainDelegate.currentPlayer = Player.init(name: "Unnamed")
             }
             // now send the segue
             self.performSegue(withIdentifier: "startGameSegue", sender: nil)

@@ -56,9 +56,8 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     // if game board has been solved
                     if game.checkIfSolved() {
                         // save the score and display a win message
-                        let newScore = MyData.init()
-                        newScore.initWithData(theRow: 0, theName: mainDelegate.currentPlayer!.getName(), theScore: 0)
-                        if mainDelegate.insertIntoDatabase(person: newScore) {
+                        mainDelegate.currentPlayer!.setScore(score: 0)
+                        if mainDelegate.insertIntoDatabase(player: mainDelegate.currentPlayer!) {
                             lblMessage!.text = "You win! Score has been saved."
                         } else {
                             lblMessage!.text = "You win! Score could not be saved."

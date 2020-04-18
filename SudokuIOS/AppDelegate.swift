@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var databasePath : String?
     
     // array of scores and their winners' names
-    var people : [MyData] = []
+    var players : [Player] = []
     
     // audio players for music and sound effects
     var musicPlayer : AVAudioPlayer? = nil  // audio player for the puzzle music
@@ -75,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //Reads data from database. Called upon with every run of app
     func readDataFromDatabase() {
         
-        people.removeAll()
+        players.removeAll()
         var db : OpaquePointer? = nil
         
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
@@ -96,12 +96,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let name = String(cString: cname!)
                     
                     
-                    let data : MyData = MyData.init()
+                    let data : Player = Player.init()
                     
                     data.initWithData(theRow: id, theName: name, theScore: Int(score))
                     
                     
-                    people.append(data)
+                    players.append(data)
                     
                     print("Query result")
                     
@@ -123,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     //Inserts a new entry into the database
-    func insertIntoDatabase(person : MyData) -> Bool {
+    func insertIntoDatabase(player : Player) -> Bool {
         var db : OpaquePointer? = nil
         var returnCode : Bool = true
         
@@ -134,8 +134,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
                 
-                let nameStr = person.name! as NSString
-                let score = person.score!
+                let nameStr = player.getName() as NSString
+                let score = player.getScore()
                 
                 
                 sqlite3_bind_text(insertStatement, 1, nameStr.utf8String, -1, nil)
