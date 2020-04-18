@@ -42,6 +42,7 @@
 		BA600B5A244B7196006F1A47 /* MenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF73F6241434C1003B27BB /* MenuOptions.swift */; };
 		BA600B5B244B7196006F1A47 /* GameOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF73F224142F6A003B27BB /* GameOptions.swift */; };
 		BA600B5D244B8AF9006F1A47 /* sudoku_easy.png in Resources */ = {isa = PBXBuildFile; fileRef = BA600B5C244B8AF9006F1A47 /* sudoku_easy.png */; };
+		BA600B5F244BA7D3006F1A47 /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA600B5E244BA7D3006F1A47 /* click.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		BA600B54244A4C8A006F1A47 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BA600B57244A4CC1006F1A47 /* puzzle_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = puzzle_music.mp3; sourceTree = "<group>"; };
 		BA600B5C244B8AF9006F1A47 /* sudoku_easy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sudoku_easy.png; sourceTree = "<group>"; };
+		BA600B5E244BA7D3006F1A47 /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
 		BAAF73F224142F6A003B27BB /* GameOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptions.swift; sourceTree = "<group>"; };
 		BAAF73F6241434C1003B27BB /* MenuOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,6 +218,7 @@
 		BA600B56244A4C99006F1A47 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				BA600B5E244BA7D3006F1A47 /* click.mp3 */,
 				BA600B57244A4CC1006F1A47 /* puzzle_music.mp3 */,
 			);
 			path = Sounds;
@@ -284,6 +287,7 @@
 				AE733803240F588B004AC3F6 /* LaunchScreen.storyboard in Resources */,
 				BA600B53244A48C3006F1A47 /* watercolor.jpg in Resources */,
 				BA600B4D244A3F51006F1A47 /* sudoku_hard.png in Resources */,
+				BA600B5F244BA7D3006F1A47 /* click.mp3 in Resources */,
 				BA600B51244A40C3006F1A47 /* clouds.jpg in Resources */,
 				62C24131241544D00092A3E9 /* GoogleService-Info.plist in Resources */,
 				BA3608C12449ECA100BB8266 /* ProjectDatabase.db in Resources */,

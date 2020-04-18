@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var databaseName : String? = "ProjectDatabase.db"
     var databasePath : String?
     var people : [MyData] = []
-    var gameOptions : GameOptions = []
-    var menuOptions = MenuOptions(musicOn: true, musicVolume: 10, effectsOn: true, effectsVolume: 10, darkMode: true)
+    var gameOptions : GameOptions = [.easy, .background1]
+    var menuOptions = MenuOptions(musicOn: true, musicVolume: 10, effectsOn: true, effectsVolume: 10, darkMode: false)
     
     // array that contains different game mode icons and background choices
     var imgData = ["sudoku_easy.png", "sudoku_normal.png", "sudoku_hard.png", "watercolor.jpg", "clouds.jpg"]
@@ -234,7 +234,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
     
 }
 

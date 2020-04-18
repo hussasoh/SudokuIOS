@@ -63,10 +63,16 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z86-mt-s8U">
                                 <rect key="frame" x="183" y="331" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="toggleEffectsWithSender:" destination="GjB-zY-2hG" eventType="valueChanged" id="JWv-G8-6ij"/>
+                                </connections>
                             </switch>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="rvb-r9-BRw">
                                 <rect key="frame" x="82" y="383" width="249" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="effectsDidChangeWithSender:" destination="GjB-zY-2hG" eventType="valueChanged" id="J4y-PM-MC2"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dark Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iob-sE-sRI">
                                 <rect key="frame" x="90" y="459" width="233" height="24"/>
@@ -88,6 +94,8 @@
                     </view>
                     <connections>
                         <outlet property="dark" destination="OAb-Lk-oqf" id="eVQ-Dp-wdN"/>
+                        <outlet property="effectsSlider" destination="rvb-r9-BRw" id="cnK-gK-j3o"/>
+                        <outlet property="effectsSwitch" destination="z86-mt-s8U" id="MIV-iD-Zei"/>
                         <outlet property="musicSlider" destination="Knp-Ti-4dl" id="Nuf-Rr-1uq"/>
                         <outlet property="musicSwitch" destination="gwM-G9-CsT" id="68G-Bj-eEl"/>
                     </connections>
