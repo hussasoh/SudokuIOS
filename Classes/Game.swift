@@ -10,11 +10,11 @@ import Foundation
 
 class Game {
     
-    var player: Player?
-    var board : Board? 
-    var solved: Bool = false  // flag true if game is finished or false if still in progress
-    private var started: Bool = false
-    private var givenCells = [(Int)]()
+    var player: Player?         // player who is playing the game
+    var board : Board?          // board representing the puzzle grid
+    private var started: Bool = false   // flag true if game has started, false if not
+    private var solved: Bool = false    // flag true if game is finished, false if not
+    private var givenCells = [(Int)]()  // array of all cells provided at beginning of game
     
     private var timer: Timer
     private var isTimerOn : Bool = false
@@ -23,6 +23,7 @@ class Game {
     var minutes: Int
     var hour : Int
     
+    // initializers
     init(player: Player, board: Board) {
         self.player = player
         self.board = board
@@ -32,14 +33,15 @@ class Game {
         hour = 0
     }
     
-    //testing purposes
-    init(){
+    // for testing purposes
+    init() {
         timer = Timer()
         seconds = 0
         minutes = 0
         hour = 0
     }
     
+    // getters and setters
     func getPlayer() -> Player {
         return player!
     }
@@ -77,81 +79,81 @@ class Game {
         self.givenCells = givenCells
     }
     
-    
     // test if there is an error on the board with given index
     func checkIfValid(index: Int, number: Int, initialize: Bool) -> Int {
         // get the coordinates of the param index
-        let coords = board?.getCordinatesFromIndex(Index: index)
+        let coords = getBoard().getCordinatesFromIndex(Index: index)
         
         if !initialize {
-            if(board?.getNumberAt(RowIndex: coords!.RowIndex, ColIndex: coords!.ColIndex) == number){
+            if(getBoard().getNumberAt(RowIndex: coords.RowIndex, ColIndex: coords.ColIndex) == number){
                 return -4
             }
         }
-        // test for duplicates in all columns on same row
-        for col in 0..<9 {
-            if board?.getNumberAt(RowIndex: coords!.RowIndex, ColIndex: col) == number {
-                print("Dup found: (\(String(describing: coords!.RowIndex)), \(String(describing: coords!.ColIndex))) vs. (\(String(describing: coords!.RowIndex)), \(col))")
+        
+        // test for duplicates in all columns on same row as index
+        for col in 0 ..< 9 {
+            if getBoard().getNumberAt(RowIndex: coords.RowIndex, ColIndex: col) == number {
+                // duplicate value detected in same row as index
                 return -1
             }
         }
-        // test for duplicates in all rows on same column
-        for row in 0..<9 {
-            if board?.getNumberAt(RowIndex: row, ColIndex: coords!.ColIndex) == number {
-                print("Dup found: (\(String(describing: coords!.RowIndex)), \(String(describing: coords!.ColIndex))) vs. (\(String(describing: row)), \(coords!.ColIndex))")
+        // test for duplicates in all rows on same column as index
+        for row in 0 ..< 9 {
+            if getBoard().getNumberAt(RowIndex: row, ColIndex: coords.ColIndex) == number {
+                // duplicate value detected in same column as index
                 return -2
             }
         }
         
-        // for current segment in grid,
+        // test for duplicates in all cells of the same segment as index
         var startRow: Int = 0
         var startCol: Int = 0
-        if coords!.RowIndex < 3 {
+        if coords.RowIndex < 3 {
             startRow = 0
-        } else if coords!.RowIndex < 6 {
+        } else if coords.RowIndex < 6 {
             startRow = 3
-        } else if coords!.RowIndex < 9 {
+        } else if coords.RowIndex < 9 {
             startRow = 6
         }
-        if coords!.ColIndex < 3 {
+        if coords.ColIndex < 3 {
             startCol = 0
-        } else if coords!.ColIndex < 6 {
+        } else if coords.ColIndex < 6 {
             startCol = 3
-        } else if coords!.ColIndex < 9 {
+        } else if coords.ColIndex < 9 {
             startCol = 6
         }
-        for row in startRow..<startRow + 3 {
-            for col in startCol..<startCol + 3 {
-                if board?.getNumberAt(RowIndex: row, ColIndex: col) == number {
-                    print("Dup of \(number) found: (\(row), \(col))")
+        for row in startRow ..< startRow + 3 {
+            for col in startCol ..< startCol + 3 {
+                if getBoard().getNumberAt(RowIndex: row, ColIndex: col) == number {
+                    // duplicate detected in same segment as cell at index
                     return -3
                 }
             }
         }
         
+        // return success value
         return 1
     }
     
-    // test row by row, col by col, and by segment to see if puzzle has been solved
+    // test row by row to determine whether puzzle has been solved
     func checkIfSolved() -> Bool {
         // define constants
         let rowLength = 9
         let colLength = 9
         
         // for every row in grid,
-        for row in 0..<rowLength {
+        for row in 0 ..< rowLength {
             // test that each number appears once
-            for testNum in 1..<rowLength {
+            for testNum in 1 ..< rowLength {
                 var found: Bool = false
-                for col in 0..<colLength {
+                for col in 0 ..< colLength {
                     // if the testNum is found, test next num
-                    if board?.getNumberAt(RowIndex: row, ColIndex: col) == testNum {
+                    if getBoard().getNumberAt(RowIndex: row, ColIndex: col) == testNum {
                         found = true
                         break
                     }
                     // if a 0 is found, puzzle is not solved
-                    if board?.getNumberAt(RowIndex: row, ColIndex: col) == 0 {
-                        print("Zero found: (\(row), \(col))")
+                    if getBoard().getNumberAt(RowIndex: row, ColIndex: col) == 0 {
                         return false
                     }
                 }
@@ -164,6 +166,7 @@ class Game {
         
         // if haven't returned false by now, puzzle has been solved
         solved = true
+        
         return true
     }
     
@@ -214,23 +217,6 @@ class Game {
         }
     }
     
-    func isCellGiven(index: Int) -> Bool {
-        if givenCells[index] == 1 {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    // return true if cell at index has a user-entered value
-    func isUserCell(index: Int) -> Bool {
-        if !isCellGiven(index: index) && getBoard().getNumberAt(index: index) > 0 {
-            return true
-        } else {
-            return false
-        }
-    }
-    
     // returns a board created with a given 2D array
     func createBoardFrom2dArray(boardArray: [[Int]]) {
         // create a 3x3 grid of BoardSegments
@@ -274,6 +260,9 @@ class Game {
         
         // record the given cells of the board
         recordGivenCells()
+        
+        // also add the 2D array to the board
+        getBoard().setBoardArray(boardArray: boardArray)
     }
 
     // record all entered cell values of current board as given cells
@@ -286,6 +275,24 @@ class Game {
             else {
                 givenCells.append(0)
             }
+        }
+    }
+    
+    // return true if cell at index was given at the start of game
+    func isCellGiven(index: Int) -> Bool {
+        if givenCells[index] == 1 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    // return true if cell at index has a user-entered value
+    func isUserCell(index: Int) -> Bool {
+        if !isCellGiven(index: index) && getBoard().getNumberAt(index: index) > 0 {
+            return true
+        } else {
+            return false
         }
     }
     

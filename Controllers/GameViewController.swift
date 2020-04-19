@@ -27,10 +27,6 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private var OldCellTextField = UITextField()
     private var OldCellCordinates = Cordinates(RowIndex: -1, ColIndex: -1)
     
-    override func viewWillAppear(_ animated: Bool) {
-        game.generateBoard()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,8 +74,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
                             warningLabl!.text = "You win! Score could not be saved."
                         }
                     }
-                }
-                 else if returnCode == -1 {
+                } else if returnCode == -1 {
                     textField.text?.removeAll()
                     game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: 0)
                     OldCell.backgroundColor = .green
@@ -156,10 +151,6 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // define the cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as UICollectionViewCell
         
-        // if the cell is on the edge of a segment, thicken its border
-//        if indexPath.item % 9 == 3
-//        cell.layer.borderWidth = 1.0
-        
         // define the label that will display the number on the cell
         let cellTextField = UITextField(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cell.frame.size.height))
         cellTextField.textAlignment = .center
@@ -169,8 +160,6 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         // if cell is a given cell, colour it grey
         if game.isCellGiven(index: indexPath.item) {
-            let num = game.getBoard().getNumberAt(index: indexPath.item)
-            cellTextField.text = String(num)
             cell.backgroundColor = .lightGray
             cell.isUserInteractionEnabled = false
         }
