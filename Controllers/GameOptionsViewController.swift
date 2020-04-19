@@ -136,7 +136,12 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
             // get the game view controller
             let gameVC = segue.destination as! GameViewController
             // get the saved game progress
+            print("loading progress...")
             let gameProgress = mainDelegate.loadProgress()
+            print("loaded progress...")
+//            if gameProgress.getBoard() {
+//                
+//            }
             // delete the progress from storage now that it's loaded
             mainDelegate.deleteProgress()
             

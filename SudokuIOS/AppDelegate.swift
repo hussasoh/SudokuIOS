@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             game.setPlayer(player: savedPlayer)
         }
         else {
-            print("Error: No player name in storage.")
+            print("No player name saved in UserDefaults.")
         }
         
         // retrieve the board array from userDefaults if it exists
@@ -72,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             game.createBoardFrom2dArray(boardArray: boardArray!)
         }
         else {
-            print("Error: No board found.")
+            print("No board saved in UserDefaults.")
         }
         
         // get the given cells array from userDefaults
@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             game.setGivenCells(givenCells: givenCells!)
         }
         else {
-            print("Error: No given cells in storage.")
+            print("No given cells saved in UserDefaults.")
         }
         
         return game

@@ -36,7 +36,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         game.setStarted(isStarted: true)
 
         //ensure cells coloured correctly
-        doColourCells()
+//        doColourCells()
         
         Timer.scheduledTimer(withTimeInterval: 1.0,
                              repeats: true,
@@ -209,31 +209,17 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // if player is unwinding
-        if segue.identifier == "unwindSegue" {
-            // and if the game isn't finished
-            if !self.game.isSolved() {
-                // save the unfinished game
-                mainDelegate.saveProgress(game: self.game)
-                
-                // show the resume button on game options screen
-                let gameOptionsVC = segue.destination as! GameOptionsViewController
-                gameOptionsVC.btnResumeGame.isHidden = false
-            }
+        // and if the game isn't finished
+        if !self.game.isSolved() {
+            // save the unfinished game
+            mainDelegate.saveProgress(game: self.game)
+            
+            // show the resume button on game options screen
+            let gameOptionsVC = segue.destination as! GameOptionsViewController
+            gameOptionsVC.btnResumeGame.isHidden = false
         }
     }
     
-    // colour all user-entered cells
-    func doColourUserCells() {
-        // for all cells in grid
-        for i in 0 ..< 9 * 9 {
-            // if cell has a user-entered value, colour it
-            if game.isStarted() && game.isUserCell(index: i) {
-                let userCell = sudokuCollectionView!.cellForItem(at: IndexPath(index: i))
-                userCell?.backgroundColor? = .cyan
-            }
-        }
-    }
     // colour all cells
     func doColourCells() {
         // for all cells in grid

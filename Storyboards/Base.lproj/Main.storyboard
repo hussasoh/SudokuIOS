@@ -140,7 +140,7 @@
                                     <navigationItem title="Sudoku" id="xmL-Yd-Fil">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="OnM-ZK-so2">
                                             <connections>
-                                                <segue destination="NIl-h5-Hqr" kind="unwind" unwindAction="unwindToHomeVCWithSender:" id="4bd-XP-yrU"/>
+                                                <segue destination="NIl-h5-Hqr" kind="unwind" identifier="unwindSegue" unwindAction="unwindToHomeVCWithSender:" id="soI-pV-yhM"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -381,8 +381,6 @@
         <!--Game Options View Controller-->
         <scene sceneID="9mb-bw-7eI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gcT-8A-LI8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="0Hf-d0-4n4" userLabel="Exit" sceneMemberID="exit"/>
                 <viewController id="PjA-Rv-mmu" customClass="GameOptionsViewController" customModule="SudokuIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hnk-LF-rtM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -455,7 +453,7 @@
                                     <action selector="btnStartGameWasClickedWithSender:" destination="PjA-Rv-mmu" eventType="touchUpInside" id="GpF-zf-Ll4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlw-Eb-52N">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlw-Eb-52N">
                                 <rect key="frame" x="157" y="811" width="100" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Resume Game"/>
@@ -478,6 +476,8 @@
                         <segue destination="MEG-H6-Jj3" kind="presentation" identifier="startGameSegue" id="jxF-I7-zPW"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gcT-8A-LI8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="0Hf-d0-4n4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="933" y="100"/>
         </scene>
