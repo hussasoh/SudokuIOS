@@ -6,7 +6,8 @@
 //  Copyright © 2020 Tomislav Busic. All rights reserved.
 //
 
-// Author: Tomislav Busic
+// Author: Tomislav Busic.
+// Note: We have authors for individual methods in our app delegate. Noted below in comments.
 
 import UIKit
 import FacebookCore
@@ -156,40 +157,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         players.removeAll()
         var db : OpaquePointer? = nil
         
+        // if the database path is correct, continue
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
-            
             
             print("Successfully opened connection to database at \(self.databasePath)")
             var queryStatement : OpaquePointer? = nil
+            // our select statement from the database to select all users
             let queryStatementString : String = "select * from users"
             if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
                 
+                // while there is a row, collect all columns and put them into each field
                 while sqlite3_step(queryStatement) == SQLITE_ROW {
                     
                     let id : Int = Int(sqlite3_column_int(queryStatement, 0))
                     let cname = sqlite3_column_text(queryStatement, 1)
                     let score = sqlite3_column_int(queryStatement, 2)
-                    
-                    
                     let name = String(cString: cname!)
-                    
-                    
                     let data : Player = Player.init()
                     
+                    // insert data from database into our class model
                     data.initWithData(theRow: id, theName: name, theScore: Int(score))
                     
-                    
+                    // add the model object into our array of scores
                     players.append(data)
                     
                 }
                 
             }
             else {
+                // error message if statement could not be prepared
                 print("Select statement could not be prepared")
                 let error = String(cString: sqlite3_errmsg(db))
                 print(error)
             }
-            
+            // close database connection
             sqlite3_close(db)
         }
         else {
@@ -208,24 +209,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
             
             var insertStatement : OpaquePointer? = nil
+            // insert statment string with prepared statement
             let insertStatementString : String = "insert into users values(NULL, ?, ?)"
             
             if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
                 
+                //  get the player's name into variable
                 let nameStr = player.getName() as NSString
+                // get the player's score into variable
                 let score = player.getScore()
                 
-                
+                // bind the variables into the prepared statement
                 sqlite3_bind_text(insertStatement, 1, nameStr.utf8String, -1, nil)
                 sqlite3_bind_int(insertStatement, 2, Int32(score))
-                
-                
-                
+                // if everything went well, and the statement finished print success
                 if sqlite3_step(insertStatement) == SQLITE_DONE {
                     let rowID = sqlite3_last_insert_rowid(db)
                     print("Successfully inserted row \(rowID)")
                 }
                 else {
+                    // else if an error occurs, return false code and print an error
                     print("Could not insert row")
                     returnCode = false
                 }
@@ -250,7 +253,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // Author: Tomislav Busic
-    //Checks if database exists, if not it creates one.
+    // Checks if database exists, if not it creates one.
     func checkAndCreateDatabase(){
         
         var success = false
@@ -258,10 +261,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         success = fileManager.fileExists(atPath: databasePath!)
         
+        // if the database exists return a success code
         if success {
             return
         }
         
+        // if database doesn't exist, try creating it
         let databasePathFromApp = Bundle.main.resourcePath?.appending("/" + databaseName!)
         try? fileManager.copyItem(atPath: databasePathFromApp!, toPath: databasePath!)
         
@@ -269,7 +274,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // Author: Tomislav Busic
-    //Clears database table
+    // Clears the database table
     func clearTable() -> Bool {
         var db : OpaquePointer? = nil
         var returnCode : Bool = true
@@ -280,9 +285,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let deleteStatementString : String = "DELETE FROM users"
             
             if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
-                
-                
-                
+            
                 if sqlite3_step(deleteStatement) == SQLITE_DONE {
                     print("Successfully deleted entries")
                 }

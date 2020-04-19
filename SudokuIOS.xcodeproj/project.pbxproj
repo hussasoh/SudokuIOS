@@ -202,13 +202,13 @@
 			isa = PBXGroup;
 			children = (
 				AE7337F8240F588A004AC3F6 /* AppDelegate.swift */,
+				AEB2A80424477CE100E38528 /* ScoreCell.swift */,
 				AE64BC50244C040F004E63AE /* GameOptions.swift */,
 				AE64BC4F244C040E004E63AE /* MenuOptions.swift */,
 				62C240F72412AC370092A3E9 /* Player.swift */,
 				AE73380E240F5943004AC3F6 /* Game.swift */,
 				AE733812240F5D88004AC3F6 /* Board.swift */,
 				AE7338342415403C004AC3F6 /* BoardSegment.swift */,
-				AEB2A80424477CE100E38528 /* ScoreCell.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
