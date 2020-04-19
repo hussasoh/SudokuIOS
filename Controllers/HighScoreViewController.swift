@@ -36,7 +36,7 @@ SharingDelegate {
         dialog.show()
     }
     
-    @IBOutlet var tblView : UITableView!
+    @IBOutlet weak var tblView : UITableView?       // The table view where all the cells are located
     
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate  // Define our app delegate
     
@@ -90,23 +90,20 @@ SharingDelegate {
         
     }
     
-    // on load we will be reading from database to fill the table view with entries
+    // On load we will be reading from database to fill the table view with entries
     override func viewDidLoad() {
         super.viewDidLoad()
         mainDelegate.readDataFromDatabase()
         
-        
-
     }
     
+    // Clears the table upon click and refreshes the table view
     @IBAction func clearTable(sender: Any){
         mainDelegate.clearTable()
-        self.loadData()
+        mainDelegate.readDataFromDatabase()
+        DispatchQueue.main.async {
+            self.tblView?.reloadData()
+        }
     }
-    
-    func loadData() {
-        tblView.reloadData()
-    }
-
     
 }

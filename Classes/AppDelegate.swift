@@ -189,9 +189,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     //Clears database table
-    func clearTable() -> Bool {
+    func clearTable() {
         var db : OpaquePointer? = nil
-        var returnCode : Bool = true
+    
         
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
             
@@ -200,14 +200,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
                 
-                
-                
                 if sqlite3_step(deleteStatement) == SQLITE_DONE {
                     print("Successfully deleted entries")
                 }
                 else {
                     print("Could not delete entries")
-                    returnCode = false
                 }
                 sqlite3_finalize(deleteStatement)
             }
@@ -215,7 +212,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Statement could not be prepared")
                 let error = String(cString: sqlite3_errmsg(db))
                 print(error)
-                returnCode = false
             }
             sqlite3_close(db)
         }
@@ -223,9 +219,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Unable to open database")
             let error = String(cString: sqlite3_errmsg(db))
             print(error)
-            returnCode = false
         }
-        return returnCode
+       
     }
     
     func applicationDidFinishLaunching(_ application: UIApplication) {

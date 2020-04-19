@@ -434,7 +434,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Clear Scores" id="upc-Rz-WFF">
                                             <connections>
-                                                <action selector="clearTableWithSender:" destination="Ykn-je-QP7" id="3Bt-bZ-KNy"/>
+                                                <action selector="clearTableWithSender:" destination="Ykn-je-QP7" id="nlC-Ei-n3K"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
