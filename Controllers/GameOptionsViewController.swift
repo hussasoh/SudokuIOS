@@ -16,15 +16,13 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
     // outlets for components of Game Options screen
-    @IBOutlet var sgGameMode : UISegmentedControl!
-    @IBOutlet var imgGameIcon : UIImageView!
-    @IBOutlet var lblDescription : UILabel!
-    @IBOutlet var sgBackground : UISegmentedControl!
-    @IBOutlet var imgBackground : UIImageView!
-    @IBOutlet var btnStartGame : UIButton!
-    @IBOutlet var btnResumeGame : UIButton!
-    
-    var player: Player?
+    @IBOutlet var sgGameMode : UISegmentedControl!      // the game mode segmented control
+    @IBOutlet var imgGameIcon : UIImageView!            // the game icon
+    @IBOutlet var lblDescription : UILabel!             // the description of the selected mode
+    @IBOutlet var sgBackground : UISegmentedControl!    // the background segmented control
+    @IBOutlet var imgBackground : UIImageView!          // the background image view
+    @IBOutlet var btnStartGame : UIButton!              // the start game button
+    @IBOutlet var btnResumeGame : UIButton!             // the resume game button
     
     // array that contains different game mode icons and background choices
     var imgData = ["sudoku_normal", "sudoku_timer", "sudoku_killer", "watercolor", "clouds"]
@@ -152,9 +150,8 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
             // get the game view controller
             let gameVC = (segue.destination as! GameViewController)
             
-            // generate a new board for the game VC and record the given cells
-            gameVC.game.setBoard(board: Board())
-            gameVC.game.recordGivenCells()
+            // generate a new board for the game VC
+            gameVC.game.generateBoard()
             
             // assign the current player to the game VC's game instance
             gameVC.game.setPlayer(player: mainDelegate.currentPlayer!)

@@ -19,6 +19,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet var warningLabl : UILabel?
     @IBOutlet var timerLbl: UILabel?
     @IBOutlet var sudokuCollectionView : UICollectionView?
+    @IBOutlet var background : UIImageView?
     
     // define game and game options objects
     var game: Game = Game()
@@ -32,21 +33,17 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // change background to options background
-        
         // give the collection view a black border
         sudokuCollectionView?.layer.borderWidth = 2
         sudokuCollectionView?.layer.borderColor = UIColor.black.cgColor
-        game.setStarted(isStarted: true)
         
-        Timer.scheduledTimer(withTimeInterval: 1.0,
-                             repeats: true,
-                             block: {_ in
-                                let secs = String(format: "%02d",self.game.seconds)
-                                let mins = String(format: "%02d",self.game.minutes)
-                                let hrs = String(format: "%02d",self.game.hour)
-                                self.timerLbl?.text = "Timer: \(hrs): \(mins): \(secs)"
-                                })
+        // change background to options background
+        if (mainDelegate.gameOptions.contains(.background1)) {
+            background?.image = UIImage(named: mainDelegate.imgData[3])
+        }
+        else {
+            background?.image = UIImage(named: mainDelegate.imgData[4])
+        }
     }
     
     // Author: Terry Nippard
@@ -147,6 +144,15 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if !game.isStarted() {
                 game.setStarted(isStarted: true)
             }
+            
+            Timer.scheduledTimer(withTimeInterval: 1.0,
+                                 repeats: true,
+                                 block: {_ in
+                                    let secs = String(format: "%02d",self.game.seconds)
+                                    let mins = String(format: "%02d",self.game.minutes)
+                                    let hrs = String(format: "%02d",self.game.hour)
+                                    self.timerLbl?.text = "Timer: \(hrs): \(mins): \(secs)"
+            })
         }
     
         // dismiss the keyboard

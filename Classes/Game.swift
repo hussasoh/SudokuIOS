@@ -18,14 +18,14 @@ class Game {
     private var solved: Bool = false    // flag true if game is finished, false if not
     private var givenCells = [(Int)]()  // array of all cells provided at beginning of game
     
-    private var timer: Timer
-    private var isTimerOn : Bool = false
+    private var timer: Timer                // Timer object to get time elapsed
+    private var isTimerOn : Bool = false    // whether timer is started
     
-    var seconds: Int
-    var minutes: Int
-    var hour : Int
+    var seconds: Int    // number of seconds on timer
+    var minutes: Int    // number of minutes on timer
+    var hour : Int      // number of hours on timer
     
-    // initializers
+    // init with player and board (for resuming game)
     init(player: Player, board: Board) {
         self.player = player
         self.board = board
@@ -34,8 +34,17 @@ class Game {
         minutes = 0
         hour = 0
     }
+    // init with all values
+    init(player: Player, board: Board, timer: Timer, seconds: Int, minutes: Int, hour: Int) {
+        self.player = player
+        self.board = board
+        self.timer = timer
+        self.seconds = seconds
+        self.minutes = 0
+        self.hour = 0
+    }
     
-    // for testing purposes
+    // create an empty player with only timer initialized to set as needed
     init() {
         timer = Timer()
         seconds = 0
@@ -172,48 +181,64 @@ class Game {
         return true
     }
     
-    //generates the initialized board
+    // generate a hardcoded board
     func generateBoard() {
-        // make sure the board setup includes one number in its row and column
-        for Row in 0 ..< 9{
-            for col in 0..<9{
-                let index = board?.getIndexFromCordinates(RowIndex: Row, ColIndex: col)
-                let num = board?.getNumberAt(index: index!)
-                
-                if(num != 0){
-                    let returncode = self.checkIfValid(index: index!, number: num!,initialize: true)
-                    
-                    if(returncode == -1){
-                        //same number in row
-                        for possibleNumber in 0..<9{
-                            let isrightNumber = self.checkIfValid(index: index!, number: possibleNumber,initialize: true)
-                            if(isrightNumber == 1){
-                                board?.setNumberAt(index: index!, number: possibleNumber)
-                                break
-                            }
-                        }
-                    }
-                    
-                    if(returncode == -2){
-                        //same number in column
-                        for possibleNumber in 0..<9{
-                            let isrightNumber = self.checkIfValid(index: index!, number: possibleNumber,initialize: true)
-                            if(isrightNumber == 1){
-                                board?.setNumberAt(index: index!, number: possibleNumber)
-                            }
-                        }
-                    }
-                }
-            }
+        // instantiate a board
+        setBoard(board: Board())
+        
+        // clear board
+        for i in 0 ..< 9 * 9 {
+            getBoard().setNumberAt(index: i, number: 0)
         }
-        // for every puzzle number set, mark it in our givenCells array
-        for i in 0..<(9 * 9) {
-            if (board?.getNumberAt(index: i))! > 0 {
-                givenCells.append(1)
-            } else {
-                givenCells.append(0)
-            }
-        }
+        
+        // add hardcoded puzzle to board for debugging (we know the solution)
+        getBoard().setNumberAt(RowIndex: 0, ColIndex: 2, number: 8)
+        getBoard().setNumberAt(RowIndex: 0, ColIndex: 7, number: 2)
+        
+        getBoard().setNumberAt(RowIndex: 1, ColIndex: 0, number: 1)
+        getBoard().setNumberAt(RowIndex: 1, ColIndex: 1, number: 2)
+        getBoard().setNumberAt(RowIndex: 1, ColIndex: 4, number: 8)
+        getBoard().setNumberAt(RowIndex: 1, ColIndex: 7, number: 9)
+        getBoard().setNumberAt(RowIndex: 1, ColIndex: 8, number: 4)
+        
+        getBoard().setNumberAt(RowIndex: 2, ColIndex: 0, number: 6)
+        getBoard().setNumberAt(RowIndex: 2, ColIndex: 3, number: 9)
+        getBoard().setNumberAt(RowIndex: 2, ColIndex: 6, number: 8)
+        getBoard().setNumberAt(RowIndex: 2, ColIndex: 7, number: 3)
+        
+        getBoard().setNumberAt(RowIndex: 3, ColIndex: 0, number: 7)
+        getBoard().setNumberAt(RowIndex: 3, ColIndex: 3, number: 6)
+        getBoard().setNumberAt(RowIndex: 3, ColIndex: 4, number: 3)
+        getBoard().setNumberAt(RowIndex: 3, ColIndex: 5, number: 5)
+        
+        getBoard().setNumberAt(RowIndex: 4, ColIndex: 0, number: 4)
+        getBoard().setNumberAt(RowIndex: 4, ColIndex: 2, number: 6)
+        getBoard().setNumberAt(RowIndex: 4, ColIndex: 3, number: 2)
+        getBoard().setNumberAt(RowIndex: 4, ColIndex: 5, number: 7)
+        getBoard().setNumberAt(RowIndex: 4, ColIndex: 6, number: 9)
+        getBoard().setNumberAt(RowIndex: 4, ColIndex: 8, number: 3)
+        
+        getBoard().setNumberAt(RowIndex: 5, ColIndex: 3, number: 8)
+        getBoard().setNumberAt(RowIndex: 5, ColIndex: 4, number: 4)
+        getBoard().setNumberAt(RowIndex: 5, ColIndex: 5, number: 9)
+        getBoard().setNumberAt(RowIndex: 5, ColIndex: 8, number: 6)
+        
+        getBoard().setNumberAt(RowIndex: 6, ColIndex: 1, number: 4)
+        getBoard().setNumberAt(RowIndex: 6, ColIndex: 2, number: 2)
+        getBoard().setNumberAt(RowIndex: 6, ColIndex: 5, number: 8)
+        getBoard().setNumberAt(RowIndex: 6, ColIndex: 8, number: 9)
+        
+        getBoard().setNumberAt(RowIndex: 7, ColIndex: 0, number: 9)
+        getBoard().setNumberAt(RowIndex: 7, ColIndex: 1, number: 6)
+        getBoard().setNumberAt(RowIndex: 7, ColIndex: 4, number: 5)
+        getBoard().setNumberAt(RowIndex: 7, ColIndex: 7, number: 8)
+        getBoard().setNumberAt(RowIndex: 7, ColIndex: 8, number: 1)
+        
+        getBoard().setNumberAt(RowIndex: 8, ColIndex: 1, number: 3)
+        getBoard().setNumberAt(RowIndex: 8, ColIndex: 6, number: 5)
+        
+        // record the given cells of the board
+        recordGivenCells()
     }
     
     // returns a board created with a given 2D array
@@ -255,7 +280,7 @@ class Game {
         board.setBoardSegments(segments: boardSegments)
         
         // assign the board to this game
-        self.board = board
+        setBoard(board: board)
         
         // record the given cells of the board
         recordGivenCells()
@@ -299,7 +324,7 @@ class Game {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(Game.updateTimer), userInfo: nil, repeats: true)
     }
     
-    //function for incrememting time
+    //function for incrementing time
     @objc func updateTimer(){
         seconds += 1
         

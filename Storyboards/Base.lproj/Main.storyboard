@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qm-0U-ZLY">
-                                <rect key="frame" x="133" y="490" width="165" height="48"/>
+                                <rect key="frame" x="124" y="483" width="165" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <state key="normal" title="Start Game">
@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fn-pe-4fQ">
-                                <rect key="frame" x="127" y="565" width="177" height="48"/>
+                                <rect key="frame" x="118" y="566" width="177" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <state key="normal" title="High Scores">
@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeq-qf-nOi">
-                                <rect key="frame" x="158" y="650" width="116" height="48"/>
+                                <rect key="frame" x="149" y="653" width="116" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <state key="normal" title="Options">
@@ -55,12 +55,8 @@
                                     <segue destination="hEu-IH-iAY" kind="presentation" id="Ese-Jw-V9w"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SudokuLogo" translatesAutoresizingMaskIntoConstraints="NO" id="jkZ-mk-ZrZ">
-                                <rect key="frame" x="-112" y="0.0" width="655" height="490"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsV-T3-iUZ">
-                                <rect key="frame" x="118" y="728" width="178" height="48"/>
+                                <rect key="frame" x="117" y="731" width="178" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <state key="normal" title="Instructions">
@@ -70,6 +66,10 @@
                                     <segue destination="rOU-DD-PfV" kind="presentation" id="lWZ-sW-lA2"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SudokuLogo" translatesAutoresizingMaskIntoConstraints="NO" id="jkZ-mk-ZrZ">
+                                <rect key="frame" x="-121" y="0.0" width="655" height="490"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -129,7 +129,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MarbleBackground" translatesAutoresizingMaskIntoConstraints="NO" id="pfN-eT-FCk">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4nG-Un-q47">
@@ -200,6 +200,7 @@
                         <viewLayoutGuide key="safeArea" id="zo3-7h-MNY"/>
                     </view>
                     <connections>
+                        <outlet property="background" destination="pfN-eT-FCk" id="n0b-Mp-cjN"/>
                         <outlet property="sudokuCollectionView" destination="vf2-Nt-b6P" id="q5S-3G-2oG"/>
                         <outlet property="timerLbl" destination="V6M-ZD-I1a" id="dX2-nk-MFu"/>
                         <outlet property="warningLabl" destination="Omv-Z2-Rk1" id="Jij-A6-wez"/>
@@ -347,10 +348,16 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LhW-6j-D5U">
                                 <rect key="frame" x="183" y="331" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="toggleEffectsWithSender:" destination="hEu-IH-iAY" eventType="touchUpInside" id="OdJ-KI-UMD"/>
+                                </connections>
                             </switch>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="l3f-iH-TbX">
                                 <rect key="frame" x="82" y="383" width="249" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="effectsDidChangeWithSender:" destination="hEu-IH-iAY" eventType="valueChanged" id="QSn-u7-2fI"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dark Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqN-iJ-QES">
                                 <rect key="frame" x="90" y="459" width="233" height="24"/>
@@ -362,6 +369,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AuI-yP-hyv">
                                 <rect key="frame" x="184" y="502" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="toggleDarkModeWithSender:" destination="hEu-IH-iAY" eventType="touchUpInside" id="Awe-vu-9Bv"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -369,6 +379,8 @@
                     </view>
                     <connections>
                         <outlet property="dark" destination="AuI-yP-hyv" id="t6T-fZ-D7N"/>
+                        <outlet property="effectsSlider" destination="l3f-iH-TbX" id="16v-kl-Qsj"/>
+                        <outlet property="effectsSwitch" destination="LhW-6j-D5U" id="8IF-YG-vht"/>
                         <outlet property="musicSlider" destination="avC-KE-fQL" id="YxL-cI-XMs"/>
                         <outlet property="musicSwitch" destination="1M6-Wf-ZFO" id="X0T-UZ-FPP"/>
                     </connections>
