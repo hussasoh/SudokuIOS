@@ -5,6 +5,8 @@
 //  Copyright © 2020 Tomislav Busic. All rights reserved.
 //
 
+// Author: Tomislav Busic
+
 import UIKit
 
 class ScoreCell: UITableViewCell {

@@ -6,6 +6,8 @@
 //  Copyright © 2020 Xcode User. All rights reserved.
 //
 
+// Author: Sohaib Hussain
+
 import Foundation
 
 class Board{

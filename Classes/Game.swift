@@ -6,6 +6,8 @@
 //  Copyright © 2020 Xcode User. All rights reserved.
 //
 
+// Author: Terry Nippard
+
 import Foundation
 
 class Game {
@@ -202,10 +204,7 @@ class Game {
                         }
                     }
                 }
-                
-                
             }
-            
         }
         // for every puzzle number set, mark it in our givenCells array
         for i in 0..<(9 * 9) {

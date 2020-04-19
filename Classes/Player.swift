@@ -6,6 +6,8 @@
 //  Copyright © 2020 Terry Nippard. All rights reserved.
 //
 
+// Author: Terry Nippard
+
 import Foundation
 
 class Player: NSObject{
@@ -22,6 +24,7 @@ class Player: NSObject{
         self.name = name
     }
     
+    // Method Author: Tomislav Busic
     // for reading database records
     func initWithData(theRow r : Int, theName n : String, theScore s : Int) {
         id = r

@@ -6,6 +6,8 @@
 //  Copyright © 2020 Tomislav Busic. All rights reserved.
 //
 
+// Author: Tomislav Busic
+
 import UIKit
 import FacebookCore
 import Foundation
@@ -16,10 +18,17 @@ import AVFoundation
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var window: UIWindow?
-    var databaseName : String? = "ProjectDatabase.db"
-    var databasePath : String?
-    let defaults = UserDefaults.standard    // get the UserDefaults storage
+    var window: UIWindow?                               // reference to the window
+    var databaseName : String? = "ProjectDatabase.db"   // DB file name
+    var databasePath : String?                          // DB path
+    let defaults = UserDefaults.standard                // access the UserDefaults storage
+    
+    // menu and game options instances for global access
+    var gameOptions : GameOptions = [.easy, .background1]
+    var menuOptions = MenuOptions(musicOn: true, musicVolume: 5, effectsOn: true, effectsVolume: 10, darkMode: false)
+    
+    // array that contains different game mode icons and background choices
+    var imgData = ["sudoku_easy.png", "sudoku_normal.png", "sudoku_hard.png", "watercolor.jpg", "clouds.jpg"]
     
     // array of scores and their winners' names
     var players : [Player] = []
@@ -28,10 +37,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var currentPlayer : Player? = nil
     
     // audio players for music and sound effects
-    var musicPlayer : AVAudioPlayer? = nil  // audio player for the puzzle music
-    var winSoundPlayer : AVAudioPlayer? = nil   // audio player for the win sound effect
-    var cellSoundPlayer : AVAudioPlayer? = nil  // audio player for the cell selection sound effect
+    var musicPlayer : AVAudioPlayer?        // audio player for the puzzle music
+    var soundPlayer : AVAudioPlayer?        // audio player for the SFX
     
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // basic configuration of FireBase
+        FirebaseApp.configure()
+        
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        let documentPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDir = documentPaths[0]
+        databasePath = documentsDir.appending("/" + databaseName!)
+        checkAndCreateDatabase()
+        readDataFromDatabase()
+        setMusicAndEffects()    // play the music globally
+        return true
+    }
+    
+    // Author: Terry Nippard
     // save the game progress to userDefaults
     func saveProgress(game: Game) {
         // save the player name
@@ -47,6 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         defaults.synchronize()
     }
     
+    // Author: Terry Nippard
     // load the game progress from userDefaults if exists
     func loadProgress() -> Game {
         // create a game object to hold userDefaults game progress
@@ -87,6 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return game
     }
     
+    // Author: Terry Nippard
     // delete the game progress data from userDefaults
     func deleteProgress() {
         defaults.removeObject(forKey: "playerName")
@@ -96,20 +124,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         defaults.synchronize()
     }
     
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        // basic configuration of FireBase
-        FirebaseApp.configure()
-        
-        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-        let documentPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let documentsDir = documentPaths[0]
-        databasePath = documentsDir.appending("/" + databaseName!)
-        checkAndCreateDatabase()
-        readDataFromDatabase()
-        return true
-    }
     //Importing Facebook (Tomislav Busic)
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return ApplicationDelegate.shared.application(
@@ -120,6 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
     }
     
+    // Author: Tomislav Busic
     //Importing Facebook (Tomislav Busic)
     @available(iOS 9.0, *)
     func application(_ application: UIApplication,
@@ -127,11 +142,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
         return ApplicationDelegate.shared.application(application, open: url, options: options)
     }
+    
+    // Author: Tomislav Busic
     //Importing Facebook (Tomislav Busic)
     func applicationDidBecomeActive(_ application: UIApplication) {
         AppEvents.activateApp()
     }
     
+    // Author: Tomislav Busic
     //Reads data from database. Called upon with every run of app
     func readDataFromDatabase() {
         
@@ -180,6 +198,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
     }
+    
+    // Author: Tomislav Busic
     //Inserts a new entry into the database
     func insertIntoDatabase(player : Player) -> Bool {
         var db : OpaquePointer? = nil
@@ -229,6 +249,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return returnCode
     }
     
+    // Author: Tomislav Busic
     //Checks if database exists, if not it creates one.
     func checkAndCreateDatabase(){
         
@@ -247,6 +268,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return
     }
     
+    // Author: Tomislav Busic
     //Clears database table
     func clearTable() -> Bool {
         var db : OpaquePointer? = nil
@@ -285,6 +307,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             returnCode = false
         }
         return returnCode
+    }
+    
+    // Author: Omar Kanawati
+    // sets a default for music and sound effects across the application (Omar Kanawati)
+    func setMusicAndEffects() {
+        // sets url path for background music
+        let musicURL = Bundle.main.path(forResource: "puzzle_music", ofType: "mp3")
+        let url1 = URL(fileURLWithPath: musicURL!)
+        musicPlayer = try! AVAudioPlayer.init(contentsOf: url1)
+        musicPlayer?.currentTime = 0
+        musicPlayer?.volume = menuOptions.getMusicVolume()
+        musicPlayer?.numberOfLoops = -1
+        
+        if (menuOptions.getEffectsOn() == true){
+            musicPlayer?.play()
+        }
+        
+        let soundURL = Bundle.main.path(forResource: "click", ofType: "mp3")
+        let url2 = URL(fileURLWithPath: soundURL!)
+        soundPlayer = try! AVAudioPlayer.init(contentsOf: url2)
+        soundPlayer?.currentTime = 0
+        soundPlayer?.volume = menuOptions.getEffectsVolume()
+        soundPlayer?.numberOfLoops = 0
     }
     
     func applicationDidFinishLaunching(_ application: UIApplication) {

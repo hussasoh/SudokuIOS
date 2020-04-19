@@ -33,13 +33,13 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // sets default value for game mode
-        imgGameIcon.image = UIImage(named: imgData[0])
-        lblDescription.text = "Traditional Sudoku with a 9 x 9 grid."
+        imgGameIcon.image = UIImage(named: mainDelegate.imgData[0])
+        lblDescription.text = "An easier challenge with fewer missing numbers"
         
         // sets default background image
-        imgBackground.image = UIImage(named: imgData[3])
+        imgBackground.image = UIImage(named: mainDelegate.imgData[3])
         
         // if unfinished game exists in userDefaults, show the resume button
         let gameProgress = mainDelegate.loadProgress()
@@ -54,16 +54,26 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
     // changes the game mode icon and description depending on selection in segmented control
     func selectGameMode() {
         if (sgGameMode.selectedSegmentIndex == 0) {
-            imgGameIcon.image = UIImage(named: imgData[0])
-            lblDescription.text = "Traditional Sudoku with a 9 x 9 grid."
+            imgGameIcon.image = UIImage(named: mainDelegate.imgData[0])
+            lblDescription.text = "An easier challenge with fewer missing numbers"
+            
+            clearGameModeOptions()
+            mainDelegate.gameOptions.insert(.easy)
+            
         }
         else if (sgGameMode.selectedSegmentIndex == 1) {
-            imgGameIcon.image = UIImage(named: imgData[1])
-            lblDescription.text = "Master the game to get the best time!"
+            imgGameIcon.image = UIImage(named: mainDelegate.imgData[1])
+            lblDescription.text = "Tradition sudoku to offer a moderate challenge"
+            
+            clearGameModeOptions()
+            mainDelegate.gameOptions.insert(.normal)
         }
         else {
-            imgGameIcon.image = UIImage(named: imgData[2])
-            lblDescription.text = "The sum of all numbers in a cage must match the small number in its corner. No number appears more than once in a cage."
+            imgGameIcon.image = UIImage(named: mainDelegate.imgData[2])
+            lblDescription.text = "Master the game with the fewest filled in squares!"
+            
+            clearGameModeOptions()
+            mainDelegate.gameOptions.insert(.hard)
         }
         
     }
@@ -71,10 +81,17 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
     // change the background image for the game
     func selectBackground() {
         if (sgBackground.selectedSegmentIndex == 0) {
-            imgBackground.image = UIImage(named: imgData[3])
+            imgBackground.image = UIImage(named: mainDelegate.imgData[3])
+            
+            
+            mainDelegate.gameOptions.insert(.background1)
+            mainDelegate.gameOptions.remove(.background2)
+            
         }
         else {
-            imgBackground.image = UIImage(named: imgData[4])
+            imgBackground.image = UIImage(named: mainDelegate.imgData[4])
+            mainDelegate.gameOptions.insert(.background2)
+            mainDelegate.gameOptions.remove(.background1)
         }
     }
     
@@ -88,6 +105,16 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
         selectBackground()
     }
     
+    // clears all game mode options from set
+    func clearGameModeOptions() {
+        mainDelegate.gameOptions.remove(.easy)
+        mainDelegate.gameOptions.remove(.normal)
+        mainDelegate.gameOptions.remove(.hard)
+    }
+    
+    /* PREPARING THE GAME VIEW CONTROLLER */
+    
+    // Author: Terry Nippard
     // when the start game button is clicked
     @IBAction func btnStartGameWasClicked(sender: UIButton!) {
         // define alert to ask for player name
@@ -117,6 +144,7 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+    // Author: Terry Nippard
     // when a segue has been initiated
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // if player clicked the start game button
@@ -136,12 +164,7 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
             // get the game view controller
             let gameVC = segue.destination as! GameViewController
             // get the saved game progress
-            print("loading progress...")
             let gameProgress = mainDelegate.loadProgress()
-            print("loaded progress...")
-//            if gameProgress.getBoard() {
-//                
-//            }
             // delete the progress from storage now that it's loaded
             mainDelegate.deleteProgress()
             

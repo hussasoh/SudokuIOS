@@ -6,6 +6,8 @@
 //  Copyright © 2020 Xcode User. All rights reserved.
 //
 
+// Author: Sohaib Hussain
+
 import UIKit
 
 class GameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
@@ -30,13 +32,12 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // change background to options background
+        
         // give the collection view a black border
         sudokuCollectionView?.layer.borderWidth = 2
         sudokuCollectionView?.layer.borderColor = UIColor.black.cgColor
         game.setStarted(isStarted: true)
-
-        //ensure cells coloured correctly
-        doColourCells()
         
         Timer.scheduledTimer(withTimeInterval: 1.0,
                              repeats: true,
@@ -48,18 +49,30 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                 })
     }
     
+    // Author: Terry Nippard
+    // when user dismisses the keyboard (having entered a value into cell)
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
+        // if a cell has been selected
         if(OldCellCordinates.RowIndex != -1 && OldCellCordinates.ColIndex != -1){
-            
+            // if there is a text field in the cell
             if(textField.text!.count != 0){
+                // get the number at the index of the cell
                 let itemNumber = game.board?.getIndexFromCordinates(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex)
                 
+                // check if the player's selected number placement is valid
                 let returnCode = game.checkIfValid(index: itemNumber!, number: Int(String(textField.text!))!,initialize: false)
                 
+                // if player's selected number is valid,
                 if(returnCode == 1){
+                    // play sound effect
+                    if (mainDelegate.menuOptions.getEffectsOn() == true){
+                        mainDelegate.soundPlayer?.play()
+                    }
+                    
+                    // set the user's selected number in the board array corresponding to cell
                     game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: Int(textField.text!)!)
                     
+                    // set the cell colour to indicate it was user-inputted
                     OldCell.backgroundColor = .cyan
                     OldCell.layer.borderWidth = 0.5
                     
@@ -74,33 +87,57 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
                             warningLabl!.text = "You win! Score could not be saved."
                         }
                     }
+                // else if the number already exists in row of selected cell
                 } else if returnCode == -1 {
+                    // cancel the selection
                     textField.text?.removeAll()
+                    // set value to 0 (unselected value)
                     game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: 0)
+                    // give cell its default appearance
                     OldCell.backgroundColor = .green
                     OldCell.layer.borderWidth = 0.5
+                    // show warning message
                     warningLabl?.text = "Number exists in row!"
-                } else if returnCode == -2 {
+                }
+                // else if the number already exists in column of selected cell
+                else if returnCode == -2 {
+                    // cancel the selection
                     textField.text?.removeAll()
+                    // set value to 0 (unselected value)
                     game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: 0)
+                    // give cell its default appearance
                     OldCell.backgroundColor = .green
                     OldCell.layer.borderWidth = 0.5
+                    // show warning message
                     warningLabl?.text = "Number exists in column!"
-                } else if returnCode == -3 {
+                }
+                // else if the number already exists in segment of selected cell
+                else if returnCode == -3 {
+                    // cancel the selection
                     textField.text?.removeAll()
+                    // set value to 0 (unselected value)
                     game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: 0)
+                    // give cell its default appearance
                     OldCell.backgroundColor = .green
                     OldCell.layer.borderWidth = 0.5
+                    // show warning message
                     warningLabl?.text = "Number exists in segment!"
                 }
+                // else if the number already exists in the location of selected cell
                 else if( returnCode == -4){
+                    // cancel the selection
                     textField.text? = OldCellTextField.text!
+                    // set value to 0 (unselected value)
+                    game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: 0)
+                    // give cell its default appearance
                     OldCell.backgroundColor = .cyan
                     OldCell.layer.borderWidth = 0.5
+                    // show warning message
                     warningLabl?.text = "This Number is already at this Location!"
                 }
             }
-            else{
+            else {
+                // give selected cell its default appearance
                 OldCell.backgroundColor = .green
                 OldCell.layer.borderWidth = 0.5
             }
@@ -111,6 +148,8 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 game.setStarted(isStarted: true)
             }
         }
+    
+        // dismiss the keyboard
         return textField.resignFirstResponder()
     }
     
@@ -186,27 +225,34 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // show the coord of the selected cell on a label
-            let cord = game.getBoard().getCordinatesFromIndex(Index: (indexPath.item))
-            warningLabl?.text = "(\(cord.RowIndex),\(cord.ColIndex)): \(game.getBoard().getNumberAt(RowIndex: cord.RowIndex, ColIndex: cord.ColIndex))"
-        
-            var _ = textFieldShouldReturn(OldCellTextField)
-            OldCellTextField.isEnabled = false
-        
-            // highlight selected cell by changing background colour and border
-            let touchedCell = sudokuCollectionView?.cellForItem(at: indexPath)
-            let textfield = touchedCell?.viewWithTag(indexPath.item + 5) as! UITextField
-        
-            textfield.isEnabled = true
-            textfield.becomeFirstResponder()
-            touchedCell?.backgroundColor = .yellow
-            touchedCell?.layer.borderWidth = 3.0
-        
-            OldCell = touchedCell!
-            OldCellTextField = textfield
-            OldCellCordinates = cord
+        // play sound effect
+        if (mainDelegate.menuOptions.getEffectsOn() == true){
+            mainDelegate.soundPlayer?.play()
         }
+        
+        // show the coord of the selected cell on a label
+        let cord = game.getBoard().getCordinatesFromIndex(Index: (indexPath.item))
+        warningLabl?.text = "(\(cord.RowIndex),\(cord.ColIndex)): \(game.getBoard().getNumberAt(RowIndex: cord.RowIndex, ColIndex: cord.ColIndex))"
+    
+        var _ = textFieldShouldReturn(OldCellTextField)
+        OldCellTextField.isEnabled = false
+    
+        // highlight selected cell by changing background colour and border
+        let touchedCell = sudokuCollectionView?.cellForItem(at: indexPath)
+        let textfield = touchedCell?.viewWithTag(indexPath.item + 5) as! UITextField
+    
+        textfield.isEnabled = true
+        textfield.becomeFirstResponder()
+        touchedCell?.backgroundColor = .yellow
+        touchedCell?.layer.borderWidth = 3.0
+    
+        OldCell = touchedCell!
+        OldCellTextField = textfield
+        OldCellCordinates = cord
+    }
 
+    // Author: Terry Nippard
+    // prepare for unwinding (save the game)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // and if the game isn't finished
         if !self.game.isSolved() {
@@ -219,7 +265,8 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    // colour all cells
+    // Author: Terry Nippard
+    // colour all cells (for debug)
     func doColourCells() {
         // for all cells in grid
         for i in 0 ..< 9 * 9 {

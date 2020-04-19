@@ -6,6 +6,8 @@
 //  Copyright © 2020 Xcode User. All rights reserved.
 //
 
+// Author: Terry Nippard
+
 import UIKit
 import WebKit
 
