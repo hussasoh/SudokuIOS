@@ -11,6 +11,7 @@ import FacebookCore
 import Foundation
 import SQLite3
 import Firebase
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,10 +19,87 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var databaseName : String? = "ProjectDatabase.db"
     var databasePath : String?
-    var people : [MyData] = []
+    let defaults = UserDefaults.standard    // get the UserDefaults storage
+    
+    // array of scores and their winners' names
+    var players : [Player] = []
+    
+    // the player that started the most recent game
+    var currentPlayer : Player? = nil
+    
+    // audio players for music and sound effects
+    var musicPlayer : AVAudioPlayer? = nil  // audio player for the puzzle music
+    var winSoundPlayer : AVAudioPlayer? = nil   // audio player for the win sound effect
+    var cellSoundPlayer : AVAudioPlayer? = nil  // audio player for the cell selection sound effect
+    
+    // save the game progress to userDefaults
+    func saveProgress(game: Game) {
+        // save the player name
+        defaults.set(game.getPlayer().getName(), forKey: "playerName")
+        
+        // save the board array
+        defaults.set(game.getBoard().getBoard2dArray(), forKey: "boardArray")
+        
+        // save the given cells of the board
+        defaults.set(game.getGivenCells(), forKey: "givenCells")
+        
+        // synchronize the userDefaults
+        defaults.synchronize()
+    }
+    
+    // load the game progress from userDefaults if exists
+    func loadProgress() -> Game {
+        // create a game object to hold userDefaults game progress
+        let game = Game()
+        
+        // retrieve player data from userDefaults and create a player with it if exists
+        if defaults.string(forKey: "playerName") != nil {
+            let savedPlayer = Player()
+            let playerName = defaults.string(forKey: "playerName")
+            savedPlayer.setName(name: playerName!)
+            
+            // set the game's player to the retrieved player
+            game.setPlayer(player: savedPlayer)
+        }
+        else {
+            print("Error: No player name in storage.")
+        }
+        
+        // retrieve the board array from userDefaults if it exists
+        if defaults.array(forKey: "boardArray") != nil {
+            let boardArray = defaults.array(forKey: "boardArray") as? [[Int]]
+            // create a 3x3 grid of row segments using the retrieved array
+            game.createBoardFrom2dArray(boardArray: boardArray!)
+        }
+        else {
+            print("Error: No board found.")
+        }
+        
+        // get the given cells array from userDefaults
+        if defaults.array(forKey: "givenCells") != nil {
+            let givenCells = defaults.array(forKey: "givenCells") as? [Int]
+            game.setGivenCells(givenCells: givenCells!)
+        }
+        else {
+            print("Error: No given cells in storage.")
+        }
+        
+        return game
+    }
+    
+    // delete the game progress data from userDefaults
+    func deleteProgress() {
+        defaults.removeObject(forKey: "playerName")
+        defaults.removeObject(forKey: "boardArray")
+        defaults.removeObject(forKey: "givenCells")
+        // synchronize the changes with userDefaults
+        defaults.synchronize()
+    }
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // basic configuration of FireBase
         FirebaseApp.configure()
         
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -57,7 +135,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //Reads data from database. Called upon with every run of app
     func readDataFromDatabase() {
         
-        people.removeAll()
+        players.removeAll()
         var db : OpaquePointer? = nil
         
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
@@ -78,14 +156,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let name = String(cString: cname!)
                     
                     
-                    let data : MyData = MyData.init()
+                    let data : Player = Player.init()
                     
                     data.initWithData(theRow: id, theName: name, theScore: Int(score))
                     
                     
-                    people.append(data)
-                    
-                    print("Query result")
+                    players.append(data)
                     
                 }
                 
@@ -105,19 +181,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     //Inserts a new entry into the database
-    func insertIntoDatabase(person : MyData) -> Bool {
+    func insertIntoDatabase(player : Player) -> Bool {
         var db : OpaquePointer? = nil
         var returnCode : Bool = true
         
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
             
             var insertStatement : OpaquePointer? = nil
-            var insertStatementString : String = "insert into users values(NULL, ?, ?)"
+            let insertStatementString : String = "insert into users values(NULL, ?, ?)"
             
             if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
                 
-                let nameStr = person.name! as NSString
-                let score = person.score!
+                let nameStr = player.getName() as NSString
+                let score = player.getScore()
                 
                 
                 sqlite3_bind_text(insertStatement, 1, nameStr.utf8String, -1, nil)
@@ -179,7 +255,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
             
             var deleteStatement : OpaquePointer? = nil
-            var deleteStatementString : String = "DELETE FROM users"
+            let deleteStatementString : String = "DELETE FROM users"
             
             if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
                 
@@ -211,6 +287,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return returnCode
     }
     
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        // use the Firebase library to configure APIs
+        FirebaseApp.configure()
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -229,7 +310,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
     
 }
 

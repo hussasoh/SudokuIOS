@@ -27,6 +27,10 @@ class BoardSegment{
         AddRandomNumbersInSegment()
     }
     
+    init(numbers: [[Int]]) {
+        self.numbersInSegment = numbers
+    }
+    
     private func AddRandomNumbersInSegment(){
         let NumbersInSegment = GenerateRandomNumbers(from: MIN_NUMBERS_IN_SEGMENT, to: MAX_NUMBERS_IN_SEGMENT)
         

@@ -1,6 +1,6 @@
 //
 //  Player.swift
-//  FinalProject
+//  SudokuIOS
 //
 //  Created by Terry Nippard on 2020-03-04.
 //  Copyright © 2020 Terry Nippard. All rights reserved.
@@ -8,39 +8,41 @@
 
 import Foundation
 
-class Player {
+class Player: NSObject{
     // player variables
+    private var id : Int?                      // player's id
     private var name: String!                  // player's name
-    private var savedSPGame: Game?             // state of unfinished singleplayer game
-    private var savedMPGame: MultiplayerGame?  // state of unfinished multiplayer game
-    // maybe store more info here like profile pic or other game center data?
+    private var score : Int?                   // player's score
     
-    // initializer
+    // initializers
+    override init() {
+        super.init()
+    }
     init(name: String) {
         self.name = name
     }
     
+    // for reading database records
+    func initWithData(theRow r : Int, theName n : String, theScore s : Int) {
+        id = r
+        name = n
+        score = s
+    }
+    
     // getters and setters
+    func getId() -> Int {
+        return self.id!
+    }
     func getName() -> String {
-        return self.name
+        return self.name!
     }
     func setName(name: String) {
         self.name = name
     }
-    
-    func getSavedSPGame() -> Game {
-        return self.savedSPGame!
+    func setScore(score: Int) {
+        self.score = score
     }
-    func setSavedSPGame(spGame: Game) {
-        self.savedSPGame = spGame
-    }
-    
-    func getSavedMPGame() -> Game {
-        return self.savedMPGame!
-    }
-    func setSavedMPGame(mpGame: MultiplayerGame) {
-        self.savedMPGame = mpGame
+    func getScore() -> Int {
+        return self.score!
     }
 }
-
- 

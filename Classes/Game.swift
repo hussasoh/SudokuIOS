@@ -11,8 +11,7 @@ import Foundation
 class Game {
     
     var player: Player?
-    var board : Board?
-    
+    var board : Board? 
     var solved: Bool = false  // flag true if game is finished or false if still in progress
     private var started: Bool = false
     private var givenCells = [(Int)]()
@@ -35,45 +34,49 @@ class Game {
     
     //testing purposes
     init(){
-        self.player = Player(name: "Sohaib")
-        self.board = Board()
         timer = Timer()
         seconds = 0
         minutes = 0
         hour = 0
     }
     
-    func getBoard() -> Board {
-        return board!
-    }
     func getPlayer() -> Player {
         return player!
-    }
-    func setBoard(board: Board) {
-        self.board = board
     }
     func setPlayer(player: Player) {
         self.player = player
     }
-    
-    func startGame() {
-        started = true
-        self.startTimer()
+    func getBoard() -> Board {
+        return board!
+    }
+    func setBoard(board: Board) {
+        self.board = board
+    }
+    func isStarted() -> Bool {
+        return self.started
+    }
+    func setStarted(isStarted: Bool) {
+        self.started = isStarted
+        if(isStarted){
+            self.startTimer()
+        }
+        else{
+            self.stopTimer()
+        }
+    }
+    func isSolved() -> Bool {
+        return self.solved
+    }
+    func setSolved(isSolved: Bool) {
+        self.solved = isSolved
+    }
+    func getGivenCells() -> [Int] {
+        return self.givenCells
+    }
+    func setGivenCells(givenCells: [Int]) {
+        self.givenCells = givenCells
     }
     
-    func stopGame() {
-        started = false
-        self.stopTimer()
-    }
-    
-    func resumeGame() {
-        started = true
-        self.startTimer()
-    }
-    
-    func saveGameStatus() {
-        // saves games status
-    }
     
     // test if there is an error on the board with given index
     func checkIfValid(index: Int, number: Int, initialize: Bool) -> Int {
@@ -216,6 +219,73 @@ class Game {
             return true
         } else {
             return false
+        }
+    }
+    
+    // return true if cell at index has a user-entered value
+    func isUserCell(index: Int) -> Bool {
+        if !isCellGiven(index: index) && getBoard().getNumberAt(index: index) > 0 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    // returns a board created with a given 2D array
+    func createBoardFrom2dArray(boardArray: [[Int]]) {
+        // create a 3x3 grid of BoardSegments
+        var boardSegments = [[BoardSegment]]()
+        
+        // for each row of segments on the board
+        for boardSegRow in 0 ..< 3 {
+            // define the row of board segments
+            var boardSegmentRow = [BoardSegment]()
+            // for each column of segments on the board
+            for boardSegCol in 0 ..< 3 {
+                // define the array of rows in the current segment
+                var segRows = [[Int]]()
+                // for each row in the segment
+                for segRow in 0 ..< 3 {
+                    // define the array of values for the row
+                    var rowNums = [Int]()
+                    // for each column in the segment
+                    for segCol in 0 ..< 3 {
+                        // get the cell value at this position of the boardArray
+                        let cellValue = boardArray[segRow + boardSegRow * 3][segCol + boardSegCol * 3]
+                        // add the cell value to the current row
+                        rowNums.append(cellValue)
+                    }
+                    // add the 3 rows of cells we just got to the array of segment rows
+                    segRows.append(rowNums)
+                }
+                // add the three segments we just created to array of board segment rows
+                boardSegmentRow.append(BoardSegment(numbers: segRows))
+            }
+            // add the three arrays of board segment rows to the 3x3 boardSegments grid
+            boardSegments.append(boardSegmentRow)
+        }
+        
+        // create the board with the 3x3 grid of BoardSegments
+        let board = Board()
+        board.setBoardSegments(segments: boardSegments)
+        
+        // assign the board to this game
+        self.board = board
+        
+        // record the given cells of the board
+        recordGivenCells()
+    }
+
+    // record all entered cell values of current board as given cells
+    // note: only works with new boards that are free of user input
+    func recordGivenCells() {
+        for i in 0 ..< 9 * 9 {
+            if getBoard().getNumberAt(index: i) > 0 {
+                givenCells.append(1)
+            }
+            else {
+                givenCells.append(0)
+            }
         }
     }
     

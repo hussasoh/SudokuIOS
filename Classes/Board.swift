@@ -61,8 +61,16 @@ class Board{
         return boardarray
     }
     
+    func setBoardArray(boardArray: [[Int]]) {
+        self.BoardArray = boardArray
+    }
+    
     func getBoardSegments() -> [[BoardSegment]]{
         return boardSegments
+    }
+    
+    func setBoardSegments(segments: [[BoardSegment]]) {
+        self.boardSegments = segments
     }
     
     func getNumberAt(RowIndex: Int, ColIndex: Int)-> Int{

@@ -41,8 +41,6 @@ class ScoreCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
