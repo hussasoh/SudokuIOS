@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6204E845244B7117001F4ECF /* puzzle_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6204E844244B7117001F4ECF /* puzzle_music.mp3 */; };
-		6204E848244B73E5001F4ECF /* ProjectDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = 6204E847244B73E5001F4ECF /* ProjectDatabase.db */; };
 		6204E84E244B73F3001F4ECF /* GameOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6204E84A244B73F3001F4ECF /* GameOptions.swift */; };
 		6204E84F244B73F3001F4ECF /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6204E84B244B73F3001F4ECF /* ScoreCell.swift */; };
 		6204E850244B73F3001F4ECF /* MenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6204E84C244B73F3001F4ECF /* MenuOptions.swift */; };
@@ -36,13 +35,13 @@
 		AE73380F240F5943004AC3F6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73380E240F5943004AC3F6 /* Game.swift */; };
 		AE733813240F5D88004AC3F6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733812240F5D88004AC3F6 /* Board.swift */; };
 		AE7338352415403C004AC3F6 /* BoardSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7338342415403C004AC3F6 /* BoardSegment.swift */; };
+		AEA07A78244CFA88007562E8 /* ProjectDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = AEA07A77244CFA88007562E8 /* ProjectDatabase.db */; };
 		EC9798137034F96A330E5F27 /* Pods_SudokuIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6FBDD0E3047E94ED87122B5 /* Pods_SudokuIOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5645C9EB764F27E9566AFA71 /* Pods-SudokuIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudokuIOS.debug.xcconfig"; path = "Target Support Files/Pods-SudokuIOS/Pods-SudokuIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		6204E844244B7117001F4ECF /* puzzle_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = puzzle_music.mp3; sourceTree = "<group>"; };
-		6204E847244B73E5001F4ECF /* ProjectDatabase.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ProjectDatabase.db; sourceTree = "<group>"; };
 		6204E84A244B73F3001F4ECF /* GameOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOptions.swift; sourceTree = "<group>"; };
 		6204E84B244B73F3001F4ECF /* ScoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
 		6204E84C244B73F3001F4ECF /* MenuOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOptions.swift; sourceTree = "<group>"; };
@@ -73,6 +72,7 @@
 		AE73380E240F5943004AC3F6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		AE733812240F5D88004AC3F6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		AE7338342415403C004AC3F6 /* BoardSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSegment.swift; sourceTree = "<group>"; };
+		AEA07A77244CFA88007562E8 /* ProjectDatabase.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = ProjectDatabase.db; path = ../../ProjectDatabase.db; sourceTree = "<group>"; };
 		E6FBDD0E3047E94ED87122B5 /* Pods_SudokuIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudokuIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -113,7 +113,7 @@
 		6204E846244B7124001F4ECF /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				6204E847244B73E5001F4ECF /* ProjectDatabase.db */,
+				AEA07A77244CFA88007562E8 /* ProjectDatabase.db */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -274,10 +274,10 @@
 			files = (
 				AE733803240F588B004AC3F6 /* LaunchScreen.storyboard in Resources */,
 				62C24131241544D00092A3E9 /* GoogleService-Info.plist in Resources */,
-				6204E848244B73E5001F4ECF /* ProjectDatabase.db in Resources */,
 				6204E857244B73FD001F4ECF /* clouds.jpg in Resources */,
 				6204E858244B73FD001F4ECF /* watercolor.jpg in Resources */,
 				6204E859244B73FD001F4ECF /* sudoku_normal.png in Resources */,
+				AEA07A78244CFA88007562E8 /* ProjectDatabase.db in Resources */,
 				AE733800240F588B004AC3F6 /* Assets.xcassets in Resources */,
 				AE7337FE240F588A004AC3F6 /* Main.storyboard in Resources */,
 				6204E856244B73FD001F4ECF /* sudoku_timer.png in Resources */,

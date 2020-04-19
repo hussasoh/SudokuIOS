@@ -432,6 +432,11 @@
                                                 <segue destination="CpX-Wg-bFf" kind="unwind" unwindAction="unwindToHomeVCWithSender:" id="TBw-HA-HuN"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Clear Scores" id="upc-Rz-WFF">
+                                            <connections>
+                                                <action selector="clearTableWithSender:" destination="Ykn-je-QP7" id="3Bt-bZ-KNy"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -448,6 +453,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="QHS-bs-lSJ"/>
                     </view>
+                    <connections>
+                        <outlet property="tblView" destination="n5I-zc-rbZ" id="xtc-az-RuD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMp-ij-zqS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="CpX-Wg-bFf" userLabel="Exit" sceneMemberID="exit"/>

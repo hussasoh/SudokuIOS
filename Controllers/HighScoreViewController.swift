@@ -36,6 +36,8 @@ SharingDelegate {
         dialog.show()
     }
     
+    @IBOutlet var tblView : UITableView!
+    
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate  // Define our app delegate
     
     // Initalizes the number of cells to the number of players found in our Player data holder array
@@ -92,8 +94,19 @@ SharingDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainDelegate.readDataFromDatabase()
+        
+        
 
     }
     
+    @IBAction func clearTable(sender: Any){
+        mainDelegate.clearTable()
+        self.loadData()
+    }
+    
+    func loadData() {
+        tblView.reloadData()
+    }
+
     
 }
