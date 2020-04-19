@@ -7,13 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6204E845244B7117001F4ECF /* puzzle_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6204E844244B7117001F4ECF /* puzzle_music.mp3 */; };
+		6204E848244B73E5001F4ECF /* ProjectDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = 6204E847244B73E5001F4ECF /* ProjectDatabase.db */; };
+		6204E84E244B73F3001F4ECF /* GameOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6204E84A244B73F3001F4ECF /* GameOptions.swift */; };
+		6204E84F244B73F3001F4ECF /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6204E84B244B73F3001F4ECF /* ScoreCell.swift */; };
+		6204E850244B73F3001F4ECF /* MenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6204E84C244B73F3001F4ECF /* MenuOptions.swift */; };
+		6204E856244B73FD001F4ECF /* sudoku_timer.png in Resources */ = {isa = PBXBuildFile; fileRef = 6204E851244B73FD001F4ECF /* sudoku_timer.png */; };
+		6204E857244B73FD001F4ECF /* clouds.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6204E852244B73FD001F4ECF /* clouds.jpg */; };
+		6204E858244B73FD001F4ECF /* watercolor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6204E853244B73FD001F4ECF /* watercolor.jpg */; };
+		6204E859244B73FD001F4ECF /* sudoku_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 6204E854244B73FD001F4ECF /* sudoku_normal.png */; };
+		6204E85A244B73FD001F4ECF /* sudoku_killer.png in Resources */ = {isa = PBXBuildFile; fileRef = 6204E855244B73FD001F4ECF /* sudoku_killer.png */; };
+		6204E85E244B7418001F4ECF /* MenuOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6204E85B244B7418001F4ECF /* MenuOptionsViewController.swift */; };
+		6204E85F244B7418001F4ECF /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6204E85C244B7418001F4ECF /* InstructionsViewController.swift */; };
+		6204E860244B7418001F4ECF /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6204E85D244B7418001F4ECF /* HighScoreViewController.swift */; };
 		621592E7241552DE0076A283 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621592E6241552DE0076A283 /* FirebaseCore.framework */; };
 		621592E9241552DE0076A283 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621592E8241552DE0076A283 /* FirebaseCoreDiagnostics.framework */; };
 		621592EB241552DE0076A283 /* FirebaseInstallations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621592EA241552DE0076A283 /* FirebaseInstallations.framework */; };
 		6262BBE02443BBEC00ECEBCF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262BBDF2443BBEC00ECEBCF /* GameViewController.swift */; };
 		6262BBE32444D3ED00ECEBCF /* GameOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262BBE22444D3ED00ECEBCF /* GameOptionsViewController.swift */; };
 		62C240F82412AC370092A3E9 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F52412AC370092A3E9 /* FirebaseAPI.swift */; };
-		62C240F92412AC370092A3E9 /* MultiplayerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F62412AC370092A3E9 /* MultiplayerGame.swift */; };
 		62C240FA2412AC370092A3E9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F72412AC370092A3E9 /* Player.swift */; };
 		62C24131241544D00092A3E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62C24130241544D00092A3E9 /* GoogleService-Info.plist */; };
 		AE7337F9240F588A004AC3F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7337F8240F588A004AC3F6 /* AppDelegate.swift */; };
@@ -24,27 +36,30 @@
 		AE73380F240F5943004AC3F6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73380E240F5943004AC3F6 /* Game.swift */; };
 		AE733813240F5D88004AC3F6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733812240F5D88004AC3F6 /* Board.swift */; };
 		AE7338352415403C004AC3F6 /* BoardSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7338342415403C004AC3F6 /* BoardSegment.swift */; };
-		AEA07A72244BB110007562E8 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA07A71244BB110007562E8 /* Twitter.framework */; };
-		AEB2A7F92446D54700E38528 /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2A7F82446D54700E38528 /* FacebookCore.framework */; };
-		AEB2A7FB2446D54700E38528 /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2A7FA2446D54700E38528 /* FacebookLogin.framework */; };
-		AEB2A7FD2446D54700E38528 /* FacebookShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2A7FC2446D54700E38528 /* FacebookShare.framework */; };
-		AEB2A800244776B600E38528 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2A7FE244776B600E38528 /* libsqlite3.0.tbd */; };
-		AEB2A801244776B600E38528 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2A7FF244776B600E38528 /* libsqlite3.tbd */; };
-		AEB2A80524477CE100E38528 /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB2A80424477CE100E38528 /* ScoreCell.swift */; };
-		AEB2A80724477D9C00E38528 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB2A80624477D9C00E38528 /* HighScoreViewController.swift */; };
-		AEB2A80B2447878B00E38528 /* ProjectDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = AEB2A80A2447878B00E38528 /* ProjectDatabase.db */; };
 		EC9798137034F96A330E5F27 /* Pods_SudokuIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6FBDD0E3047E94ED87122B5 /* Pods_SudokuIOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5645C9EB764F27E9566AFA71 /* Pods-SudokuIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudokuIOS.debug.xcconfig"; path = "Target Support Files/Pods-SudokuIOS/Pods-SudokuIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		6204E844244B7117001F4ECF /* puzzle_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = puzzle_music.mp3; sourceTree = "<group>"; };
+		6204E847244B73E5001F4ECF /* ProjectDatabase.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ProjectDatabase.db; sourceTree = "<group>"; };
+		6204E84A244B73F3001F4ECF /* GameOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOptions.swift; sourceTree = "<group>"; };
+		6204E84B244B73F3001F4ECF /* ScoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
+		6204E84C244B73F3001F4ECF /* MenuOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOptions.swift; sourceTree = "<group>"; };
+		6204E851244B73FD001F4ECF /* sudoku_timer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sudoku_timer.png; sourceTree = "<group>"; };
+		6204E852244B73FD001F4ECF /* clouds.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = clouds.jpg; sourceTree = "<group>"; };
+		6204E853244B73FD001F4ECF /* watercolor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = watercolor.jpg; sourceTree = "<group>"; };
+		6204E854244B73FD001F4ECF /* sudoku_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sudoku_normal.png; sourceTree = "<group>"; };
+		6204E855244B73FD001F4ECF /* sudoku_killer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sudoku_killer.png; sourceTree = "<group>"; };
+		6204E85B244B7418001F4ECF /* MenuOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOptionsViewController.swift; sourceTree = "<group>"; };
+		6204E85C244B7418001F4ECF /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
+		6204E85D244B7418001F4ECF /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		621592E6241552DE0076A283 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		621592E8241552DE0076A283 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		621592EA241552DE0076A283 /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6262BBDF2443BBEC00ECEBCF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		6262BBE22444D3ED00ECEBCF /* GameOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionsViewController.swift; sourceTree = "<group>"; };
 		62C240F52412AC370092A3E9 /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
-		62C240F62412AC370092A3E9 /* MultiplayerGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerGame.swift; sourceTree = "<group>"; };
 		62C240F72412AC370092A3E9 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		62C24130241544D00092A3E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7BCE4EE8C0A93C912D20CD5A /* Pods-SudokuIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudokuIOS.release.xcconfig"; path = "Target Support Files/Pods-SudokuIOS/Pods-SudokuIOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -58,15 +73,6 @@
 		AE73380E240F5943004AC3F6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		AE733812240F5D88004AC3F6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		AE7338342415403C004AC3F6 /* BoardSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSegment.swift; sourceTree = "<group>"; };
-		AEA07A71244BB110007562E8 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
-		AEB2A7F82446D54700E38528 /* FacebookCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AEB2A7FA2446D54700E38528 /* FacebookLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AEB2A7FC2446D54700E38528 /* FacebookShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AEB2A7FE244776B600E38528 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		AEB2A7FF244776B600E38528 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		AEB2A80424477CE100E38528 /* ScoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
-		AEB2A80624477D9C00E38528 /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
-		AEB2A80A2447878B00E38528 /* ProjectDatabase.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ProjectDatabase.db; sourceTree = "<group>"; };
 		E6FBDD0E3047E94ED87122B5 /* Pods_SudokuIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudokuIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -75,12 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEA07A72244BB110007562E8 /* Twitter.framework in Frameworks */,
-				AEB2A800244776B600E38528 /* libsqlite3.0.tbd in Frameworks */,
-				AEB2A801244776B600E38528 /* libsqlite3.tbd in Frameworks */,
-				AEB2A7F92446D54700E38528 /* FacebookCore.framework in Frameworks */,
-				AEB2A7FB2446D54700E38528 /* FacebookLogin.framework in Frameworks */,
-				AEB2A7FD2446D54700E38528 /* FacebookShare.framework in Frameworks */,
 				621592E7241552DE0076A283 /* FirebaseCore.framework in Frameworks */,
 				621592E9241552DE0076A283 /* FirebaseCoreDiagnostics.framework in Frameworks */,
 				621592EB241552DE0076A283 /* FirebaseInstallations.framework in Frameworks */,
@@ -94,18 +94,28 @@
 		08988CB0C27CB4C7FC919D08 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AEA07A71244BB110007562E8 /* Twitter.framework */,
-				AEB2A7FE244776B600E38528 /* libsqlite3.0.tbd */,
-				AEB2A7FF244776B600E38528 /* libsqlite3.tbd */,
-				AEB2A7F82446D54700E38528 /* FacebookCore.framework */,
-				AEB2A7FA2446D54700E38528 /* FacebookLogin.framework */,
-				AEB2A7FC2446D54700E38528 /* FacebookShare.framework */,
 				621592E6241552DE0076A283 /* FirebaseCore.framework */,
 				621592E8241552DE0076A283 /* FirebaseCoreDiagnostics.framework */,
 				621592EA241552DE0076A283 /* FirebaseInstallations.framework */,
 				E6FBDD0E3047E94ED87122B5 /* Pods_SudokuIOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6204E843244B7103001F4ECF /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				6204E844244B7117001F4ECF /* puzzle_music.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		6204E846244B7124001F4ECF /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				6204E847244B73E5001F4ECF /* ProjectDatabase.db */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		6F4ACDB196829A1C8C79BDF0 /* Pods */ = {
@@ -120,7 +130,8 @@
 		AE7337EC240F588A004AC3F6 = {
 			isa = PBXGroup;
 			children = (
-				AEB2A809244784EC00E38528 /* Database */,
+				6204E846244B7124001F4ECF /* Database */,
+				6204E843244B7103001F4ECF /* Sounds */,
 				AE73380D240F58DD004AC3F6 /* Classes */,
 				AE73380C240F58D5004AC3F6 /* Images */,
 				AE73380B240F58C2004AC3F6 /* Controllers */,
@@ -144,7 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				62C24130241544D00092A3E9 /* GoogleService-Info.plist */,
-				AE7337F8240F588A004AC3F6 /* AppDelegate.swift */,
 				AE7337FF240F588B004AC3F6 /* Assets.xcassets */,
 				AE733804240F588B004AC3F6 /* Info.plist */,
 			);
@@ -163,10 +173,12 @@
 		AE73380B240F58C2004AC3F6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6204E85D244B7418001F4ECF /* HighScoreViewController.swift */,
+				6204E85C244B7418001F4ECF /* InstructionsViewController.swift */,
+				6204E85B244B7418001F4ECF /* MenuOptionsViewController.swift */,
 				AE7337FA240F588A004AC3F6 /* ViewController.swift */,
 				6262BBDF2443BBEC00ECEBCF /* GameViewController.swift */,
 				6262BBE22444D3ED00ECEBCF /* GameOptionsViewController.swift */,
-				AEB2A80624477D9C00E38528 /* HighScoreViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -174,6 +186,11 @@
 		AE73380C240F58D5004AC3F6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6204E852244B73FD001F4ECF /* clouds.jpg */,
+				6204E855244B73FD001F4ECF /* sudoku_killer.png */,
+				6204E854244B73FD001F4ECF /* sudoku_normal.png */,
+				6204E851244B73FD001F4ECF /* sudoku_timer.png */,
+				6204E853244B73FD001F4ECF /* watercolor.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -181,23 +198,17 @@
 		AE73380D240F58DD004AC3F6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AE7337F8240F588A004AC3F6 /* AppDelegate.swift */,
+				6204E84B244B73F3001F4ECF /* ScoreCell.swift */,
+				6204E84A244B73F3001F4ECF /* GameOptions.swift */,
+				6204E84C244B73F3001F4ECF /* MenuOptions.swift */,
 				62C240F52412AC370092A3E9 /* FirebaseAPI.swift */,
-				62C240F62412AC370092A3E9 /* MultiplayerGame.swift */,
 				62C240F72412AC370092A3E9 /* Player.swift */,
 				AE73380E240F5943004AC3F6 /* Game.swift */,
 				AE733812240F5D88004AC3F6 /* Board.swift */,
 				AE7338342415403C004AC3F6 /* BoardSegment.swift */,
-				AEB2A80424477CE100E38528 /* ScoreCell.swift */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		AEB2A809244784EC00E38528 /* Database */ = {
-			isa = PBXGroup;
-			children = (
-				AEB2A80A2447878B00E38528 /* ProjectDatabase.db */,
-			);
-			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +223,7 @@
 				AE7337F2240F588A004AC3F6 /* Frameworks */,
 				AE7337F3240F588A004AC3F6 /* Resources */,
 				E75AE3E1945F73E6B614CD22 /* [CP] Embed Pods Frameworks */,
+				62DD7B71244B9B3200043289 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -262,9 +274,15 @@
 			files = (
 				AE733803240F588B004AC3F6 /* LaunchScreen.storyboard in Resources */,
 				62C24131241544D00092A3E9 /* GoogleService-Info.plist in Resources */,
-				AEB2A80B2447878B00E38528 /* ProjectDatabase.db in Resources */,
+				6204E848244B73E5001F4ECF /* ProjectDatabase.db in Resources */,
+				6204E857244B73FD001F4ECF /* clouds.jpg in Resources */,
+				6204E858244B73FD001F4ECF /* watercolor.jpg in Resources */,
+				6204E859244B73FD001F4ECF /* sudoku_normal.png in Resources */,
 				AE733800240F588B004AC3F6 /* Assets.xcassets in Resources */,
 				AE7337FE240F588A004AC3F6 /* Main.storyboard in Resources */,
+				6204E856244B73FD001F4ECF /* sudoku_timer.png in Resources */,
+				6204E85A244B73FD001F4ECF /* sudoku_killer.png in Resources */,
+				6204E845244B7117001F4ECF /* puzzle_music.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +311,25 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		62DD7B71244B9B3200043289 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run Firebase Crashlytics\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		E75AE3E1945F73E6B614CD22 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -318,17 +355,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				6262BBE02443BBEC00ECEBCF /* GameViewController.swift in Sources */,
-				AEB2A80724477D9C00E38528 /* HighScoreViewController.swift in Sources */,
+				6204E85F244B7418001F4ECF /* InstructionsViewController.swift in Sources */,
+				6204E850244B73F3001F4ECF /* MenuOptions.swift in Sources */,
 				62C240F82412AC370092A3E9 /* FirebaseAPI.swift in Sources */,
+				6204E84F244B73F3001F4ECF /* ScoreCell.swift in Sources */,
+				6204E84E244B73F3001F4ECF /* GameOptions.swift in Sources */,
 				AE7337FB240F588A004AC3F6 /* ViewController.swift in Sources */,
-				62C240F92412AC370092A3E9 /* MultiplayerGame.swift in Sources */,
 				62C240FA2412AC370092A3E9 /* Player.swift in Sources */,
+				6204E85E244B7418001F4ECF /* MenuOptionsViewController.swift in Sources */,
 				AE733813240F5D88004AC3F6 /* Board.swift in Sources */,
 				AE73380F240F5943004AC3F6 /* Game.swift in Sources */,
-				AEB2A80524477CE100E38528 /* ScoreCell.swift in Sources */,
 				6262BBE32444D3ED00ECEBCF /* GameOptionsViewController.swift in Sources */,
 				AE7338352415403C004AC3F6 /* BoardSegment.swift in Sources */,
 				AE7337F9240F588A004AC3F6 /* AppDelegate.swift in Sources */,
+				6204E860244B7418001F4ECF /* HighScoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
