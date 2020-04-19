@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BoardSegment{
+class BoardSegment {
     
     private let NUMBER_OF_ROWS: Int = 3
     private let NUMBER_OF_COLUMNS: Int = 3

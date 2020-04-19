@@ -10,75 +10,91 @@ import UIKit
 
 class GameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
-    @IBOutlet var labl : UILabel?
-    @IBOutlet var sudokuCollectionView : UICollectionView?
+    // get access to the app delegate
+    let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    private var game: Game = Game()
+    // define VC outlet controls
+    @IBOutlet var labl : UILabel!
+    @IBOutlet var lblMessage: UILabel!
+    @IBOutlet var sudokuCollectionView : UICollectionView!
+    
+    // define game and game options objects
+    var game: Game = Game()
+    var gameOptions: GameOptions = GameOptions()
+    
+    // cell data of last touched cell
+    private var OldCell  = UICollectionViewCell()
+    private var OldCellTextField = UITextField()
+    private var OldCellCordinates = Cordinates(RowIndex: -1, ColIndex: -1)
+    // cell data of last touched cell
     private var lastTouched: IndexPath = IndexPath(item: -1, section: 0)
     
-    override func viewWillAppear(_ animated: Bool) {
-        game.board = Board()
-        game.player = Player()
-        game.generateBoard()
+    override func viewDidAppear(_ animated: Bool) {
+        doColourUserCells()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // give the collection view a black border
         sudokuCollectionView?.layer.borderWidth = 2
         sudokuCollectionView?.layer.borderColor = UIColor.black.cgColor
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return textField.resignFirstResponder()
-    }
-    
-    // button handler for the number pad
-    @IBAction func pressNum(sender : UIButton) {
-        // ensure a number pad button was pressed and a cell is selected
-        if sender.tag >= 0 && sender.tag <= 9 && lastTouched.item >= 0 {
-            // if the player touched the clear button
-            if sender.tag == 0 {
-                // set the cell to blank & reload the cell
-                game.board?.setNumberAt(index: lastTouched.item, number: sender.tag)
-                sudokuCollectionView?.reloadItems(at: [lastTouched])
-                let cell = sudokuCollectionView?.cellForItem(at: lastTouched)
-                cell?.backgroundColor = .green
-                
-                // set previous selected cell to none
-                lastTouched.item = -1
-            }
-            else {
-                // check if user's chosen number fits in the row, col, and segment
-                let returnCode = game.checkIfValid(index: lastTouched.item, number: sender.tag)
-                // if the choice is valid,
-                if returnCode == 1 {
-                    // set the cell to the number pressed & reload the cell
-                    game.board?.setNumberAt(index: lastTouched.item, number: sender.tag)
-                    sudokuCollectionView?.reloadItems(at: [lastTouched])
+        
+        if(OldCellCordinates.RowIndex != -1 && OldCellCordinates.ColIndex != -1){
+            
+            if(textField.text!.count != 0){
+                let returnCode = game.checkIfValid(index: lastTouched.item, number: Int(String(textField.text!))!)
+                if(returnCode == 1){
+                    game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: Int(String(textField.text!))!)
                     
-                    // set the cell's background to mark the user's input
-                    let cell = sudokuCollectionView?.cellForItem(at: lastTouched)
-                    cell?.backgroundColor = .cyan
+                    OldCell.backgroundColor = .cyan
+                    OldCell.layer.borderWidth = 0.5
                     
-                    // set previous selected cell to none
-                    lastTouched.item = -1
-                    
-                    // end the game if the player has solved the puzzle
+                    // if game board has been solved
                     if game.checkIfSolved() {
-                        labl?.text = "You win!"
+                        // save the score and display a win message
+                        mainDelegate.currentPlayer!.setScore(score: 0)
+                        if mainDelegate.insertIntoDatabase(player: mainDelegate.currentPlayer!) {
+                            lblMessage!.text = "You win! Score has been saved."
+                        } else {
+                            lblMessage!.text = "You win! Score could not be saved."
+                        }
                     }
                 } else if returnCode == -1 {
-                    labl?.text = "Number exists in row!"
+                    textField.text?.removeAll()
+                    game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: 0)
+                    OldCell.backgroundColor = .green
+                    OldCell.layer.borderWidth = 0.5
+                    lblMessage.text = "Number exists in row!"
                 } else if returnCode == -2 {
-                    labl?.text = "Number exists in column!"
+                    textField.text?.removeAll()
+                    game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: 0)
+                    OldCell.backgroundColor = .green
+                    OldCell.layer.borderWidth = 0.5
+                    lblMessage.text = "Number exists in column!"
                 } else if returnCode == -3 {
-                    labl?.text = "Number exists in segment!"
+                    textField.text?.removeAll()
+                    game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: 0)
+                    OldCell.backgroundColor = .green
+                    OldCell.layer.borderWidth = 0.5
+                    lblMessage.text = "Number exists in segment!"
+                }
+                else if( returnCode == -4){
+                    textField.text? = OldCellTextField.text!
+                    OldCell.backgroundColor = .cyan
+                    OldCell.layer.borderWidth = 0.5
+                    lblMessage.text = "This Number is already at this Location!"
                 }
             }
-        } else {
-            labl?.text = "No cell selected."
+            else{
+                OldCell.backgroundColor = .green
+                OldCell.layer.borderWidth = 0.5
+            }
         }
+        return textField.resignFirstResponder()
     }
     
     // define dimensions of each cell to fit 9x9 on grid
@@ -103,35 +119,51 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return (game.getBoard().getBoard2dArray().count * game.getBoard().getBoard2dArray()[0].count)
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let char = string.cString(using: String.Encoding.utf8) {
+            let isBackSpace = strcmp(char, "\\b")
+            if (isBackSpace == -92) {
+                textField.text?.removeAll()
+            }
+        }
+        return string == string.filter("0123456789".contains) && textField.text!.count < 1
+    }
+    
     // define the content of each cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // define the cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as UICollectionViewCell
         
-        // if cell is a given cell, colour it grey
-        if game.isCellGiven(index: indexPath.item) {
-            cell.backgroundColor = .lightGray
-        }
-        
-        // if the cell is on the edge of a segment, thicken its border
-//        if indexPath.item % 9 == 3
-//        cell.layer.borderWidth = 1.0
-        
         // define the label that will display the number on the cell
-        let cellLabel = UILabel(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cell.frame.size.height))
-        cellLabel.textAlignment = .center
+        let cellTextField = UITextField(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cell.frame.size.height))
+        cellTextField.textAlignment = .center
+        cellTextField.delegate = self
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 0.5
         
+        // if cell is a given cell, colour it grey
+        if game.isCellGiven(index: indexPath.item) {
+            cell.backgroundColor = .lightGray
+            cell.isUserInteractionEnabled = false
+        }
+        // else if cell already has a user-entered value
+        else if game.isUserCell(index: indexPath.item) {
+            cell.backgroundColor = .cyan
+        }
+        
+        //disables the textfield for editing
+        cellTextField.isEnabled = false
+        cellTextField.tag = (indexPath.item + 5)
+        
         // show the cell's number on the label unless it's 0 (then blank)
         if game.getBoard().getNumberAt(index: indexPath.item) > 0 {
-            cellLabel.text = String(game.getBoard().getNumberAt(index: indexPath.item))
+            cellTextField.text = String(game.getBoard().getNumberAt(index: indexPath.item))
         } else {
-            cellLabel.text = ""
+            cellTextField.text = ""
         }
         
         // add the cell label to the cell
-        cell.addSubview(cellLabel)
+        cell.addSubview(cellTextField)
         
         return cell
     }
@@ -139,35 +171,50 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // show the coord of the selected cell on a label
         let cord = game.getBoard().getCordinatesFromIndex(Index: (indexPath.item))
-        labl?.text = "(\(cord.RowIndex),\(cord.ColIndex)): \(game.getBoard().getNumberAt(RowIndex: cord.RowIndex, ColIndex: cord.ColIndex))"
-        
-        // if selected cell is not a given cell
-        if !game.isCellGiven(index: indexPath.item) {
-            // if user selected a different cell before this,
-            if lastTouched.item >= 0 {
-                // get the previously selected cell
-                let prevCell = sudokuCollectionView?.cellForItem(at: lastTouched)
-                
-                // if the previously selected cell has a value, reset to value colour
-                if game.board!.getNumberAt(index: indexPath.item) > 0 {
-                    prevCell?.backgroundColor = .cyan
-                }
-                // else, prev selected cell has no value, reset to base colour
-                else {
-                    prevCell?.backgroundColor = .green
-                }
-                
-                // reset cell border to unselected width
-                prevCell?.layer.borderWidth = 0.5
+        labl.text = "(\(cord.RowIndex),\(cord.ColIndex)): \(game.getBoard().getNumberAt(RowIndex: cord.RowIndex, ColIndex: cord.ColIndex))"
+    
+        var _ = textFieldShouldReturn(OldCellTextField)
+        OldCellTextField.isEnabled = false
+    
+        // highlight selected cell by changing background colour and border
+        let touchedCell = sudokuCollectionView?.cellForItem(at: indexPath)
+        let textfield = touchedCell?.viewWithTag(indexPath.item + 5) as! UITextField
+    
+        textfield.isEnabled = true
+        textfield.becomeFirstResponder()
+        touchedCell?.backgroundColor = .yellow
+        touchedCell?.layer.borderWidth = 3.0
+    
+        OldCell = touchedCell!
+        OldCellTextField = textfield
+        OldCellCordinates = cord
+    
+        // track the index path of the most recently touched cell
+        lastTouched = indexPath
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // if player is unwinding
+        if segue.identifier == "unwindSegue" {
+            // and if the game isn't finished
+            if !game.solved {
+                // save the game
+                mainDelegate.currentPlayer!.setSavedSPGame(spGame: self.game)
+                // show the resume button on game options screen
+                let gameOptionsVC = segue.destination as! GameOptionsViewController
+                gameOptionsVC.btnResumeGame.isHidden = false
             }
-            
-            // highlight selected cell by changing background colour and border
-            let touchedCell = sudokuCollectionView?.cellForItem(at: indexPath)
-            touchedCell?.backgroundColor = .yellow
-            touchedCell?.layer.borderWidth = 3.0
-            
-            // track the index path of the most recently touched cell
-            lastTouched = indexPath
+        }
+    }
+    
+    // colour all user-entered cells
+    func doColourUserCells() {
+        for i in 0..<(9 * 9) {
+            // if cell has a user-entered value, colour it
+            if game.isUserCell(index: i) {
+                let userCell = sudokuCollectionView.cellForItem(at: IndexPath(index: i))
+                userCell?.backgroundColor? = .cyan
+            }
         }
     }
 }

@@ -7,13 +7,13 @@
 //
 
 import Foundation
+import AVFoundation
 
 class Game {
     
     var player: Player?
     var board : Board?
     var solved: Bool = false    // flag true if game is finished or false if still in progress
-    var started: Bool = false
     var givenCells = [(Int)]()
     
     init(player: Player, board: Board) {
@@ -37,27 +37,13 @@ class Game {
         self.player = player
     }
     
-    func startGame() {
-
-        started = true
-    }
-    
-    func stopGame() {
-        
-    }
-    
-    func resumeGame() {
-        
-    }
-    
-    func saveGameStatus() {
-        // saves games status
-    }
-    
     // test if there is an error on the board with given index
     func checkIfValid(index: Int, number: Int) -> Int {
         // get the coordinates of the param index
         let coords = board?.getCordinatesFromIndex(Index: index)
+        if(board?.getNumberAt(RowIndex: coords!.RowIndex, ColIndex: coords!.ColIndex) == number){
+            return -4
+        }
         // test for duplicates in all columns on same row
         for col in 0..<9 {
             if board?.getNumberAt(RowIndex: coords!.RowIndex, ColIndex: col) == number {
@@ -137,6 +123,9 @@ class Game {
         
         // if haven't returned false by now, puzzle has been solved
         solved = true
+        
+        // play the winning sound
+        
         return true
     }
     
@@ -146,54 +135,54 @@ class Game {
             board!.setNumberAt(index: i, number: 0)
         }
         // hardcoded puzzle for debugging (we know the solution)
-        board!.setNumberAt(RowIndex: 0, ColIndex: 2, number: 8)
-        board!.setNumberAt(RowIndex: 0, ColIndex: 7, number: 2)
+        getBoard().setNumberAt(RowIndex: 0, ColIndex: 2, number: 8)
+        getBoard().setNumberAt(RowIndex: 0, ColIndex: 7, number: 2)
         
-        board!.setNumberAt(RowIndex: 1, ColIndex: 0, number: 1)
-        board!.setNumberAt(RowIndex: 1, ColIndex: 1, number: 2)
-        board!.setNumberAt(RowIndex: 1, ColIndex: 4, number: 8)
-        board!.setNumberAt(RowIndex: 1, ColIndex: 7, number: 9)
-        board!.setNumberAt(RowIndex: 1, ColIndex: 8, number: 4)
+        getBoard().setNumberAt(RowIndex: 1, ColIndex: 0, number: 1)
+        getBoard().setNumberAt(RowIndex: 1, ColIndex: 1, number: 2)
+        getBoard().setNumberAt(RowIndex: 1, ColIndex: 4, number: 8)
+        getBoard().setNumberAt(RowIndex: 1, ColIndex: 7, number: 9)
+        getBoard().setNumberAt(RowIndex: 1, ColIndex: 8, number: 4)
         
-        board!.setNumberAt(RowIndex: 2, ColIndex: 0, number: 6)
-        board!.setNumberAt(RowIndex: 2, ColIndex: 3, number: 9)
-        board!.setNumberAt(RowIndex: 2, ColIndex: 6, number: 8)
-        board!.setNumberAt(RowIndex: 2, ColIndex: 7, number: 3)
+        getBoard().setNumberAt(RowIndex: 2, ColIndex: 0, number: 6)
+        getBoard().setNumberAt(RowIndex: 2, ColIndex: 3, number: 9)
+        getBoard().setNumberAt(RowIndex: 2, ColIndex: 6, number: 8)
+        getBoard().setNumberAt(RowIndex: 2, ColIndex: 7, number: 3)
        
-        board!.setNumberAt(RowIndex: 3, ColIndex: 0, number: 7)
-        board!.setNumberAt(RowIndex: 3, ColIndex: 3, number: 6)
-        board!.setNumberAt(RowIndex: 3, ColIndex: 4, number: 3)
-        board!.setNumberAt(RowIndex: 3, ColIndex: 5, number: 5)
+        getBoard().setNumberAt(RowIndex: 3, ColIndex: 0, number: 7)
+        getBoard().setNumberAt(RowIndex: 3, ColIndex: 3, number: 6)
+        getBoard().setNumberAt(RowIndex: 3, ColIndex: 4, number: 3)
+        getBoard().setNumberAt(RowIndex: 3, ColIndex: 5, number: 5)
         
-        board!.setNumberAt(RowIndex: 4, ColIndex: 0, number: 4)
-        board!.setNumberAt(RowIndex: 4, ColIndex: 2, number: 6)
-        board!.setNumberAt(RowIndex: 4, ColIndex: 3, number: 2)
-        board!.setNumberAt(RowIndex: 4, ColIndex: 5, number: 7)
-        board!.setNumberAt(RowIndex: 4, ColIndex: 6, number: 9)
-        board!.setNumberAt(RowIndex: 4, ColIndex: 8, number: 3)
+        getBoard().setNumberAt(RowIndex: 4, ColIndex: 0, number: 4)
+        getBoard().setNumberAt(RowIndex: 4, ColIndex: 2, number: 6)
+        getBoard().setNumberAt(RowIndex: 4, ColIndex: 3, number: 2)
+        getBoard().setNumberAt(RowIndex: 4, ColIndex: 5, number: 7)
+        getBoard().setNumberAt(RowIndex: 4, ColIndex: 6, number: 9)
+        getBoard().setNumberAt(RowIndex: 4, ColIndex: 8, number: 3)
         
-        board!.setNumberAt(RowIndex: 5, ColIndex: 3, number: 8)
-        board!.setNumberAt(RowIndex: 5, ColIndex: 4, number: 4)
-        board!.setNumberAt(RowIndex: 5, ColIndex: 5, number: 9)
-        board!.setNumberAt(RowIndex: 5, ColIndex: 8, number: 6)
+        getBoard().setNumberAt(RowIndex: 5, ColIndex: 3, number: 8)
+        getBoard().setNumberAt(RowIndex: 5, ColIndex: 4, number: 4)
+        getBoard().setNumberAt(RowIndex: 5, ColIndex: 5, number: 9)
+        getBoard().setNumberAt(RowIndex: 5, ColIndex: 8, number: 6)
         
-        board!.setNumberAt(RowIndex: 6, ColIndex: 1, number: 4)
-        board!.setNumberAt(RowIndex: 6, ColIndex: 2, number: 2)
-        board!.setNumberAt(RowIndex: 6, ColIndex: 5, number: 8)
-        board!.setNumberAt(RowIndex: 6, ColIndex: 8, number: 9)
+        getBoard().setNumberAt(RowIndex: 6, ColIndex: 1, number: 4)
+        getBoard().setNumberAt(RowIndex: 6, ColIndex: 2, number: 2)
+        getBoard().setNumberAt(RowIndex: 6, ColIndex: 5, number: 8)
+        getBoard().setNumberAt(RowIndex: 6, ColIndex: 8, number: 9)
         
-        board!.setNumberAt(RowIndex: 7, ColIndex: 0, number: 9)
-        board!.setNumberAt(RowIndex: 7, ColIndex: 1, number: 6)
-        board!.setNumberAt(RowIndex: 7, ColIndex: 4, number: 5)
-        board!.setNumberAt(RowIndex: 7, ColIndex: 7, number: 8)
-        board!.setNumberAt(RowIndex: 7, ColIndex: 8, number: 1)
+        getBoard().setNumberAt(RowIndex: 7, ColIndex: 0, number: 9)
+        getBoard().setNumberAt(RowIndex: 7, ColIndex: 1, number: 6)
+        getBoard().setNumberAt(RowIndex: 7, ColIndex: 4, number: 5)
+        getBoard().setNumberAt(RowIndex: 7, ColIndex: 7, number: 8)
+        getBoard().setNumberAt(RowIndex: 7, ColIndex: 8, number: 1)
         
-        board!.setNumberAt(RowIndex: 8, ColIndex: 1, number: 3)
-        board!.setNumberAt(RowIndex: 8, ColIndex: 6, number: 5)
+        getBoard().setNumberAt(RowIndex: 8, ColIndex: 1, number: 3)
+        getBoard().setNumberAt(RowIndex: 8, ColIndex: 6, number: 5)
         
         // for every puzzle number set, mark it in our givenCells array
         for i in 0..<(9 * 9) {
-            if (board?.getNumberAt(index: i))! > 0 {
+            if (getBoard().getNumberAt(index: i)) > 0 {
                 givenCells.append(1)
             } else {
                 givenCells.append(0)
@@ -201,8 +190,18 @@ class Game {
         }
     }
     
+    // return true if cell at index was given at the start of game
     func isCellGiven(index: Int) -> Bool {
         if givenCells[index] == 1 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    // return true if cell at index has a user-entered value
+    func isUserCell(index: Int) -> Bool {
+        if !isCellGiven(index: index) && getBoard().getNumberAt(index: index) > 0 {
             return true
         } else {
             return false
