@@ -24,12 +24,16 @@ class InstructionsViewController: UIViewController, WKNavigationDelegate {
         webView.navigationDelegate = self
     }
     
+    // when the web page is loading
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        // show the activity indicator and animate it
         activity.isHidden = false
         activity.startAnimating()
     }
     
+    // when the web page finished loading
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        // hide the activity indicator and stop its animation
         activity.isHidden = true
         activity.stopAnimating()
     }

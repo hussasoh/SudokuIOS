@@ -13,7 +13,6 @@ class Player: NSObject {
     private var id : Int?                      // player's id
     private var name: String!                  // player's name
     private var score : Int?                   // player's score
-    private var savedSPGame: Game?             // state of unfinished singleplayer game
     
     // initializers
     override init() {
@@ -22,6 +21,8 @@ class Player: NSObject {
     init(name: String) {
         self.name = name
     }
+    
+    // for reading database records
     func initWithData(theRow r : Int, theName n : String, theScore s : Int) {
         id = r
         name = n
@@ -43,12 +44,5 @@ class Player: NSObject {
     }
     func getScore() -> Int {
         return self.score!
-    }
-    
-    func getSavedSPGame() -> Game? {
-        return self.savedSPGame
-    }
-    func setSavedSPGame(spGame: Game) {
-        self.savedSPGame = spGame
     }
 }

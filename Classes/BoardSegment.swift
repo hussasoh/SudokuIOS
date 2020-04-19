@@ -24,7 +24,10 @@ class BoardSegment {
     //initializes the Board Segment
     //creates random numbers around the segment
     init() {        
-//        AddRandomNumbersInSegment()
+        AddRandomNumbersInSegment()
+    }
+    init(numbers: [[Int]]) {
+        self.numbersInSegment = numbers
     }
     
     private func AddRandomNumbersInSegment(){
@@ -36,13 +39,9 @@ class BoardSegment {
             let ArrayIndexRow = GenerateRandomNumbers(from: 0, to: (NUMBER_OF_ROWS-1))
             let ArrayIndexColumn = GenerateRandomNumbers(from: 0, to: (NUMBER_OF_COLUMNS-1))
             
-            print("ArrayIndexRow: " + String(ArrayIndexRow))
-            print("ArrayIndexCol: " + String(ArrayIndexColumn))
             for (indexRow,row) in numbersInSegment.enumerated(){
-                print("indexRow:"+String(indexRow))
                 if(indexRow == ArrayIndexRow){
                     for (indexColumn,_) in row.enumerated(){
-                        print("indexCol:"+String(indexColumn))
                         if(indexColumn == ArrayIndexColumn){
                             numbersInSegment[indexRow].remove(at: indexColumn)
                             numbersInSegment[indexRow].insert(numbergen, at: indexColumn)

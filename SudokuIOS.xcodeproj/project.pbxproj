@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6204E845244B7117001F4ECF /* puzzle_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6204E844244B7117001F4ECF /* puzzle_music.mp3 */; };
 		6204E848244B73E5001F4ECF /* ProjectDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = 6204E847244B73E5001F4ECF /* ProjectDatabase.db */; };
-		6204E84D244B73F3001F4ECF /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6204E849244B73F3001F4ECF /* MyData.swift */; };
 		6204E84E244B73F3001F4ECF /* GameOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6204E84A244B73F3001F4ECF /* GameOptions.swift */; };
 		6204E84F244B73F3001F4ECF /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6204E84B244B73F3001F4ECF /* ScoreCell.swift */; };
 		6204E850244B73F3001F4ECF /* MenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6204E84C244B73F3001F4ECF /* MenuOptions.swift */; };
@@ -26,7 +25,6 @@
 		621592EB241552DE0076A283 /* FirebaseInstallations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621592EA241552DE0076A283 /* FirebaseInstallations.framework */; };
 		6262BBE02443BBEC00ECEBCF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262BBDF2443BBEC00ECEBCF /* GameViewController.swift */; };
 		6262BBE32444D3ED00ECEBCF /* GameOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262BBE22444D3ED00ECEBCF /* GameOptionsViewController.swift */; };
-		62C240F82412AC370092A3E9 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F52412AC370092A3E9 /* FirebaseAPI.swift */; };
 		62C240FA2412AC370092A3E9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C240F72412AC370092A3E9 /* Player.swift */; };
 		62C24131241544D00092A3E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62C24130241544D00092A3E9 /* GoogleService-Info.plist */; };
 		AE7337F9240F588A004AC3F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7337F8240F588A004AC3F6 /* AppDelegate.swift */; };
@@ -35,7 +33,6 @@
 		AE733800240F588B004AC3F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE7337FF240F588B004AC3F6 /* Assets.xcassets */; };
 		AE733803240F588B004AC3F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE733801240F588B004AC3F6 /* LaunchScreen.storyboard */; };
 		AE73380F240F5943004AC3F6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73380E240F5943004AC3F6 /* Game.swift */; };
-		AE733811240F59F2004AC3F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733810240F59F2004AC3F6 /* User.swift */; };
 		AE733813240F5D88004AC3F6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733812240F5D88004AC3F6 /* Board.swift */; };
 		AE7338352415403C004AC3F6 /* BoardSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7338342415403C004AC3F6 /* BoardSegment.swift */; };
 		EC9798137034F96A330E5F27 /* Pods_SudokuIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6FBDD0E3047E94ED87122B5 /* Pods_SudokuIOS.framework */; };
@@ -45,7 +42,6 @@
 		5645C9EB764F27E9566AFA71 /* Pods-SudokuIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudokuIOS.debug.xcconfig"; path = "Target Support Files/Pods-SudokuIOS/Pods-SudokuIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		6204E844244B7117001F4ECF /* puzzle_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = puzzle_music.mp3; sourceTree = "<group>"; };
 		6204E847244B73E5001F4ECF /* ProjectDatabase.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ProjectDatabase.db; sourceTree = "<group>"; };
-		6204E849244B73F3001F4ECF /* MyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyData.swift; sourceTree = "<group>"; };
 		6204E84A244B73F3001F4ECF /* GameOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOptions.swift; sourceTree = "<group>"; };
 		6204E84B244B73F3001F4ECF /* ScoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
 		6204E84C244B73F3001F4ECF /* MenuOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOptions.swift; sourceTree = "<group>"; };
@@ -62,7 +58,6 @@
 		621592EA241552DE0076A283 /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6262BBDF2443BBEC00ECEBCF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		6262BBE22444D3ED00ECEBCF /* GameOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionsViewController.swift; sourceTree = "<group>"; };
-		62C240F52412AC370092A3E9 /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
 		62C240F72412AC370092A3E9 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		62C24130241544D00092A3E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7BCE4EE8C0A93C912D20CD5A /* Pods-SudokuIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudokuIOS.release.xcconfig"; path = "Target Support Files/Pods-SudokuIOS/Pods-SudokuIOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,7 +69,6 @@
 		AE733802240F588B004AC3F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE733804240F588B004AC3F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE73380E240F5943004AC3F6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		AE733810240F59F2004AC3F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AE733812240F5D88004AC3F6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		AE7338342415403C004AC3F6 /* BoardSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSegment.swift; sourceTree = "<group>"; };
 		E6FBDD0E3047E94ED87122B5 /* Pods_SudokuIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudokuIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,12 +199,9 @@
 			children = (
 				6204E84A244B73F3001F4ECF /* GameOptions.swift */,
 				6204E84C244B73F3001F4ECF /* MenuOptions.swift */,
-				6204E849244B73F3001F4ECF /* MyData.swift */,
 				6204E84B244B73F3001F4ECF /* ScoreCell.swift */,
-				62C240F52412AC370092A3E9 /* FirebaseAPI.swift */,
 				62C240F72412AC370092A3E9 /* Player.swift */,
 				AE73380E240F5943004AC3F6 /* Game.swift */,
-				AE733810240F59F2004AC3F6 /* User.swift */,
 				AE733812240F5D88004AC3F6 /* Board.swift */,
 				AE7338342415403C004AC3F6 /* BoardSegment.swift */,
 			);
@@ -362,10 +353,7 @@
 			files = (
 				6262BBE02443BBEC00ECEBCF /* GameViewController.swift in Sources */,
 				6204E85F244B7418001F4ECF /* InstructionsViewController.swift in Sources */,
-				AE733811240F59F2004AC3F6 /* User.swift in Sources */,
 				6204E850244B73F3001F4ECF /* MenuOptions.swift in Sources */,
-				62C240F82412AC370092A3E9 /* FirebaseAPI.swift in Sources */,
-				6204E84D244B73F3001F4ECF /* MyData.swift in Sources */,
 				6204E84F244B73F3001F4ECF /* ScoreCell.swift in Sources */,
 				6204E84E244B73F3001F4ECF /* GameOptions.swift in Sources */,
 				AE7337FB240F588A004AC3F6 /* ViewController.swift in Sources */,

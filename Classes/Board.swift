@@ -58,23 +58,25 @@ class Board{
             }
         }
         
+        self.BoardArray = boardarray
+        
         return boardarray
+    }
+    
+    func setBoardArray(boardArray: [[Int]]) {
+        self.BoardArray = boardArray
     }
     
     func getBoardSegments() -> [[BoardSegment]]{
         return boardSegments
     }
+    func setBoardSegments(segments: [[BoardSegment]]) {
+        self.boardSegments = segments
+    }
     
     func getNumberAt(RowIndex: Int, ColIndex: Int)-> Int{
         return self.BoardArray[RowIndex][ColIndex]
     }
-    // overload to get number at segment coordinates
-//    func getNumberAt(RowIndex: Int, ColIndex: Int, SegmentIndex: Int)-> Int{
-//        if SegmentIndex % 3 == 0 {
-//            if
-//        }
-//        return self.BoardArray[RowIndex][ColIndex]
-//    }
     // overload to get number at single index
     func getNumberAt(index: Int) -> Int{
         let coords = getCordinatesFromIndex(Index: index)

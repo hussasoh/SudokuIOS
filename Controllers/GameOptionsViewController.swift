@@ -24,6 +24,8 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var btnStartGame : UIButton!
     @IBOutlet var btnResumeGame : UIButton!
     
+    var player: Player?
+    
     // array that contains different game mode icons and background choices
     var imgData = ["sudoku_normal.png", "sudoku_timer.png", "sudoku_killer.png", "watercolor.jpg", "clouds.jpg"]
     var imgName : String!
@@ -38,17 +40,10 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
         // sets default background image
         imgBackground.image = UIImage(named: imgData[3])
         
-        // if the player has played already this session
-        if mainDelegate.currentPlayer != nil {
-            // and if the player does not have a saved game
-            if mainDelegate.currentPlayer!.getSavedSPGame() == nil {
-                // hide the resume button
-                btnResumeGame.isHidden = true
-            }
-        // else player has not already played this session
-        } else {
-            // hide the resume button
-            btnResumeGame.isHidden = true
+        // if unfinished game exists in userDefaults, show the resume button
+        let gameProgress = mainDelegate.loadProgress()
+        if gameProgress.board != nil {
+            btnResumeGame.isHidden = false
         }
     }
     
@@ -128,9 +123,9 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
             // get the game view controller
             let gameVC = (segue.destination as! GameViewController)
             
-            // generate a new board for the game VC
+            // generate a new board for the game VC and record the given cells
             gameVC.game.setBoard(board: Board())
-            gameVC.game.generateBoard()
+            gameVC.game.recordGivenCells()
             
             // assign the current player to the game VC's game instance
             gameVC.game.setPlayer(player: mainDelegate.currentPlayer!)
@@ -139,9 +134,13 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
         else if segue.identifier == "resumeGameSegue" {
             // get the game view controller
             let gameVC = segue.destination as! GameViewController
+            // get the saved game progress
+            let gameProgress = mainDelegate.loadProgress()
+            // delete the progress from storage now that it's loaded
+            mainDelegate.deleteProgress()
             
-            // assign the player and their unfinished game to the game VC
-            gameVC.game = mainDelegate.currentPlayer!.getSavedSPGame()!
+            // assign the unfinished game to the game VC
+            gameVC.game = gameProgress
         }
     }
 }

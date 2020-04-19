@@ -26,12 +26,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private var OldCell  = UICollectionViewCell()
     private var OldCellTextField = UITextField()
     private var OldCellCordinates = Cordinates(RowIndex: -1, ColIndex: -1)
-    // cell data of last touched cell
     private var lastTouched: IndexPath = IndexPath(item: -1, section: 0)
-    
-    override func viewDidAppear(_ animated: Bool) {
-        doColourUserCells()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +34,10 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // give the collection view a black border
         sudokuCollectionView?.layer.borderWidth = 2
         sudokuCollectionView?.layer.borderColor = UIColor.black.cgColor
+        
+        // ensure cells coloured correctly
+        doColourCells()
+//        sudokuCollectionView.reloadData()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -46,7 +45,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if(OldCellCordinates.RowIndex != -1 && OldCellCordinates.ColIndex != -1){
             
             if(textField.text!.count != 0){
-                let returnCode = game.checkIfValid(index: lastTouched.item, number: Int(String(textField.text!))!)
+                let returnCode = game.checkIfValid(index: lastTouched.item, number: Int(textField.text!)!)
                 if(returnCode == 1){
                     game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: Int(String(textField.text!))!)
                     
@@ -56,8 +55,8 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     // if game board has been solved
                     if game.checkIfSolved() {
                         // save the score and display a win message
-                        mainDelegate.currentPlayer!.setScore(score: 0)
-                        if mainDelegate.insertIntoDatabase(player: mainDelegate.currentPlayer!) {
+                        game.getPlayer().setScore(score: 0)
+                        if mainDelegate.insertIntoDatabase(player: game.getPlayer()) {
                             lblMessage!.text = "You win! Score has been saved."
                         } else {
                             lblMessage!.text = "You win! Score could not be saved."
@@ -92,6 +91,12 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
             else{
                 OldCell.backgroundColor = .green
                 OldCell.layer.borderWidth = 0.5
+            }
+        }
+        else {
+            // flag the game as started if it isn't already
+            if !game.isStarted() {
+                game.setStarted(isStarted: true)
             }
         }
         return textField.resignFirstResponder()
@@ -146,8 +151,8 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
             cell.backgroundColor = .lightGray
             cell.isUserInteractionEnabled = false
         }
-        // else if cell already has a user-entered value
-        else if game.isUserCell(index: indexPath.item) {
+        // else if cell already has a user-entered value, colour it blue
+        else if game.isStarted() && game.isUserCell(index: indexPath.item) {
             cell.backgroundColor = .cyan
         }
         
@@ -197,9 +202,10 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // if player is unwinding
         if segue.identifier == "unwindSegue" {
             // and if the game isn't finished
-            if !game.solved {
-                // save the game
-                mainDelegate.currentPlayer!.setSavedSPGame(spGame: self.game)
+            if !self.game.isSolved() {
+                // save the unfinished game
+                mainDelegate.saveProgress(game: self.game)
+                
                 // show the resume button on game options screen
                 let gameOptionsVC = segue.destination as! GameOptionsViewController
                 gameOptionsVC.btnResumeGame.isHidden = false
@@ -209,12 +215,30 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // colour all user-entered cells
     func doColourUserCells() {
-        for i in 0..<(9 * 9) {
+        // for all cells in grid
+        for i in 0 ..< 9 * 9 {
             // if cell has a user-entered value, colour it
-            if game.isUserCell(index: i) {
+            if game.isStarted() && game.isUserCell(index: i) {
                 let userCell = sudokuCollectionView.cellForItem(at: IndexPath(index: i))
                 userCell?.backgroundColor? = .cyan
             }
+        }
+    }
+    // colour all cells
+    func doColourCells() {
+        // for all cells in grid
+        for i in 0 ..< 9 * 9 {
+            // get the cell at this index
+            let userCell = sudokuCollectionView.cellForItem(at: IndexPath(index: i))
+            // if cell has a given value, colour it
+            if game.isCellGiven(index: i) {
+                userCell?.backgroundColor? = .lightGray
+            }
+            // if cell has a user-entered value, colour it
+            else if game.isStarted() && game.isUserCell(index: i) {
+                userCell?.backgroundColor? = .cyan
+            }
+            // else, cells will be green by default
         }
     }
 }

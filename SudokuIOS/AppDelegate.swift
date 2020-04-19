@@ -19,27 +19,87 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var databaseName : String? = "ProjectDatabase.db"
     var databasePath : String?
+    let defaults = UserDefaults.standard    // get the UserDefaults storage
     
     // array of scores and their winners' names
     var players : [Player] = []
+    
+    // the player that started the most recent game
+    var currentPlayer : Player? = nil
     
     // audio players for music and sound effects
     var musicPlayer : AVAudioPlayer? = nil  // audio player for the puzzle music
     var winSoundPlayer : AVAudioPlayer? = nil   // audio player for the win sound effect
     var cellSoundPlayer : AVAudioPlayer? = nil  // audio player for the cell selection sound effect
     
-    // the player that started the most recent game
-    var currentPlayer : Player? = nil
+    // save the game progress to userDefaults
+    func saveProgress(game: Game) {
+        // save the player name
+        defaults.set(game.getPlayer().getName(), forKey: "playerName")
+        
+        // save the board array
+        defaults.set(game.getBoard().getBoard2dArray(), forKey: "boardArray")
+        
+        // save the given cells of the board
+        defaults.set(game.getGivenCells(), forKey: "givenCells")
+        
+        // synchronize the userDefaults
+        defaults.synchronize()
+    }
     
-    // TODO: implement music & sound effects with menu options
-    func playMusic() {
-        if musicPlayer == nil {
-            //            musicPlayer = try AVAudioPlayer(contentsOf: NSURL())
+    // load the game progress from userDefaults if exists
+    func loadProgress() -> Game {
+        // create a game object to hold userDefaults game progress
+        let game = Game()
+        
+        // retrieve player data from userDefaults and create a player with it if exists
+        if defaults.string(forKey: "playerName") != nil {
+            let savedPlayer = Player()
+            let playerName = defaults.string(forKey: "playerName")
+            savedPlayer.setName(name: playerName!)
+            
+            // set the game's player to the retrieved player
+            game.setPlayer(player: savedPlayer)
         }
+        else {
+            print("Error: No player name in storage.")
+        }
+        
+        // retrieve the board array from userDefaults if it exists
+        if defaults.array(forKey: "boardArray") != nil {
+            let boardArray = defaults.array(forKey: "boardArray") as? [[Int]]
+            // create a 3x3 grid of row segments using the retrieved array
+            game.createBoardFrom2dArray(boardArray: boardArray!)
+        }
+        else {
+            print("Error: No board found.")
+        }
+        
+        // get the given cells array from userDefaults
+        if defaults.array(forKey: "givenCells") != nil {
+            let givenCells = defaults.array(forKey: "givenCells") as? [Int]
+            game.setGivenCells(givenCells: givenCells!)
+        }
+        else {
+            print("Error: No given cells in storage.")
+        }
+        
+        return game
+    }
+    
+    // delete the game progress data from userDefaults
+    func deleteProgress() {
+        defaults.removeObject(forKey: "playerName")
+        defaults.removeObject(forKey: "boardArray")
+        defaults.removeObject(forKey: "givenCells")
+        // synchronize the changes with userDefaults
+        defaults.synchronize()
     }
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // basic configuration of FireBase
         FirebaseApp.configure()
         
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -102,8 +162,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                     
                     players.append(data)
-                    
-                    print("Query result")
                     
                 }
                 

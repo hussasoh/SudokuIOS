@@ -6,16 +6,15 @@
 //  Copyright © 2020 Xcode User. All rights reserved.
 //
 
-import Foundation
-import AVFoundation
-
 class Game {
     
-    var player: Player?
-    var board : Board?
+    var player: Player?         // player who is playing the game
+    var board : Board?          // board representing the puzzle grid
+    var started: Bool = false   // flag true if game has started, false if not
     var solved: Bool = false    // flag true if game is finished or false if still in progress
-    var givenCells = [(Int)]()
+    var givenCells = [(Int)]()  // array of all cells provided at beginning of game
     
+    // initializers
     init(player: Player, board: Board) {
         self.player = player
         self.board = board
@@ -24,93 +23,161 @@ class Game {
         
     }
     
-    func getBoard() -> Board {
-        return board!
-    }
+    // getters and setters
     func getPlayer() -> Player {
         return player!
-    }
-    func setBoard(board: Board) {
-        self.board = board
     }
     func setPlayer(player: Player) {
         self.player = player
     }
+    func getBoard() -> Board {
+        return board!
+    }
+    func setBoard(board: Board) {
+        self.board = board
+    }
+    func isStarted() -> Bool {
+        return self.started
+    }
+    func setStarted(isStarted: Bool) {
+        self.started = isStarted
+    }
+    func isSolved() -> Bool {
+        return self.solved
+    }
+    func setSolved(isSolved: Bool) {
+        self.solved = isSolved
+    }
+    func getGivenCells() -> [Int] {
+        return self.givenCells
+    }
+    func setGivenCells(givenCells: [Int]) {
+        self.givenCells = givenCells
+    }
     
-    // test if there is an error on the board with given index
+    // returns a board created with a given 2D array
+    func createBoardFrom2dArray(boardArray: [[Int]]) {
+        // create a 3x3 grid of BoardSegments
+        var boardSegments = [[BoardSegment]]()
+        
+        // for each row of segments on the board
+        for boardSegRow in 0 ..< 3 {
+            // define the row of board segments
+            var boardSegmentRow = [BoardSegment]()
+            // for each column of segments on the board
+            for boardSegCol in 0 ..< 3 {
+                // define the array of rows in the current segment
+                var segRows = [[Int]]()
+                // for each row in the segment
+                for segRow in 0 ..< 3 {
+                    // define the array of values for the row
+                    var rowNums = [Int]()
+                    // for each column in the segment
+                    for segCol in 0 ..< 3 {
+                        // get the cell value at this position of the boardArray
+                        let cellValue = boardArray[segRow + boardSegRow * 3][segCol + boardSegCol * 3]
+                        // add the cell value to the current row
+                        rowNums.append(cellValue)
+                    }
+                    // add the 3 rows of cells we just got to the array of segment rows
+                    segRows.append(rowNums)
+                }
+                // add the three segments we just created to array of board segment rows
+                boardSegmentRow.append(BoardSegment(numbers: segRows))
+            }
+            // add the three arrays of board segment rows to the 3x3 boardSegments grid
+            boardSegments.append(boardSegmentRow)
+        }
+        
+        // create the board with the 3x3 grid of BoardSegments
+        let board = Board()
+        board.setBoardSegments(segments: boardSegments)
+        
+        // assign the board to this game
+        self.board = board
+        
+        // record the given cells of the board
+        recordGivenCells()
+        
+        // also add the 2D array to the board
+        getBoard().setBoardArray(boardArray: boardArray)
+    }
+    
+    // test if there is an error on the board with given index, return a value depending
     func checkIfValid(index: Int, number: Int) -> Int {
         // get the coordinates of the param index
-        let coords = board?.getCordinatesFromIndex(Index: index)
-        if(board?.getNumberAt(RowIndex: coords!.RowIndex, ColIndex: coords!.ColIndex) == number){
+        let coords = getBoard().getCordinatesFromIndex(Index: index)
+        
+        // test whether the number entered is already at given index
+        if(board?.getNumberAt(RowIndex: coords.RowIndex, ColIndex: coords.ColIndex) == number){
+            // duplicate value detected in same cell as index
             return -4
         }
-        // test for duplicates in all columns on same row
-        for col in 0..<9 {
-            if board?.getNumberAt(RowIndex: coords!.RowIndex, ColIndex: col) == number {
-                print("Dup found: (\(String(describing: coords!.RowIndex)), \(String(describing: coords!.ColIndex))) vs. (\(String(describing: coords!.RowIndex)), \(col))")
+        
+        // test for duplicates in all columns on same row as index
+        for col in 0 ..< 9 {
+            if board?.getNumberAt(RowIndex: coords.RowIndex, ColIndex: col) == number {
+                // duplicate value detected in same row as index
                 return -1
             }
         }
-        // test for duplicates in all rows on same column
-        for row in 0..<9 {
-            if board?.getNumberAt(RowIndex: row, ColIndex: coords!.ColIndex) == number {
-                print("Dup found: (\(String(describing: coords!.RowIndex)), \(String(describing: coords!.ColIndex))) vs. (\(String(describing: row)), \(coords!.ColIndex))")
+        // test for duplicates in all rows on same column as index
+        for row in 0 ..< 9 {
+            if board?.getNumberAt(RowIndex: row, ColIndex: coords.ColIndex) == number {
+                // duplicate value detected in same column as index
                 return -2
             }
         }
-        // see if ints round up or down or what
-        let printInt = Int(5 / 2)
-        print("5 / 2 = \(printInt)")
         
-        // for current segment in grid,
+        // test for duplicates in all cells of the same segment as index
         var startRow: Int = 0
         var startCol: Int = 0
-        if coords!.RowIndex < 3 {
+        if coords.RowIndex < 3 {
             startRow = 0
-        } else if coords!.RowIndex < 6 {
+        } else if coords.RowIndex < 6 {
             startRow = 3
-        } else if coords!.RowIndex < 9 {
+        } else if coords.RowIndex < 9 {
             startRow = 6
         }
-        if coords!.ColIndex < 3 {
+        if coords.ColIndex < 3 {
             startCol = 0
-        } else if coords!.ColIndex < 6 {
+        } else if coords.ColIndex < 6 {
             startCol = 3
-        } else if coords!.ColIndex < 9 {
+        } else if coords.ColIndex < 9 {
             startCol = 6
         }
-        for row in startRow..<startRow + 3 {
-            for col in startCol..<startCol + 3 {
-                if board?.getNumberAt(RowIndex: row, ColIndex: col) == number {
-                    print("Dup of \(number) found: (\(row), \(col))")
+        for row in startRow ..< startRow + 3 {
+            for col in startCol ..< startCol + 3 {
+                if getBoard().getNumberAt(RowIndex: row, ColIndex: col) == number {
+                    // duplicate detected in same segment as cell at index
                     return -3
                 }
             }
         }
         
+        // return success value
         return 1
     }
     
-    // test row by row, col by col, and by segment to see if puzzle has been solved
+    // test row by row to determine whether puzzle has been solved
     func checkIfSolved() -> Bool {
         // define constants
         let rowLength = 9
         let colLength = 9
         
         // for every row in grid,
-        for row in 0..<rowLength {
+        for row in 0 ..< rowLength {
             // test that each number appears once
-            for testNum in 1..<rowLength {
+            for testNum in 1 ..< rowLength {
                 var found: Bool = false
-                for col in 0..<colLength {
+                for col in 0 ..< colLength {
                     // if the testNum is found, test next num
-                    if board?.getNumberAt(RowIndex: row, ColIndex: col) == testNum {
+                    if getBoard().getNumberAt(RowIndex: row, ColIndex: col) == testNum {
                         found = true
                         break
                     }
                     // if a 0 is found, puzzle is not solved
-                    if board?.getNumberAt(RowIndex: row, ColIndex: col) == 0 {
-                        print("Zero found: (\(row), \(col))")
+                    if getBoard().getNumberAt(RowIndex: row, ColIndex: col) == 0 {
                         return false
                     }
                 }
@@ -124,67 +191,17 @@ class Game {
         // if haven't returned false by now, puzzle has been solved
         solved = true
         
-        // play the winning sound
-        
         return true
     }
     
-    func generateBoard() {
-        // clear board
-        for i in 0..<board!.getBoard2dArray().count {
-            board!.setNumberAt(index: i, number: 0)
-        }
-        // hardcoded puzzle for debugging (we know the solution)
-        getBoard().setNumberAt(RowIndex: 0, ColIndex: 2, number: 8)
-        getBoard().setNumberAt(RowIndex: 0, ColIndex: 7, number: 2)
-        
-        getBoard().setNumberAt(RowIndex: 1, ColIndex: 0, number: 1)
-        getBoard().setNumberAt(RowIndex: 1, ColIndex: 1, number: 2)
-        getBoard().setNumberAt(RowIndex: 1, ColIndex: 4, number: 8)
-        getBoard().setNumberAt(RowIndex: 1, ColIndex: 7, number: 9)
-        getBoard().setNumberAt(RowIndex: 1, ColIndex: 8, number: 4)
-        
-        getBoard().setNumberAt(RowIndex: 2, ColIndex: 0, number: 6)
-        getBoard().setNumberAt(RowIndex: 2, ColIndex: 3, number: 9)
-        getBoard().setNumberAt(RowIndex: 2, ColIndex: 6, number: 8)
-        getBoard().setNumberAt(RowIndex: 2, ColIndex: 7, number: 3)
-       
-        getBoard().setNumberAt(RowIndex: 3, ColIndex: 0, number: 7)
-        getBoard().setNumberAt(RowIndex: 3, ColIndex: 3, number: 6)
-        getBoard().setNumberAt(RowIndex: 3, ColIndex: 4, number: 3)
-        getBoard().setNumberAt(RowIndex: 3, ColIndex: 5, number: 5)
-        
-        getBoard().setNumberAt(RowIndex: 4, ColIndex: 0, number: 4)
-        getBoard().setNumberAt(RowIndex: 4, ColIndex: 2, number: 6)
-        getBoard().setNumberAt(RowIndex: 4, ColIndex: 3, number: 2)
-        getBoard().setNumberAt(RowIndex: 4, ColIndex: 5, number: 7)
-        getBoard().setNumberAt(RowIndex: 4, ColIndex: 6, number: 9)
-        getBoard().setNumberAt(RowIndex: 4, ColIndex: 8, number: 3)
-        
-        getBoard().setNumberAt(RowIndex: 5, ColIndex: 3, number: 8)
-        getBoard().setNumberAt(RowIndex: 5, ColIndex: 4, number: 4)
-        getBoard().setNumberAt(RowIndex: 5, ColIndex: 5, number: 9)
-        getBoard().setNumberAt(RowIndex: 5, ColIndex: 8, number: 6)
-        
-        getBoard().setNumberAt(RowIndex: 6, ColIndex: 1, number: 4)
-        getBoard().setNumberAt(RowIndex: 6, ColIndex: 2, number: 2)
-        getBoard().setNumberAt(RowIndex: 6, ColIndex: 5, number: 8)
-        getBoard().setNumberAt(RowIndex: 6, ColIndex: 8, number: 9)
-        
-        getBoard().setNumberAt(RowIndex: 7, ColIndex: 0, number: 9)
-        getBoard().setNumberAt(RowIndex: 7, ColIndex: 1, number: 6)
-        getBoard().setNumberAt(RowIndex: 7, ColIndex: 4, number: 5)
-        getBoard().setNumberAt(RowIndex: 7, ColIndex: 7, number: 8)
-        getBoard().setNumberAt(RowIndex: 7, ColIndex: 8, number: 1)
-        
-        getBoard().setNumberAt(RowIndex: 8, ColIndex: 1, number: 3)
-        getBoard().setNumberAt(RowIndex: 8, ColIndex: 6, number: 5)
-        
-        // for every puzzle number set, mark it in our givenCells array
-        for i in 0..<(9 * 9) {
-            if (getBoard().getNumberAt(index: i)) > 0 {
+    // record all entered cell values of current board as given cells
+    // note: only works with new boards that are free of user input
+    func recordGivenCells() {
+        for i in 0 ..< 9 * 9 {
+            if getBoard().getNumberAt(index: i) > 0 {
                 givenCells.append(1)
-            } else {
+            }
+            else {
                 givenCells.append(0)
             }
         }
