@@ -34,6 +34,10 @@ class Board{
         }
     }
     
+    func getBoardArray() -> [[Int]] {
+        return self.BoardArray
+    }
+    
     func getBoard2dArray() -> [[Int]]{
         var boardarray : [[Int]] = [[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],
              [0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],
@@ -57,6 +61,8 @@ class Board{
                 BoardRowIndex = BoardRowIndex + 1
             }
         }
+        
+        self.BoardArray = boardarray
         
         return boardarray
     }

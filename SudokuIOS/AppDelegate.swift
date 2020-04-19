@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         defaults.set(game.getPlayer().getName(), forKey: "playerName")
         
         // save the board array
-        defaults.set(game.getBoard().getBoard2dArray(), forKey: "boardArray")
+        defaults.set(game.getBoard().getBoardArray(), forKey: "boardArray")
         
         // save the given cells of the board
         defaults.set(game.getGivenCells(), forKey: "givenCells")

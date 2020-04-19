@@ -36,7 +36,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         game.setStarted(isStarted: true)
 
         //ensure cells coloured correctly
-//        doColourCells()
+        doColourCells()
         
         Timer.scheduledTimer(withTimeInterval: 1.0,
                              repeats: true,
@@ -58,7 +58,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 let returnCode = game.checkIfValid(index: itemNumber!, number: Int(String(textField.text!))!,initialize: false)
                 
                 if(returnCode == 1){
-                    game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: Int(String(textField.text!))!)
+                    game.getBoard().setNumberAt(RowIndex: OldCellCordinates.RowIndex, ColIndex: OldCellCordinates.ColIndex, number: Int(textField.text!)!)
                     
                     OldCell.backgroundColor = .cyan
                     OldCell.layer.borderWidth = 0.5
@@ -205,7 +205,6 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
             OldCell = touchedCell!
             OldCellTextField = textfield
             OldCellCordinates = cord
-        
         }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
