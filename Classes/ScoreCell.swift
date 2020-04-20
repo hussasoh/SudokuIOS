@@ -13,21 +13,21 @@ class ScoreCell: UITableViewCell {
     let secondaryLabel = UILabel()      // secondary label on the individual cell
     let myImageView = UIImageView()     // image that is shown on the cell
     
-    // Style for each cell, and adding content to each cell
+    // Style for each cell's content
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         
-        primaryLabel.textAlignment = .left                      // align this text to the left of the cell
-        primaryLabel.font = UIFont.boldSystemFont(ofSize: 30)   // bold style, with 30 style font
+        primaryLabel.textAlignment = .left                      // align the primary text to the left of the cell
+        primaryLabel.font = UIFont.boldSystemFont(ofSize: 30)   // bold style, with 30 size font
         primaryLabel.backgroundColor = .clear                   // clear background color
         primaryLabel.textColor = .black                         // text color black
         
-        secondaryLabel.textAlignment = .left
-        secondaryLabel.font = UIFont.boldSystemFont(ofSize: 16)
-        secondaryLabel.backgroundColor = .clear
-        secondaryLabel.textColor = .blue
+        secondaryLabel.textAlignment = .left                     // align the primary text to the left of the cell
+        secondaryLabel.font = UIFont.boldSystemFont(ofSize: 16)  // bold style, with 16 size font
+        secondaryLabel.backgroundColor = .clear                  // clear background
+        secondaryLabel.textColor = .blue                         // text color blue
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        // adding onto subview our primary label, secondary label, image view
+        // adding onto content subview our primary label, secondary label, image view
         contentView.addSubview(primaryLabel)
         contentView.addSubview(secondaryLabel)
         contentView.addSubview(myImageView)

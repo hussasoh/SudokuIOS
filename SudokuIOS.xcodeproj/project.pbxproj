@@ -33,9 +33,9 @@
 		AE73380F240F5943004AC3F6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73380E240F5943004AC3F6 /* Game.swift */; };
 		AE733813240F5D88004AC3F6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733812240F5D88004AC3F6 /* Board.swift */; };
 		AE7338352415403C004AC3F6 /* BoardSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7338342415403C004AC3F6 /* BoardSegment.swift */; };
+		AE8929F3244D26F50082AB41 /* ProjectDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = AE8929F2244D26F50082AB41 /* ProjectDatabase.db */; };
 		AEB2A80524477CE100E38528 /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB2A80424477CE100E38528 /* ScoreCell.swift */; };
 		AEB2A80724477D9C00E38528 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB2A80624477D9C00E38528 /* HighScoreViewController.swift */; };
-		AEB2A80B2447878B00E38528 /* ProjectDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = AEB2A80A2447878B00E38528 /* ProjectDatabase.db */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +71,7 @@
 		AE73380E240F5943004AC3F6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		AE733812240F5D88004AC3F6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		AE7338342415403C004AC3F6 /* BoardSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSegment.swift; sourceTree = "<group>"; };
+		AE8929F2244D26F50082AB41 /* ProjectDatabase.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = ProjectDatabase.db; path = ../../ProjectDatabase.db; sourceTree = "<group>"; };
 		AEB2A7F82446D54700E38528 /* FacebookCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB2A7FA2446D54700E38528 /* FacebookLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB2A7FC2446D54700E38528 /* FacebookShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,7 +79,6 @@
 		AEB2A7FF244776B600E38528 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		AEB2A80424477CE100E38528 /* ScoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
 		AEB2A80624477D9C00E38528 /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
-		AEB2A80A2447878B00E38528 /* ProjectDatabase.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ProjectDatabase.db; sourceTree = "<group>"; };
 		E6FBDD0E3047E94ED87122B5 /* Pods_SudokuIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudokuIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -216,7 +216,7 @@
 		AEB2A809244784EC00E38528 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				AEB2A80A2447878B00E38528 /* ProjectDatabase.db */,
+				AE8929F2244D26F50082AB41 /* ProjectDatabase.db */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -283,9 +283,9 @@
 			files = (
 				AE733803240F588B004AC3F6 /* LaunchScreen.storyboard in Resources */,
 				62C24131241544D00092A3E9 /* GoogleService-Info.plist in Resources */,
+				AE8929F3244D26F50082AB41 /* ProjectDatabase.db in Resources */,
 				AE64BC4C244BF951004E63AE /* clouds.jpg in Resources */,
 				628B4E9D244CE38A009004A7 /* sudoku_hard.png in Resources */,
-				AEB2A80B2447878B00E38528 /* ProjectDatabase.db in Resources */,
 				AE64BC4B244BF951004E63AE /* sudoku_normal.png in Resources */,
 				AE64BC4D244BF951004E63AE /* watercolor.jpg in Resources */,
 				628B4E9A244CE359009004A7 /* click.mp3 in Resources */,

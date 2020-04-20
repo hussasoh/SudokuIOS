@@ -298,10 +298,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Author: Tomislav Busic
     // Clears the database table
-    func clearTable() -> Bool {
+    func clearTable() {
         var db : OpaquePointer? = nil
-        var returnCode : Bool = true
-        
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
             
             var deleteStatement : OpaquePointer? = nil
@@ -314,7 +312,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 else {
                     print("Could not delete entries")
-                    returnCode = false
                 }
                 sqlite3_finalize(deleteStatement)
             }
@@ -322,7 +319,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Statement could not be prepared")
                 let error = String(cString: sqlite3_errmsg(db))
                 print(error)
-                returnCode = false
             }
             sqlite3_close(db)
         }
@@ -330,9 +326,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Unable to open database")
             let error = String(cString: sqlite3_errmsg(db))
             print(error)
-            returnCode = false
         }
-        return returnCode
     }
     
     // Author: Omar Kanawati

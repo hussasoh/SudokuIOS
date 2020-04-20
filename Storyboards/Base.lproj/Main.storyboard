@@ -98,6 +98,11 @@
                                                 <segue destination="D7C-Qa-1qr" kind="unwind" unwindAction="unwindToHomeVCWithSender:" id="2pa-km-WCM"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Clear Table" id="3EG-Vg-d4H">
+                                            <connections>
+                                                <action selector="clearTableWithSender:" destination="a66-Wh-ZPo" id="VhW-wK-0QE"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -114,6 +119,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4sX-5i-UcI"/>
                     </view>
+                    <connections>
+                        <outlet property="tblView" destination="eaB-bf-umU" id="Zqi-Ul-gYl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1cg-xq-B2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="D7C-Qa-1qr" userLabel="Exit" sceneMemberID="exit"/>

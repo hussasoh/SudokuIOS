@@ -36,6 +36,8 @@ SharingDelegate {
         dialog.show()
     }
     
+    @IBOutlet weak var tblView : UITableView?  // The table view where all the cells or high scores are located
+    
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate  // Define our app delegate
     
     // Initalizes the number of cells to the number of players found in our Player data holder array
@@ -87,12 +89,19 @@ SharingDelegate {
         
     }
     
-    // on load we will be reading from database to fill the table view with entries
+    // On load we will be reading from database to fill the table view with entries
     override func viewDidLoad() {
         super.viewDidLoad()
         mainDelegate.readDataFromDatabase()
         
     }
     
-    
+    // Clears the table upon click and refreshes the table view
+    @IBAction func clearTable(sender: Any){
+        mainDelegate.clearTable()
+        mainDelegate.readDataFromDatabase()
+        DispatchQueue.main.async {
+            self.tblView?.reloadData()
+        }
+    }
 }
