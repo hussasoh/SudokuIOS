@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		623AD705244D2853000C5B70 /* ProjectDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = 623AD704244D2853000C5B70 /* ProjectDatabase.db */; };
 		6262BBE02443BBEC00ECEBCF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262BBDF2443BBEC00ECEBCF /* GameViewController.swift */; };
 		628B4E9A244CE359009004A7 /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 628B4E99244CE359009004A7 /* click.mp3 */; };
 		628B4E9D244CE38A009004A7 /* sudoku_hard.png in Resources */ = {isa = PBXBuildFile; fileRef = 628B4E9B244CE38A009004A7 /* sudoku_hard.png */; };
@@ -34,6 +33,7 @@
 		AE73380F240F5943004AC3F6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73380E240F5943004AC3F6 /* Game.swift */; };
 		AE733813240F5D88004AC3F6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE733812240F5D88004AC3F6 /* Board.swift */; };
 		AE7338352415403C004AC3F6 /* BoardSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7338342415403C004AC3F6 /* BoardSegment.swift */; };
+		AE8929F7244D2D1E0082AB41 /* ProjectDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = AE8929F6244D2D1E0082AB41 /* ProjectDatabase.db */; };
 		AEB2A80524477CE100E38528 /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB2A80424477CE100E38528 /* ScoreCell.swift */; };
 		AEB2A80724477D9C00E38528 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB2A80624477D9C00E38528 /* HighScoreViewController.swift */; };
 /* End PBXBuildFile section */
@@ -43,7 +43,6 @@
 		621592E6241552DE0076A283 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		621592E8241552DE0076A283 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		621592EA241552DE0076A283 /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		623AD704244D2853000C5B70 /* ProjectDatabase.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = ProjectDatabase.db; path = "../../Downloads/SudokuIOS-Sohaib/Database/ProjectDatabase.db"; sourceTree = "<group>"; };
 		6262BBDF2443BBEC00ECEBCF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		6262BBE22444D3ED00ECEBCF /* GameOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionsViewController.swift; sourceTree = "<group>"; };
 		628B4E99244CE359009004A7 /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		AE73380E240F5943004AC3F6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		AE733812240F5D88004AC3F6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		AE7338342415403C004AC3F6 /* BoardSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSegment.swift; sourceTree = "<group>"; };
+		AE8929F6244D2D1E0082AB41 /* ProjectDatabase.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = ProjectDatabase.db; path = ../../ProjectDatabase.db; sourceTree = "<group>"; };
 		AEB2A7F82446D54700E38528 /* FacebookCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB2A7FA2446D54700E38528 /* FacebookLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB2A7FC2446D54700E38528 /* FacebookShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,7 +216,7 @@
 		AEB2A809244784EC00E38528 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				623AD704244D2853000C5B70 /* ProjectDatabase.db */,
+				AE8929F6244D2D1E0082AB41 /* ProjectDatabase.db */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -283,7 +283,7 @@
 			files = (
 				AE733803240F588B004AC3F6 /* LaunchScreen.storyboard in Resources */,
 				62C24131241544D00092A3E9 /* GoogleService-Info.plist in Resources */,
-				623AD705244D2853000C5B70 /* ProjectDatabase.db in Resources */,
+				AE8929F7244D2D1E0082AB41 /* ProjectDatabase.db in Resources */,
 				AE64BC4C244BF951004E63AE /* clouds.jpg in Resources */,
 				628B4E9D244CE38A009004A7 /* sudoku_hard.png in Resources */,
 				AE64BC4B244BF951004E63AE /* sudoku_normal.png in Resources */,
