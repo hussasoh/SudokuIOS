@@ -16,10 +16,11 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
 
     // define VC outlet controls
-    @IBOutlet var warningLabl : UILabel?
-    @IBOutlet var timerLbl: UILabel?
-    @IBOutlet var sudokuCollectionView : UICollectionView?
-    @IBOutlet var background : UIImageView?
+    @IBOutlet var warningLabl : UILabel?            // label to show warning msgs
+    @IBOutlet var timerLbl: UILabel?                // timer to display time elapsed
+    @IBOutlet var sudokuCollectionView : UICollectionView?  // collectionView to show board w/cells
+    @IBOutlet var background : UIImageView?                 // background image
+    @IBOutlet var btnSaveGame : UIButton!
     
     // define game and game options objects
     var game: Game = Game()
@@ -46,6 +47,10 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         else {
             background?.image = UIImage(named: mainDelegate.imgData[4])
         }
+    }
+    
+    @IBAction func saveGameClicked(sender: UIButton) {
+        mainDelegate.saveProgress(game: self.game)
     }
     
     // Author: Terry Nippard
@@ -211,7 +216,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
             cell.isUserInteractionEnabled = false
         }
         // else if cell already has a user-entered value, colour it blue
-        else if game.isStarted() && game.isUserCell(index: indexPath.item) {
+        else if game.isUserCell(index: indexPath.item) {
             cell.backgroundColor = .cyan
         }
         
