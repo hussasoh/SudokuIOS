@@ -150,8 +150,10 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
             // get the game view controller
             let gameVC = (segue.destination as! GameViewController)
             
-            // generate a new board for the game VC
+            // generate a new board for the game VC and record the given cells
+            gameVC.game.setBoard(board: Board())
             gameVC.game.generateBoard()
+            gameVC.game.recordGivenCells()
             
             // assign the current player to the game VC's game instance
             gameVC.game.setPlayer(player: mainDelegate.currentPlayer!)
@@ -162,6 +164,7 @@ class GameOptionsViewController: UIViewController, UITextFieldDelegate {
             let gameVC = segue.destination as! GameViewController
             // get the saved game progress
             let gameProgress = mainDelegate.loadProgress()
+            
             // delete the progress from storage now that it's loaded
             mainDelegate.deleteProgress()
             

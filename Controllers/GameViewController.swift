@@ -37,6 +37,8 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         sudokuCollectionView?.layer.borderWidth = 2
         sudokuCollectionView?.layer.borderColor = UIColor.black.cgColor
         
+        self.doColourCells()
+        
         // change background to options background
         if (mainDelegate.gameOptions.contains(.background1)) {
             background?.image = UIImage(named: mainDelegate.imgData[3])

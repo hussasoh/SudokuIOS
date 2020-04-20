@@ -70,6 +70,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // save the given cells of the board
         defaults.set(game.getGivenCells(), forKey: "givenCells")
         
+        //sets timer information
+        defaults.set(game.seconds, forKey: "seconds")
+        defaults.set(game.minutes, forKey: "minutes")
+        defaults.set(game.hour, forKey: "hour")
+        
         // synchronize the userDefaults
         defaults.synchronize()
     }
@@ -112,6 +117,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("No given cells saved in UserDefaults.")
         }
         
+        if defaults.integer(forKey: "seconds") != 0 {
+            let seconds = defaults.integer(forKey: "seconds") as Int
+            game.seconds = seconds
+        }
+        
+        if defaults.integer(forKey: "minutes") != 0 {
+            let minutes = defaults.integer(forKey: "minutes") as Int
+            game.minutes = minutes
+        }
+        
+        if defaults.integer(forKey: "hour") != 0 {
+            let hour = defaults.integer(forKey: "hour") as Int
+            game.hour = hour
+        }
+        
         return game
     }
     
@@ -121,6 +141,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         defaults.removeObject(forKey: "playerName")
         defaults.removeObject(forKey: "boardArray")
         defaults.removeObject(forKey: "givenCells")
+        defaults.removeObject(forKey: "seconds")
+        defaults.removeObject(forKey: "minutes")
+        defaults.removeObject(forKey: "hour")
         // synchronize the changes with userDefaults
         defaults.synchronize()
     }

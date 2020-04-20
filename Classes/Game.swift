@@ -40,8 +40,8 @@ class Game {
         self.board = board
         self.timer = timer
         self.seconds = seconds
-        self.minutes = 0
-        self.hour = 0
+        self.minutes = minutes
+        self.hour = hour
     }
     
     // create an empty player with only timer initialized to set as needed
@@ -181,65 +181,50 @@ class Game {
         return true
     }
     
-    // generate a hardcoded board
-    func generateBoard() {
-        // instantiate a board
-        setBoard(board: Board())
+    //makes sure the values are not duplicated
+    func checkGrid(num: Int,index: Int) -> Int{
+        var i = 0
+        var valid = checkIfValid(index: index, number: num, initialize: true)
         
-        // clear board
-        for i in 0 ..< 9 * 9 {
-            getBoard().setNumberAt(index: i, number: 0)
+        if(valid != 1){
+            while valid != 1 && i <= 9{
+                i += 1
+                valid = checkIfValid(index: index, number: i, initialize: false)
+            }
         }
-        
-        // add hardcoded puzzle to board for debugging (we know the solution)
-        getBoard().setNumberAt(RowIndex: 0, ColIndex: 2, number: 8)
-        getBoard().setNumberAt(RowIndex: 0, ColIndex: 7, number: 2)
-        
-        getBoard().setNumberAt(RowIndex: 1, ColIndex: 0, number: 1)
-        getBoard().setNumberAt(RowIndex: 1, ColIndex: 1, number: 2)
-        getBoard().setNumberAt(RowIndex: 1, ColIndex: 4, number: 8)
-        getBoard().setNumberAt(RowIndex: 1, ColIndex: 7, number: 9)
-        getBoard().setNumberAt(RowIndex: 1, ColIndex: 8, number: 4)
-        
-        getBoard().setNumberAt(RowIndex: 2, ColIndex: 0, number: 6)
-        getBoard().setNumberAt(RowIndex: 2, ColIndex: 3, number: 9)
-        getBoard().setNumberAt(RowIndex: 2, ColIndex: 6, number: 8)
-        getBoard().setNumberAt(RowIndex: 2, ColIndex: 7, number: 3)
-        
-        getBoard().setNumberAt(RowIndex: 3, ColIndex: 0, number: 7)
-        getBoard().setNumberAt(RowIndex: 3, ColIndex: 3, number: 6)
-        getBoard().setNumberAt(RowIndex: 3, ColIndex: 4, number: 3)
-        getBoard().setNumberAt(RowIndex: 3, ColIndex: 5, number: 5)
-        
-        getBoard().setNumberAt(RowIndex: 4, ColIndex: 0, number: 4)
-        getBoard().setNumberAt(RowIndex: 4, ColIndex: 2, number: 6)
-        getBoard().setNumberAt(RowIndex: 4, ColIndex: 3, number: 2)
-        getBoard().setNumberAt(RowIndex: 4, ColIndex: 5, number: 7)
-        getBoard().setNumberAt(RowIndex: 4, ColIndex: 6, number: 9)
-        getBoard().setNumberAt(RowIndex: 4, ColIndex: 8, number: 3)
-        
-        getBoard().setNumberAt(RowIndex: 5, ColIndex: 3, number: 8)
-        getBoard().setNumberAt(RowIndex: 5, ColIndex: 4, number: 4)
-        getBoard().setNumberAt(RowIndex: 5, ColIndex: 5, number: 9)
-        getBoard().setNumberAt(RowIndex: 5, ColIndex: 8, number: 6)
-        
-        getBoard().setNumberAt(RowIndex: 6, ColIndex: 1, number: 4)
-        getBoard().setNumberAt(RowIndex: 6, ColIndex: 2, number: 2)
-        getBoard().setNumberAt(RowIndex: 6, ColIndex: 5, number: 8)
-        getBoard().setNumberAt(RowIndex: 6, ColIndex: 8, number: 9)
-        
-        getBoard().setNumberAt(RowIndex: 7, ColIndex: 0, number: 9)
-        getBoard().setNumberAt(RowIndex: 7, ColIndex: 1, number: 6)
-        getBoard().setNumberAt(RowIndex: 7, ColIndex: 4, number: 5)
-        getBoard().setNumberAt(RowIndex: 7, ColIndex: 7, number: 8)
-        getBoard().setNumberAt(RowIndex: 7, ColIndex: 8, number: 1)
-        
-        getBoard().setNumberAt(RowIndex: 8, ColIndex: 1, number: 3)
-        getBoard().setNumberAt(RowIndex: 8, ColIndex: 6, number: 5)
-        
+        return i
+    }
+    
+    //generates the initialized board
+    func generateBoard() {
+        // make sure the board setup includes one number in its row and column
+        for Row in 0 ..< 9
+        {
+            for col in 0..<9
+            {
+                let index = board?.getIndexFromCordinates(RowIndex: Row, ColIndex: col)
+                let num = (board?.getNumberAt(index: index!))!
+                
+                if(num != 0)
+                {
+                    let valnum = checkGrid(num: num, index: index!)
+                    board?.setNumberAt(index: index!, number: valnum)
+                }
+            }
+        }
+        // for every puzzle number set, mark it in our givenCells array
+        for i in 0..<(9 * 9) {
+            if (board?.getNumberAt(index: i))! > 0 {
+                givenCells.append(1)
+            } else {
+                givenCells.append(0)
+            }
+
+        }
         // record the given cells of the board
         recordGivenCells()
     }
+        
     
     // returns a board created with a given 2D array
     func createBoardFrom2dArray(boardArray: [[Int]]) {

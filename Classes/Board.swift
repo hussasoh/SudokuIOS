@@ -64,8 +64,6 @@ class Board{
             }
         }
         
-        self.BoardArray = boardarray
-        
         return boardarray
     }
     
@@ -94,6 +92,7 @@ class Board{
     func setNumberAt(RowIndex: Int, ColIndex: Int, number: Int){
         self.BoardArray[RowIndex][ColIndex] = number
     }
+    
     // overload to set number at single index
     func setNumberAt(index: Int, number: Int){
         let coords = getCordinatesFromIndex(Index: index)
@@ -135,6 +134,16 @@ class Board{
     }
     
 }
+
+//
+//  Board.swift
+//  SudokuIOS
+//
+//  Created by Sohaib Hussain on 2020-03-03.
+//  Copyright © 2020 Xcode User. All rights reserved.
+//
+
+// Author: Sohaib Hussain
 
 class Cordinates{
     
